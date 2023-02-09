@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  vue:
+    build: .
+    ports:
+      - 8080:5173
+    volumes:
+      - .:/website
+    working_dir: /website
+    command: pnpm dev --host
