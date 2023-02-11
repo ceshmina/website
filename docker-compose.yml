@@ -9,3 +9,10 @@ services:
       - .:/website
     working_dir: /website
     command: pnpm dev --host
+
+  test:
+    image: nginx
+    ports:
+      - 8081:80
+    volumes:
+      - ./dist:/usr/share/nginx/html
