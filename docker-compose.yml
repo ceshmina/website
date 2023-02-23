@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3'
 
 services:
   vue:
@@ -14,7 +14,7 @@ services:
     working_dir: /website
     command: sh -c "pnpm install && pnpm dev --host"
 
-  test:
+  nginx:
     build:
       context: .
       dockerfile: Dockerfile

@@ -1,4 +1,4 @@
-FROM node:18.14.0 as build
+FROM node:18 as build
 
 WORKDIR /website
 RUN npm install -g pnpm
