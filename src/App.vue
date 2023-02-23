@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Overview from './components/Overview.vue'
+import Index from './pages/Index.vue'
 </script>
 
 <template>
-  <Overview />
+  <Index />
 </template>
 
 <style scoped>
