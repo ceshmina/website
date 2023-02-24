@@ -13,16 +13,15 @@
   </div>
 </template>
 
-<style scoped>
-.overview-icon-img {
-  width: 180px;
-}
-.overview-text-name {
-  font-size: 32px;
-  margin: 32px 0 8px;
-}
-.overview-text-job {
-  font-size: 24px;
-  margin: 8px 0 32px;
-}
+<style scoped lang="sass">
+.overview-icon-img
+  width: 180px
+
+.overview-text-name
+  font-size: 32px
+  margin: 32px 0 8px
+
+.overview-text-job
+  font-size: 24px
+  margin: 8px 0 32px
 </style>

@@ -1,18 +1,26 @@
-version: '3.8'
+version: '3'
 
 services:
   vue:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     ports:
       - 8080:5173
     volumes:
       - .:/website
+      - pnpm-store:/website/.pnpm-store
+      - node_modules:/website/node_modules
     working_dir: /website
-    command: pnpm dev --host
+    command: sh -c "pnpm install && pnpm dev --host"
 
-  test:
-    image: nginx
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - 8081:80
-    volumes:
-      - ./dist:/usr/share/nginx/html
+
+volumes:
+  pnpm-store:
+  node_modules:
