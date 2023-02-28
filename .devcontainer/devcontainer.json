@@ -2,13 +2,13 @@
     "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
     "service": "vue",
     "workspaceFolder": "/website",
-	"customizations": {
-		"vscode": {	
-			"extensions": [
-				"Vue.volar",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Vue.volar",
                 "Vue.vscode-typescript-vue-plugin",
-				"Syler.sass-indented"
-			]
-		}
-	}
+                "Syler.sass-indented"
+            ]
+        }
+    }
 }
