@@ -30,7 +30,7 @@ jobs:
         run: |
           npm install -g pnpm
           pnpm install
-          pnpm build
+          pnpm build --mode prod
       
       - name: Setup Pages
         uses: actions/configure-pages@v1
