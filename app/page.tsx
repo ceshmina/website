@@ -1,9 +1,15 @@
+import Link from 'next/link'
+
 const Home = () => {
   return (
     <main className="max-w-[800px] mx-auto p-4">
       <section className="my-8">
         <h1 className="text-2xl font-bold">ceshmina</h1>
         <p>shu's website</p>
+      </section>
+
+      <section className="my-8">
+        <p className="text-sm my-1"><Link href="/diary" className="text-blue-700">日記</Link></p>
       </section>
 
       <section className="my-8">

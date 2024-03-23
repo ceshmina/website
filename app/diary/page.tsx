@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import fs from 'fs'
 import path from 'path'
 import { format, parse } from 'date-fns'
@@ -42,6 +43,7 @@ const Page = () => {
   return (
     <main className="max-w-[800px] mx-auto p-4">
       <section className="my-8">
+        <p className="text-sm my-1"><Link href="/" className="text-blue-700">&lt; Home</Link></p>
         <h1 className="text-2xl font-bold">Diary</h1>
       </section>
 
