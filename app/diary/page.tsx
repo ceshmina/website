@@ -53,7 +53,8 @@ const Page = () => {
             <h2 className="font-bold my-2">{format(diary.date, 'yyyy年M月d日')}</h2>
             <Markdown components={{
               p: ({ children }) => <p className="text-sm my-1">{children}</p>,
-              hr: () => <hr className="w-[50%] max-w-[300px] mx-auto my-6 border-2 rounded-full border-gray-200" />
+              hr: () => <hr className="w-[50%] max-w-[300px] mx-auto my-6 border-2 rounded-full border-gray-200" />,
+              img: ({ src }) => <img src={src} className="my-4" />
             }}>
               {diary.content}
             </Markdown>
