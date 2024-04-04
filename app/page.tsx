@@ -3,7 +3,7 @@ const Home = () => {
     <main className="max-w-[800px] mx-auto p-4">
       <section className="py-4">
         <h1 className="text-2xl font-bold">ceshmina</h1>
-        <p className="py-1">shu's website</p>
+        <p className="py-1">shu&apos;s website</p>
       </section>
 
       <section className="py-4">
