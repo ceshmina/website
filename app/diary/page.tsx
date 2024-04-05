@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs'
 import { parse, format } from 'date-fns'
 import matter from 'gray-matter'
+import Markdown from 'react-markdown'
 
 class Diary {
   slug: string
@@ -55,7 +56,10 @@ const Page = async () => {
           <div key={diary.slug} className="py-2">
             <h2 className="text-lg font-bold">{diary.showTitle}</h2>
             <div className="py-2 text-sm">
-              {diary.content}
+              <Markdown components={{
+                p: ({ children }) => <p className="py-1">{children}</p>,
+                img: ({ src }) => <img src={src} className="py-1" />,
+              }} >{diary.content}</Markdown>
             </div>
           </div>
         ))}
