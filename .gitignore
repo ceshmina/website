@@ -4,3 +4,6 @@
 .DS_Store
 
 next-env.d.ts
+
+/data/*
+!/data/.gitkeep
