@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const Home = () => {
   return (
     <main className="max-w-[800px] mx-auto p-4">
@@ -11,6 +13,13 @@ const Home = () => {
         <div className="py-2 text-sm">
           <p className="py-1">ソフトウェアエンジニア、データサイエンティスト見習い。</p>
           <p className="py-1">南米の民族風音楽「フォルクローレ」を演奏します。YAMA、グルーポ★ブラザーズ、Los Amidasというグループで活動しています。</p>
+        </div>
+      </section>
+
+      <section className="py-4">
+        <h2 className="text-lg font-bold">Contents</h2>
+        <div className="py-2 text-sm">
+          <p><Link href="/diary" className="text-blue-500">日記</Link></p>
         </div>
       </section>
     </main>

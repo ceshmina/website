@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { promises as fs } from 'fs'
 import { parse, format } from 'date-fns'
 import matter from 'gray-matter'
@@ -48,6 +49,9 @@ const Page = async () => {
   return (
     <main className="max-w-[800px] mx-auto p-4">
       <section className="py-4">
+        <div className="py-2 text-sm">
+          <p><Link href="/" className="text-blue-500">戻る</Link></p>
+        </div>
         <h1 className="text-2xl font-bold">diary</h1>
       </section>
 
