@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Markdown from 'react-markdown'
 import { getDiaries } from '@/core/diary/retrieve'
+import Article from '@/components/diary/article'
 
 const Page = async () => {
   const diaries = await getDiaries('data/diary')
@@ -20,10 +20,7 @@ const Page = async () => {
           <div key={diary.slug} className="py-2">
             <h2 className="text-lg font-bold">{diary.showTitle}</h2>
             <div className="py-2 text-sm">
-              <Markdown components={{
-                p: ({ children }) => <p className="py-1">{children}</p>,
-                img: ({ src }) => <img src={src} className="py-1" />,
-              }} >{diary.content}</Markdown>
+              <Article content={diary.content} />
             </div>
           </div>
         ))}
