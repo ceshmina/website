@@ -1,7 +1,8 @@
+import { cache } from 'react'
 import { promises as fs } from 'fs'
 import { Diary } from '@/core/diary/model'
 
-export const getDiaries = async (dir: string) => {
+export const getDiaries = cache(async (dir: string) => {
   const entries = await fs.readdir(dir, { withFileTypes: true })
   const res: Diary[] = []
   for (const entry of entries) {
@@ -14,4 +15,9 @@ export const getDiaries = async (dir: string) => {
     }
   }
   return res
+})
+
+export const getDiaryBySlug = async (dir: string, slug: string) => {
+  const diaries = await getDiaries(dir)
+  return diaries.find(diary => diary.slug === slug) || null
 }

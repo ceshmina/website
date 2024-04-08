@@ -1,26 +1,31 @@
 import Link from 'next/link'
-import { getDiaries } from '@/core/diary/retrieve'
+import { getDiaries, getDiaryBySlug } from '@/core/diary/retrieve'
 
 export const generateStaticParams = async () => {
   const diaries = await getDiaries('data/diary')
   return diaries.map(diary => ({ slug: diary.slug }))
 }
 
-const Page = ({ params }: { params: { slug: string }}) => {
+const Page = async ({ params }: { params: { slug: string }}) => {
   const { slug } = params
-  return (
-    <main className="max-w-[800px] mx-auto p-4">
-      <section className="py-4">
-        <div className="py-2 text-sm">
-          <p><Link href="/" className="text-blue-500">戻る</Link></p>
-        </div>
-        <h1 className="text-2xl font-bold">{slug}</h1>
-      </section>
+  const diary = await getDiaryBySlug('data/diary', slug)
+  if (diary) {
+    return (
+      <main className="max-w-[800px] mx-auto p-4">
+        <section className="py-4">
+          <div className="py-2 text-sm">
+            <p><Link href="/" className="text-blue-500">戻る</Link></p>
+          </div>
+          <h1 className="text-2xl font-bold">{diary.showTitle}</h1>
+        </section>
 
-      <section className="py-4">
-      </section>
-    </main>
-  )
+        <section className="py-4">
+        </section>
+      </main>
+    )
+  } else {
+    return null
+  }
 }
 
 export default Page
