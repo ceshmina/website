@@ -23,3 +23,29 @@ export class Diary {
     return this.title ? `${this.showDate} - ${this.title}` : this.showDate
   }
 }
+
+export class DiaryCollection {
+  items: Diary[]
+
+  constructor(diaries: Diary[]) {
+    this.items = diaries
+  }
+
+  public get sorted(): Diary[] {
+    return this.items.sort((a, b) => b.date.getTime() - a.date.getTime())
+  }
+
+  public findBySlug(slug: string): { diary: Diary, prev: Diary | null, next: Diary | null } | null {
+    for (let i = 0; i < this.items.length; i++) {
+      const diary = this.items[i]
+      if (diary.slug === slug) {
+        return {
+          diary: diary,
+          prev: i > 0 ? this.items[i - 1] : null,
+          next: i < this.items.length - 1 ? this.items[i + 1] : null
+        }
+      }
+    }
+    return null
+  }
+}

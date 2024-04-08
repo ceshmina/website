@@ -4,7 +4,6 @@ import Article from '@/components/diary/article'
 
 const Page = async () => {
   const diaries = await getDiaries('data/diary')
-  const sortedDiaries = diaries.sort((a, b) => b.date.getTime() - a.date.getTime())
 
   return (
     <main className="max-w-[800px] mx-auto p-4">
@@ -16,7 +15,7 @@ const Page = async () => {
       </section>
 
       <section className="py-4">
-        {sortedDiaries.map(diary => (
+        {diaries.sorted.map(diary => (
           <div key={diary.slug} className="py-2">
             <h2 className="text-lg font-bold">{diary.showTitle}</h2>
             <div className="py-2 text-sm">

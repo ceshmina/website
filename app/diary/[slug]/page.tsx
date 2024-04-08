@@ -4,13 +4,14 @@ import Article from '@/components/diary/article'
 
 export const generateStaticParams = async () => {
   const diaries = await getDiaries('data/diary')
-  return diaries.map(diary => ({ slug: diary.slug }))
+  return diaries.items.map(diary => ({ slug: diary.slug }))
 }
 
 const Page = async ({ params }: { params: { slug: string }}) => {
   const { slug } = params
-  const diary = await getDiaryBySlug('data/diary', slug)
-  if (diary) {
+  const diaryItem = await getDiaryBySlug('data/diary', slug)
+  if (diaryItem) {
+    const { diary, prev, next } = diaryItem
     return (
       <main className="max-w-[800px] mx-auto p-4">
         <section className="py-4">
@@ -27,9 +28,19 @@ const Page = async ({ params }: { params: { slug: string }}) => {
             </div>
           </div>
         </section>
+
+        <section className="py-4 flex justify-between">
+          <div className="py-2 pr-2 text-sm">
+            {next ? <Link href={`/diary/${next.slug}`} className="text-blue-500">&lt; {next.showTitle}</Link> : null}
+          </div>
+          <div className="py-2 pl-2 text-sm">
+            {prev ? <Link href={`/diary/${prev.slug}`} className="text-blue-500">{prev.showTitle} &gt;</Link> : null}
+          </div>
+        </section>
       </main>
     )
   } else {
+    console.log('hoge')
     return null
   }
 }
