@@ -31,10 +31,16 @@ const Page = async ({ params }: { params: { slug: string }}) => {
 
         <section className="py-4 flex justify-between">
           <div className="py-2 pr-2 text-sm">
-            {next ? <Link href={`/diary/${next.slug}`} className="text-blue-500">&lt; {next.showTitle}</Link> : null}
+            {next ? <>
+              <p>次の日記</p>
+              <p><Link href={`/diary/${next.slug}`} className="text-blue-500">&lt; {next.showTitle}</Link></p>
+            </> : null}
           </div>
-          <div className="py-2 pl-2 text-sm">
-            {prev ? <Link href={`/diary/${prev.slug}`} className="text-blue-500">{prev.showTitle} &gt;</Link> : null}
+          <div className="py-2 pl-2 text-sm text-right">
+            {prev ? <>
+              <p>前の日記</p>
+              <p><Link href={`/diary/${prev.slug}`} className="text-blue-500">{prev.showTitle} &gt;</Link></p>
+            </> : null}
           </div>
         </section>
       </main>
