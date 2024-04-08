@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const Home = () => {
+const Page = () => {
   return (
     <main className="max-w-[800px] mx-auto p-4">
       <section className="py-4">
@@ -26,4 +26,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Page

@@ -1,49 +1,9 @@
 import Link from 'next/link'
-import { promises as fs } from 'fs'
-import { parse, format } from 'date-fns'
-import matter from 'gray-matter'
 import Markdown from 'react-markdown'
-
-class Diary {
-  slug: string
-  date: Date
-  title: string | null
-  content: string
-
-  constructor(slug: string, mdContent: string) {
-    this.slug = slug
-    this.date = parse(slug, 'yyyyMMdd', new Date())
-    const { data, content } = matter(mdContent)
-    this.title = data.title || null
-    this.content = content
-  }
-
-  public get showDate(): string {
-    return format(this.date, 'yyyy年M月d日')
-  }
-
-  public get showTitle(): string {
-    return this.title ? `${this.showDate} - ${this.title}` : this.showDate
-  }
-}
-
-const getMarkdownFiles = async (dir: string) => {
-  const entries = await fs.readdir(dir, { withFileTypes: true })
-  const res: Diary[] = []
-  for (const entry of entries) {
-    if (entry.isDirectory()) {
-      const res2 = await getMarkdownFiles(`${dir}/${entry.name}`)
-      res.push(...res2)
-    } else if (entry.name.endsWith('.md')) {
-      const mdContent = await fs.readFile(`${dir}/${entry.name}`, 'utf-8')
-      res.push(new Diary(entry.name.replace(/\.md$/, ''), mdContent))
-    }
-  }
-  return res
-}
+import { getDiaries } from '@/core/diary/retrieve'
 
 const Page = async () => {
-  const diaries = await getMarkdownFiles('data/diary')
+  const diaries = await getDiaries('data/diary')
   const sortedDiaries = diaries.sort((a, b) => b.date.getTime() - a.date.getTime())
 
   return (
