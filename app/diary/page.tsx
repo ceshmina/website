@@ -17,11 +17,11 @@ const Page = async () => {
       <section className="py-4">
         {diaries.sorted.map(diary => (
           <div key={diary.slug} className="py-2">
-            <h2 className="text-lg font-bold text-blue-500">
+            <h2 className="font-bold text-blue-500">
               <Link href={`/diary/${diary.slug}`}>{diary.showTitle}</Link>
             </h2>
-            <div className="py-2 text-sm">
-              <Article content={diary.content} />
+            <div className="py-2 text-xs font-light test-gray-500">
+              <p className="line-clamp-3">{diary.content}</p>
             </div>
           </div>
         ))}
