@@ -20,7 +20,7 @@ const Page = async () => {
             <h2 className="font-bold text-blue-500">
               <Link href={`/diary/${diary.slug}`}>{diary.showTitle}</Link>
             </h2>
-            <div className="py-2 text-xs font-light test-gray-500">
+            <div className="py-2 text-xs font-light text-gray-800">
               <p className="line-clamp-3">{diary.contentNoImgs()}</p>
             </div>
           </div>
