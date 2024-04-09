@@ -22,6 +22,10 @@ export class Diary {
   public get showTitle(): string {
     return this.title ? `${this.showDate} - ${this.title}` : this.showDate
   }
+
+  public contentNoImgs(): string {
+    return this.content.replace(/!\[.*\]\(.*\)/g, '')
+  }
 }
 
 export class DiaryCollection {

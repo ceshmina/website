@@ -21,7 +21,7 @@ const Page = async () => {
               <Link href={`/diary/${diary.slug}`}>{diary.showTitle}</Link>
             </h2>
             <div className="py-2 text-xs font-light test-gray-500">
-              <p className="line-clamp-3">{diary.content}</p>
+              <p className="line-clamp-3">{diary.contentNoImgs()}</p>
             </div>
           </div>
         ))}
