@@ -26,6 +26,20 @@ export class Diary {
   public contentNoImgs(): string {
     return this.content.replace(/!\[.*\]\(.*\)/g, '')
   }
+
+  imgUrls(): string[] {
+    const regex = /!\[.*\]\((.*)\)/g
+    const urls: string[] = []
+    let match: RegExpExecArray | null
+    while (match = regex.exec(this.content)) {
+      urls.push(match[1])
+    }
+    return urls
+  }
+
+  public thumbnailUrls(): string[] {
+    return this.imgUrls().map(url => url.replace('medium', 'thumbnail'))
+  }
 }
 
 export class DiaryCollection {
