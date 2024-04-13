@@ -77,11 +77,25 @@ export class Exif {
     this.lens = lens
   }
 
-  public get showModel(): string {
-    return this.model || ''
+  get showModel(): string {
+    return this.model === 'ILCE-7M3' ? 'α7 III'
+      : this.model || ''
   }
 
-  public get showLens(): string {
-    return this.lens || ''
+  get showLens(): string {
+    return this.lens === 'FE 55mm F1.8 ZA' ? 'Sonnar T* FE 55mm F1.8 ZA'
+      : this.lens || ''
+  }
+
+  public get showCamera(): string {
+    if (this.showModel && this.showLens) {
+      return `${this.showModel} / ${this.showLens}`
+    } else if (this.showModel) {
+      return this.showModel
+    } else if (this.showLens) {
+      return this.showLens
+    } else {
+      return ''
+    }
   }
 }

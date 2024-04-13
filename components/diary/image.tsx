@@ -7,7 +7,7 @@ const Image = async (props: { src: string | null }) => {
   const exif = await getExifByImgUrl(src)
   return (<>
     <img src={src} className="py-1" />
-    <p className="text-xs text-gray-500 italic">{exif.showModel} / {exif.showLens}</p>
+    <p className="text-xs text-gray-500 italic">{exif.showCamera}</p>
   </>)
 }
 
