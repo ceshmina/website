@@ -1,6 +1,6 @@
 import { cache } from 'react'
 import { promises as fs } from 'fs'
-import { Diary, DiaryCollection } from '@/core/diary/model'
+import { Diary, DiaryCollection, Exif } from '@/core/diary/model'
 
 export const getDiaries = cache(async (dir: string) => {
   const _getDiaries = async (dir: string) => {
@@ -23,4 +23,11 @@ export const getDiaries = cache(async (dir: string) => {
 export const getDiaryBySlug = async (dir: string, slug: string) => {
   const diaries = await getDiaries(dir)
   return diaries.findBySlug(slug)
+}
+
+export const getExifByImgUrl = async (url: string) => {
+  const exifUrl = url.replace('medium', 'exif').replace('.jpg', '.json')
+  const res = await fetch(exifUrl)
+  const json = await res.json()
+  return new Exif(json.Model || null, json.LensModel || null)
 }

@@ -67,3 +67,21 @@ export class DiaryCollection {
     return null
   }
 }
+
+export class Exif {
+  model: string | null
+  lens: string | null
+
+  constructor(model: string | null, lens: string | null) {
+    this.model = model
+    this.lens = lens
+  }
+
+  public get showModel(): string {
+    return this.model || ''
+  }
+
+  public get showLens(): string {
+    return this.lens || ''
+  }
+}
