@@ -15,11 +15,14 @@ const Page = async ({ params }: { params: { slug: string }}) => {
     const { diary, prev, next } = diaryItem
     const exifs = await Promise.all(diary.imgUrls().map(async url => await getExifByImgUrl(url)))
     const models = [...new Set(
-      exifs.map(exif => Camera.byExif(exif.model || '')).filter((model): model is Camera => model !== null)
+      exifs.map(exif => exif.model).filter((model): model is string => model !== null)
     )]
     const lenses = [...new Set(
-      exifs.map(exif => Camera.byExif(exif.lens || '')).filter((lens): lens is Camera => lens !== null)
+      exifs.map(exif => exif.lens).filter((lens): lens is string => lens !== null)
     )]
+    const cameras = models.map(model => Camera.byExif(model))
+      .concat(lenses.map(lens => Camera.byExif(lens)))
+      .filter((camera): camera is Camera => camera !== null)
 
     return (
       <main className="max-w-[800px] mx-auto p-4">
@@ -29,8 +32,9 @@ const Page = async ({ params }: { params: { slug: string }}) => {
           </div>
           <h1 className="text-2xl font-bold">{diary.showTitle}</h1>
           <p className="my-4 text-sm text-gray-500">
-            {models.map(model => <span className="inline-block mr-2 my-1 border-2 border-gray-300 px-1 py-0.5 rounded">{model.name}</span>)}
-            {lenses.map(lens => <span className="inline-block mr-2 my-1 border-2 border-gray-300 px-1 py-0.5 rounded">{lens.name}</span>)}
+            {cameras.map(camera =>
+              <span className="inline-block mr-2 my-1 border-2 border-gray-300 px-1 py-0.5 rounded">{camera.name}</span>
+            )}
           </p>
         </section>
 
