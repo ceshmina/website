@@ -110,8 +110,8 @@ export class Camera {
 }
 
 export class Exif {
-  model: string | null
-  lens: string | null
+  public model: string | null
+  public lens: string | null
 
   constructor(model: string | null, lens: string | null) {
     this.model = model

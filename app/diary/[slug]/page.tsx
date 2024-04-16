@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { getDiaries, getDiaryBySlug } from '@/core/diary/retrieve'
+import { Camera } from '@/core/diary/model'
+import { getDiaries, getDiaryBySlug, getExifByImgUrl } from '@/core/diary/retrieve'
 import Article from '@/components/diary/article'
 
 export const generateStaticParams = async () => {
@@ -12,6 +13,14 @@ const Page = async ({ params }: { params: { slug: string }}) => {
   const diaryItem = await getDiaryBySlug('data/diary', slug)
   if (diaryItem) {
     const { diary, prev, next } = diaryItem
+    const exifs = await Promise.all(diary.imgUrls().map(async url => await getExifByImgUrl(url)))
+    const models = [...new Set(
+      exifs.map(exif => Camera.byExif(exif.model || '')).filter((model): model is Camera => model !== null)
+    )]
+    const lenses = [...new Set(
+      exifs.map(exif => Camera.byExif(exif.lens || '')).filter((lens): lens is Camera => lens !== null)
+    )]
+
     return (
       <main className="max-w-[800px] mx-auto p-4">
         <section className="py-4">
@@ -19,6 +28,10 @@ const Page = async ({ params }: { params: { slug: string }}) => {
             <p><Link href="/diary" className="text-blue-500">戻る</Link></p>
           </div>
           <h1 className="text-2xl font-bold">{diary.showTitle}</h1>
+          <p className="my-4 text-sm text-gray-500">
+            {models.map(model => <span className="inline-block mr-2 my-1 border-2 border-gray-300 px-1 py-0.5 rounded">{model.name}</span>)}
+            {lenses.map(lens => <span className="inline-block mr-2 my-1 border-2 border-gray-300 px-1 py-0.5 rounded">{lens.name}</span>)}
+          </p>
         </section>
 
         <section className="py-4">
