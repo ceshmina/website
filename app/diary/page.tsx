@@ -1,9 +1,11 @@
 import Link from 'next/link'
+import { aggCameras } from '@/core/diary/aggregate'
 import { getDiaries } from '@/core/diary/retrieve'
 import Article from '@/components/diary/article'
 
 const Page = async () => {
   const diaries = await getDiaries('data/diary')
+  const cameras = await aggCameras(diaries.items)
 
   return (
     <main className="max-w-[800px] mx-auto p-4">
@@ -12,6 +14,13 @@ const Page = async () => {
           <p><Link href="/" className="text-blue-500">戻る</Link></p>
         </div>
         <h1 className="text-2xl font-bold">diary</h1>
+        <p className="my-3 text-xs text-gray-500">
+          {cameras.map(({ camera, count }) =>
+            <span key={camera.slug} className="inline-block mr-2 my-1 border-2 border-gray-300 px-1 py-0.5 rounded">
+              {camera.name} ({count})
+            </span>
+          )}
+        </p>
       </section>
 
       <section className="py-4">
