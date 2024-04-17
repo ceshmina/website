@@ -16,6 +16,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
 
   const diariesAll = await getDiaries('data/diary')
   const diaries = await getDiariesByCamera(diariesAll.items, slug)
+  const n = diaries.items.length
 
   return (
     <main className="max-w-[800px] mx-auto p-4">
@@ -23,7 +24,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
         <div className="py-2 text-sm">
           <p><Link href="/diary" className="text-blue-500">戻る</Link></p>
         </div>
-        <h1 className="text-2xl font-bold">撮影機材: {camera.name} の日記一覧</h1>
+        <h1 className="text-2xl font-bold">撮影機材: {camera.name} の日記一覧 ({n}件)</h1>
       </section>
 
       <section className="py-4">
