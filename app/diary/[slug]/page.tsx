@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import { Camera } from '@/core/diary/model'
-import { getDiaries, getDiaryBySlug, getExifByImgUrl } from '@/core/diary/retrieve'
+import { getDiaries, getDiaryBySlug, getCameras } from '@/core/diary/retrieve'
 import Article from '@/components/diary/article'
 
 export const generateStaticParams = async () => {
@@ -13,16 +12,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
   const diaryItem = await getDiaryBySlug('data/diary', slug)
   if (diaryItem) {
     const { diary, prev, next } = diaryItem
-    const exifs = await Promise.all(diary.imgUrls().map(async url => await getExifByImgUrl(url)))
-    const models = [...new Set(
-      exifs.map(exif => exif.model).filter((model): model is string => model !== null)
-    )]
-    const lenses = [...new Set(
-      exifs.map(exif => exif.lens).filter((lens): lens is string => lens !== null)
-    )]
-    const cameras = models.map(model => Camera.byExif(model))
-      .concat(lenses.map(lens => Camera.byExif(lens)))
-      .filter((camera): camera is Camera => camera !== null)
+    const cameras = await getCameras(diary)
 
     return (
       <main className="max-w-[800px] mx-auto p-4">
