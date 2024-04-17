@@ -44,3 +44,12 @@ export const getCameras = async (diary: Diary) => {
     .concat(lenses.map(lens => Camera.byExif(lens)))
     .filter((camera): camera is Camera => camera !== null)
 }
+
+export const getDiariesByCamera = async (diaries: Diary[], slug: string) => {
+  const res = diaries.filter(diary =>
+    diary.imgUrls().some(url =>
+      getExifByImgUrl(url).then(exif => exif.model === slug || exif.lens === slug)
+    )
+  )
+  return new DiaryCollection(res)
+}

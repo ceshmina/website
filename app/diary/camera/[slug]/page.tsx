@@ -1,26 +1,29 @@
 import Link from 'next/link'
+import { Camera } from '@/core/diary/model'
 import { aggCameras } from '@/core/diary/aggregate'
-import { getDiaries } from '@/core/diary/retrieve'
-import Article from '@/components/diary/article'
+import { getDiaries, getDiariesByCamera } from '@/core/diary/retrieve'
 
-const Page = async () => {
+export const generateStaticParams = async () => {
   const diaries = await getDiaries('data/diary')
   const cameras = await aggCameras(diaries.items)
+  return cameras.map(({ camera }) => ({ slug: camera.slug }))
+}
+
+const Page = async ({ params }: { params: { slug: string }}) => {
+  const { slug } = params
+  const camera = Camera.bySlug(slug)
+  if (!camera) return null
+
+  const diariesAll = await getDiaries('data/diary')
+  const diaries = await getDiariesByCamera(diariesAll.items, slug)
 
   return (
     <main className="max-w-[800px] mx-auto p-4">
       <section className="py-4">
         <div className="py-2 text-sm">
-          <p><Link href="/" className="text-blue-500">戻る</Link></p>
+          <p><Link href="/diary" className="text-blue-500">戻る</Link></p>
         </div>
-        <h1 className="text-2xl font-bold">diary</h1>
-        <p className="my-3 text-xs text-gray-500">
-          {cameras.map(({ camera, count }) =>
-            <span key={camera.slug} className="inline-block mr-2 my-1 border-2 border-gray-300 px-1 py-0.5 rounded">
-              <Link href={`/diary/camera/${camera.slug}`} className="text-blue-500">{camera.name} ({count})</Link>
-            </span>
-          )}
-        </p>
+        <h1 className="text-2xl font-bold">撮影機材: {camera.name} の日記一覧</h1>
       </section>
 
       <section className="py-4">
