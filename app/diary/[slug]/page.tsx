@@ -23,7 +23,9 @@ const Page = async ({ params }: { params: { slug: string }}) => {
           <h1 className="text-2xl font-bold">{diary.showTitle}</h1>
           <p className="my-3 text-xs text-gray-500">
             {cameras.map(camera =>
-              <span key={camera.slug} className="inline-block mr-2 my-1 border-2 border-gray-300 px-1 py-0.5 rounded">{camera.name}</span>
+              <span key={camera.slug} className="inline-block mr-2 my-1 border-2 border-gray-300 px-1 py-0.5 rounded">
+                <Link href={`/diary/camera/${camera.slug}`} className="text-blue-500">{camera.name}</Link>
+              </span>
             )}
           </p>
         </section>
