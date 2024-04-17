@@ -31,7 +31,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
             <p><Link href="/diary" className="text-blue-500">戻る</Link></p>
           </div>
           <h1 className="text-2xl font-bold">{diary.showTitle}</h1>
-          <p className="my-4 text-sm text-gray-500">
+          <p className="my-3 text-xs text-gray-500">
             {cameras.map(camera =>
               <span key={camera.slug} className="inline-block mr-2 my-1 border-2 border-gray-300 px-1 py-0.5 rounded">{camera.name}</span>
             )}
