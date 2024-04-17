@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { aggCameras } from '@/core/diary/aggregate'
 import { getDiaries } from '@/core/diary/retrieve'
-import Article from '@/components/diary/article'
 
 const Page = async () => {
   const diaries = await getDiaries('data/diary')
