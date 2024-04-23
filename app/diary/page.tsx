@@ -33,7 +33,7 @@ const Page = async () => {
             </div>
             <div>
               {diary.thumbnailUrls().map((url, i) => (
-                <img key={i} src={url} className="w-[72px] h-[48px] object-cover inline-block mr-2" />
+                <img key={i} src={url} className="w-[72px] h-[48px] object-cover inline-block mr-2 mb-2" />
               ))}
             </div>
           </div>
