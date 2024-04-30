@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Camera } from '@/core/diary/model'
 import { aggCameras } from '@/core/diary/aggregate'
 import { getDiaries, getDiariesByCamera } from '@/core/diary/retrieve'
+import Card from '@/components/diary/card'
 
 export const generateStaticParams = async () => {
   const diaries = await getDiaries('data/diary')
@@ -29,19 +30,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
 
       <section className="py-4">
         {diaries.sorted.map(diary => (
-          <div key={diary.slug} className="py-4">
-            <h2 className="font-bold text-blue-500">
-              <Link href={`/diary/${diary.slug}`}>{diary.showTitle}</Link>
-            </h2>
-            <div className="py-2 text-xs font-light text-gray-800">
-              <p className="line-clamp-3">{diary.contentNoImgs()}</p>
-            </div>
-            <div>
-              {diary.thumbnailUrls().map((url, i) => (
-                <img key={i} src={url} className="w-[72px] h-[48px] object-cover inline-block mr-2 mb-2" />
-              ))}
-            </div>
-          </div>
+          <Card key={diary.slug} diary={diary} />
         ))}
       </section>
     </main>
