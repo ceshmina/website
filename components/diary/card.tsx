@@ -4,7 +4,7 @@ import { Diary } from '@/core/diary/model'
 const Card = (props: { diary: Diary }) => {
   const { diary } = props
   return (
-    <div key={diary.slug} className="py-4">
+    <div className="py-4">
       <h2 className="font-bold text-blue-500">
         <Link href={`/diary/${diary.slug}`}>{diary.showTitle}</Link>
       </h2>
