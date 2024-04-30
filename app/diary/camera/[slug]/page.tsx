@@ -3,6 +3,7 @@ import { Camera } from '@/core/diary/model'
 import { aggCameras } from '@/core/diary/aggregate'
 import { getDiaries, getDiariesByCamera } from '@/core/diary/retrieve'
 import Card from '@/components/diary/card'
+import Sidebar from '@/components/diary/sidebar'
 
 export const generateStaticParams = async () => {
   const diaries = await getDiaries('data/diary')
@@ -19,6 +20,8 @@ const Page = async ({ params }: { params: { slug: string }}) => {
   const diaries = await getDiariesByCamera(diariesAll.items, slug)
   const n = diaries.items.length
 
+  const cameras = await aggCameras(diariesAll.items)
+
   return (
     <main className="max-w-[800px] mx-auto p-4">
       <section className="py-4">
@@ -28,11 +31,17 @@ const Page = async ({ params }: { params: { slug: string }}) => {
         <h1 className="text-2xl font-bold">撮影機材: {camera.name} の日記一覧 ({n}件)</h1>
       </section>
 
-      <section className="py-4">
-        {diaries.sorted.map(diary => (
-          <Card key={diary.slug} diary={diary} />
-        ))}
-      </section>
+      <div className="md:flex py-4">
+        <section className="md:w-[70%]">
+          {diaries.sorted.map(diary => (
+            <Card key={diary.slug} diary={diary} />
+          ))}
+        </section>
+
+        <div className="md:w-[30%] md:pl-4 py-4">
+          <Sidebar cameras={cameras} />
+        </div>
+      </div>
     </main>
   )
 }
