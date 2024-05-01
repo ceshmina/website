@@ -75,6 +75,7 @@ export class Camera {
 
   static cameraMaster = [
     { slug: 'ilce-7m3', name: 'α7 III', exif: 'ILCE-7M3' },
+    { slug: 'a3101', name: 'iPhone 15 Pro', exif: 'iPhone 15 Pro' },
     { slug: 'sel24105g', name: 'FE 24-105mm F4 G OSS', exif: 'FE 24-105mm F4 G OSS' },
     { slug: 'sel70300g', name: 'FE 70-300mm F4.5-5.6 G OSS', exif: 'FE 70-300mm F4.5-5.6 G OSS' },
     { slug: 'sel24f28g', name: 'FE 24mm F2.8 G', exif: 'FE 24mm F2.8 G' },
@@ -125,6 +126,7 @@ export class Exif {
 
   get showLens(): string {
     return this.lens === 'FE 55mm F1.8 ZA' ? 'Sonnar T* FE 55mm F1.8 ZA'
+      : this.model === 'iPhone 15 Pro' ? ''
       : this.lens || ''
   }
 
