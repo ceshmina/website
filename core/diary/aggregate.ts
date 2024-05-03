@@ -1,5 +1,17 @@
-import { Diary, Camera } from '@/core/diary/model'
+import { Diary, Month, Camera } from '@/core/diary/model'
 import { getCameras } from '@/core/diary/retrieve'
+
+export const aggByMonth = (diaries: Diary[]) => {
+  const counts: Map<string, number> = new Map()
+  diaries.forEach(diary => {
+    const month = diary.month
+    const count = counts.get(month) || 0
+    counts.set(month, count + 1)
+  })
+  return Array.from(counts.entries())
+    .sort((a, b) => b[0].localeCompare(a[0]))
+    .map(([month, count]) => ({ month: Month.bySlug(month), count }))
+}
 
 export const aggCameras = async (diaries: Diary[]) => {
   const cameras = await Promise.all(diaries.map(async diary => await getCameras(diary)))

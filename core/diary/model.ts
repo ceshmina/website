@@ -15,6 +15,10 @@ export class Diary {
     this.content = content
   }
 
+  public get month(): string {
+    return format(this.date, 'yyyyMM')
+  }
+
   public get showDate(): string {
     return format(this.date, 'yyyy年M月d日')
   }
@@ -65,6 +69,21 @@ export class DiaryCollection {
       }
     }
     return null
+  }
+}
+
+export class Month {
+  public slug: string
+  public name: string
+
+  constructor(slug: string, name: string) {
+    this.slug = slug
+    this.name = name
+  }
+
+  static bySlug(slug: string): Month {
+    const date = parse(slug, 'yyyyMM', new Date())
+    return new Month(slug, format(date, 'yyyy年M月'))
   }
 }
 

@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import { Camera } from '@/core/diary/model'
-import { aggCameras } from '@/core/diary/aggregate'
+import { aggByMonth, aggCameras } from '@/core/diary/aggregate'
 import { getDiaries, getDiariesByCamera } from '@/core/diary/retrieve'
 import Card from '@/components/diary/card'
 import Sidebar from '@/components/diary/sidebar'
 
 export const generateStaticParams = async () => {
   const diaries = await getDiaries('data/diary')
+  const months = aggByMonth(diaries.items)
   const cameras = await aggCameras(diaries.items)
   return cameras.map(({ camera }) => ({ slug: camera.slug }))
 }
@@ -20,6 +21,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
   const diaries = await getDiariesByCamera(diariesAll.items, slug)
   const n = diaries.items.length
 
+  const months = aggByMonth(diariesAll.items)
   const cameras = await aggCameras(diariesAll.items)
 
   return (
@@ -39,7 +41,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
         </section>
 
         <div className="md:w-[30%] md:pl-4 py-4">
-          <Sidebar cameras={cameras} />
+          <Sidebar months={months} cameras={cameras} />
         </div>
       </div>
     </main>

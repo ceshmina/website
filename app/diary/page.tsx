@@ -1,11 +1,12 @@
 import Link from 'next/link'
-import { aggCameras } from '@/core/diary/aggregate'
+import { aggByMonth, aggCameras } from '@/core/diary/aggregate'
 import { getDiaries } from '@/core/diary/retrieve'
 import Card from '@/components/diary/card'
 import Sidebar from '@/components/diary/sidebar'
 
 const Page = async () => {
   const diaries = await getDiaries('data/diary')
+  const months = aggByMonth(diaries.items)
   const cameras = await aggCameras(diaries.items)
 
   return (
@@ -25,7 +26,7 @@ const Page = async () => {
         </section>
         
         <div className="md:w-[30%] md:pl-4 py-4">
-          <Sidebar cameras={cameras} />
+          <Sidebar months={months} cameras={cameras} />
         </div>
       </div>
     </main>
