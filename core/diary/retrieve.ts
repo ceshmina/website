@@ -25,6 +25,10 @@ export const getDiaryBySlug = async (dir: string, slug: string) => {
   return diaries.findBySlug(slug)
 }
 
+export const getDiariesByMonth = async (diaries: Diary[], slug: string) => {
+  return new DiaryCollection(diaries.filter(diary => diary.month === slug))
+}
+
 export const getExifByImgUrl = async (url: string) => {
   const exifUrl = url.replace('medium', 'exif').replace('.jpg', '.json')
   const res = await fetch(exifUrl)
