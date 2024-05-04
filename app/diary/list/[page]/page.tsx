@@ -10,7 +10,7 @@ const perPage = 25
 export const generateStaticParams = async () => {
   const diaries = await getDiaries('data/diary')
   const numPages = Math.ceil(diaries.items.length / perPage)
-  return Array.from({ length: numPages }, (_, i) => ({ params: { page: (i + 1).toString() } }))
+  return Array.from({ length: numPages }, (_, i) => ({ page: (i + 1).toString() }))
 }
 
 const Page = async ({ params }: { params: { page: string }}) => {
@@ -48,13 +48,17 @@ const Page = async ({ params }: { params: { page: string }}) => {
               {minIndex + 1} - {maxIndex} / {n}件
             </p>
             <p className="py-1">
-              <span className="mr-2 border-2 px-1.5 py-0.5 rounded-full">{parseInt(page) > 1
-                ? <Link href={`/diary/list/${parseInt(page) - 1}`} className="text-blue-500">&lt;</Link>
-                : <>&lt;</>}</span>
+              <span className="mr-2 border-2 px-1.5 py-0.5 rounded-full">
+                {parseInt(page) > 1
+                  ? <Link href={`/diary/list/${parseInt(page) - 1}`} className="text-blue-500">&lt;</Link>
+                  : <>&lt;</>}
+              </span>
               {` ${page} / ${numPages} `}
-              <span className="ml-2 border-2 px-1.5 py-0.5 rounded-full">{parseInt(page) < Math.ceil(n / perPage)
-                ? <Link href={`/diary/list/${parseInt(page) + 1}`} className="text-blue-500">&gt;</Link>
-                : <>&gt;</>}</span>
+              <span className="ml-2 border-2 px-1.5 py-0.5 rounded-full">
+                {parseInt(page) < Math.ceil(n / perPage)
+                  ? <Link href={`/diary/list/${parseInt(page) + 1}`} className="text-blue-500">&gt;</Link>
+                  : <>&gt;</>}
+              </span>
             </p>
           </section>
         </div>
