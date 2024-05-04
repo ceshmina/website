@@ -30,7 +30,7 @@ const Page = async ({ params }: { params: { page: string }}) => {
     <main className="max-w-[800px] mx-auto p-4">
       <section className="py-4">
         <div className="py-2 text-sm">
-          <p><Link href="/diary" className="text-blue-500">戻る</Link></p>
+          <p><Link href="/" className="text-blue-500">戻る</Link></p>
         </div>
         <h1 className="text-2xl font-bold">diary</h1>
       </section>
