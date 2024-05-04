@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { DIARY_PER_PAGE } from '@/config'
 import { DiaryCollection } from '@/core/diary/model'
 import { aggByMonth, aggCameras } from '@/core/diary/aggregate'
 import { getDiaries } from '@/core/diary/retrieve'
@@ -7,11 +8,9 @@ import Sidebar from '@/components/diary/sidebar'
 import { Paginator } from '@/core/diary/pagination'
 import Pagination from '@/components/diary/pagination'
 
-const PER_PAGE = 25
-
 export const generateStaticParams = async () => {
   const diaries = await getDiaries('data/diary')
-  const paginator = new Paginator(diaries.items.length, PER_PAGE)
+  const paginator = new Paginator(diaries.items.length, DIARY_PER_PAGE)
   return Array.from({ length: paginator.numPages() }, (_, i) => ({ page: (i + 1).toString() }))
 }
 
@@ -21,7 +20,7 @@ const Page = async ({ params }: { params: { page: string }}) => {
 
   const diariesAll = await getDiaries('data/diary')
   const n = diariesAll.items.length
-  const paginator = new Paginator(n, PER_PAGE)
+  const paginator = new Paginator(n, DIARY_PER_PAGE)
   const diaries = new DiaryCollection(diariesAll.sorted.slice(paginator.minIndex(pageInt), paginator.maxIndex(pageInt)))
 
   const months = aggByMonth(diariesAll.items)
