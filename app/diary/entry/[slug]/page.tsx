@@ -51,13 +51,13 @@ const Page = async ({ params }: { params: { slug: string }}) => {
               <div className="py-2 pr-2 text-sm">
                 {next ? <>
                   <p>次の日記</p>
-                  <p><Link href={`/diary/${next.slug}`} className="text-blue-500">&lt; {next.showTitle}</Link></p>
+                  <p><Link href={`/diary/entry/${next.slug}`} className="text-blue-500">&lt; {next.showTitle}</Link></p>
                 </> : null}
               </div>
               <div className="py-2 pl-2 text-sm text-right">
                 {prev ? <>
                   <p>前の日記</p>
-                  <p><Link href={`/diary/${prev.slug}`} className="text-blue-500">{prev.showTitle} &gt;</Link></p>
+                  <p><Link href={`/diary/entry/${prev.slug}`} className="text-blue-500">{prev.showTitle} &gt;</Link></p>
                 </> : null}
               </div>
             </section>
