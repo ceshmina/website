@@ -13,6 +13,9 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="en">
       <body className={mainFont.className}>{children}</body>
+      <footer className="my-8">
+        <p className={`${mainFont.className} text-center text-[10px] font-light text-gray-500`}>&copy;2024 APKAS</p>
+      </footer>
     </html>
   )
 }

@@ -3,7 +3,7 @@ import { titleFont } from '@/app/layout'
 
 const Page = () => {
   return (
-    <main className="max-w-[800px] mx-auto px-4 pt-8 pb-12">
+    <main className="max-w-[800px] mx-auto px-4 my-8">
       <section className="py-4">
         <h1 className={`${titleFont.className} text-2xl font-bold`}>CESHMINA</h1>
         <p className="py-1 font-light">shusuke ueda</p>
