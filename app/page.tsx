@@ -1,5 +1,8 @@
 import Link from 'next/link'
-import { titleFont } from '@/app/layout'
+import { Josefin_Slab } from 'next/font/google'
+import './globals.css'
+
+const titleFont = Josefin_Slab({ subsets: ['latin'], weight: ["700"] })
 
 const Page = () => {
   return (
