@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Open_Sans, Josefin_Slab } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const mainFont = Open_Sans({ subsets: ['latin'], weight: ["300", "500"] })
+export const titleFont = Josefin_Slab({ subsets: ['latin'], weight: ["700"] })
 
 export const metadata: Metadata = {
   title: 'ceshmina'
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={mainFont.className}>{children}</body>
     </html>
   )
 }
