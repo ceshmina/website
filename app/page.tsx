@@ -13,7 +13,7 @@ const Page = () => {
         <div className="py-2 text-sm">
           <p className="py-1">Software engineer/data scientist.</p>
           <p className="py-1">
-            Play Latin folk music known as "folklore" in Japan.
+            Play Latin folk music known as &quot;folklore&quot; in Japan.
             Member of <a href="https://x.com/yamafolklore" target="_blank" className="text-blue-500">YAMA</a>
             , <a href="https://x.com/grupobrothers" target="_blank" className="text-blue-500">Grupo Brothers</a>
             , and <a href="https://x.com/StreetFolk_Amid" target="_blank" className="text-blue-500">Los Amidas</a>.
