@@ -3,7 +3,7 @@ import { titleFont } from '@/app/layout'
 
 const Page = () => {
   return (
-    <main className="max-w-[800px] mx-auto p-4">
+    <main className="max-w-[800px] mx-auto px-4 pt-8 pb-12">
       <section className="py-4">
         <h1 className={`${titleFont.className} text-2xl font-bold`}>CESHMINA</h1>
         <p className="py-1 font-light">shusuke ueda</p>
@@ -27,8 +27,8 @@ const Page = () => {
         <h3 className="font-bold pt-4 pb-2">Career</h3>
         <table className="text-sm font-light text-left">
           <tr className="align-text-top">
-            <th className="py-0.5 pr-2 font-light">Jan. 2023 -:</th>
-            <td className="pr-1">Data scientist</td>
+            <th className="py-0.5 pr-2 font-light w-[90px] md:w-[150px]">Jan. 2023 -:</th>
+            <td className="pr-1 w-[80px] md:w-[130px]">Data scientist</td>
             <td>@ <a href="https://adways-deee.net" target="_blank" className="text-blue-600">ADWAYS DEEE Inc.</a></td>
           </tr>
           <tr className="align-text-top">
@@ -41,8 +41,8 @@ const Page = () => {
         <h3 className="font-bold pt-4 pb-2">Education</h3>
         <table className="text-sm font-light text-left">
           <tr className="align-text-top">
-            <th className="py-0.5 pr-2 font-light">Apr. 2019 - Mar. 2021:</th>
-            <td className="pr-1">M.Sc. in Physics</td>
+            <th className="py-0.5 pr-2 font-light w-[90px] md:w-[150px]">Apr. 2019 - Mar. 2021:</th>
+            <td className="pr-1 w-[80px] md:w-[130px]">M.Sc. in Physics</td>
             <td>
               @ Graduate School of Science/
               <a href="https://www.icrr.u-tokyo.ac.jp/en" target="_blank" className="text-blue-600">Institute for Cosmic Ray Research</a>,
