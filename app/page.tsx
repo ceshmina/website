@@ -90,7 +90,7 @@ const Page = () => {
           <div className="text-sm">
             {discography.sort((a, b) => b.year - a.year).map((d, idx) => {
               const n = discography.length - idx
-              return <p className="py-1">
+              return <p className="py-1" key={idx}>
                 {n}. {d.year}, <a href={d.link} target="_blank" className="text-blue-600 italic">{d.title}</a> ({d.note}).
               </p>
             })}
@@ -100,7 +100,7 @@ const Page = () => {
             {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).map((p, idx) => {
               const n = performances.length - idx
               const dateStr = format(parse(p.date, 'yyyyMMdd', new Date), 'MMM. d, yyyy')
-              return <p className="py-1">{n}. {dateStr}, <span className="italic">{p.title}</span> ({p.note}).</p>
+              return <p className="py-1" key={idx}>{n}. {dateStr}, <span className="italic">{p.title}</span> ({p.note}).</p>
             })}
           </div>
         </div>
