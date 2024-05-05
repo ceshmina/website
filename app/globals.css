@@ -4,4 +4,5 @@
 
 body {
   background-color: #fafffc;
+  font-family: var(--font-main), var(--font-jp);
 }
