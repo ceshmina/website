@@ -84,7 +84,7 @@ const Page = () => {
       </section>
 
       <section className="py-4">
-        <h2 className={`${titleFont.className} text-lg font-bold`}>ACTIVITIES</h2>
+        <h2 className={`${titleFont.className} text-lg font-bold`}>WORKS & ACTIVITIES</h2>
         <div className="py-2">
           <h3 className="pt-2 pb-2">Discography</h3>
           <div className="text-sm">
@@ -116,7 +116,7 @@ const Page = () => {
       </section>
 
       <section className="py-4">
-        <h2 className={`${titleFont.className} text-lg font-bold`}>CONTENTS</h2>
+        <h2 className={`${titleFont.className} text-lg font-bold`}>OTHER CONTENTS</h2>
         <div className="py-2 text-sm">
           <p><Link href="/diary" className="text-blue-600">Diary</Link> (in Japanese)</p>
         </div>
