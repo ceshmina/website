@@ -1,8 +1,14 @@
 import Link from 'next/link'
 import { Josefin_Slab } from 'next/font/google'
+import { parse, format } from 'date-fns'
 import './globals.css'
 
 const titleFont = Josefin_Slab({ subsets: ['latin'], weight: ["700"] })
+
+const performances = [
+  { date: '20240421', title: 'ホセ犬伏『再会のサンバ』リリース記念フォルクローレコンサート', note: 'support' },
+  { date: '20240428', title: 'フォルクローレ演奏会2024 en IRIFUNE', note: 'as YAMA' }
+]
 
 const Page = () => {
   return (
@@ -69,6 +75,20 @@ const Page = () => {
               <td>@ Todaiji Gakuen High School</td>
             </tr>
           </table>
+        </div>
+      </section>
+
+      <section className="py-4">
+        <h2 className={`${titleFont.className} text-lg font-bold`}>ACTIVITIES</h2>
+        <div className="py-2">
+          <h3 className="pt-4 pb-2">Performances <span className="text-sm">(since Apr. 2024)</span></h3>
+          <div className="text-sm">
+            {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).map((p, idx) => {
+              const n = performances.length - idx
+              const dateStr = format(parse(p.date, 'yyyyMMdd', new Date), 'MMM. d, yyyy')
+              return <p className="py-1">{n}. {dateStr}, <span className="italic">{p.title}</span> ({p.note})</p>
+            })}
+          </div>
         </div>
       </section>
 
