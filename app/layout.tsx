@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import './globals.css'
 
-const mainFont = Open_Sans({ subsets: ['latin'], weight: ["300", "500"] })
+const mainFont = Open_Sans({ subsets: ['latin'], weight: ["300"] })
 
 export const metadata: Metadata = {
   title: 'ceshmina'
