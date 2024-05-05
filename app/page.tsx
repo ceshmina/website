@@ -5,6 +5,11 @@ import './globals.css'
 
 const titleFont = Josefin_Slab({ subsets: ['latin'], weight: ["700"] })
 
+const discography = [
+  { year: 2021, title: 'Aventura', link: 'https://linkco.re/SbEUcF0B?lang=en', note: 'as Nishida Friends' },
+  { year: 2022, title: 'Ambivalencia', link: 'https://linkco.re/8n7dGq6t?lang=en', note: 'as Nishida Friends' }
+]
+
 const performances = [
   { date: '20240421', title: 'ホセ犬伏『再会のサンバ』リリース記念フォルクローレコンサート', note: 'support' },
   { date: '20240428', title: 'フォルクローレ演奏会2024 en IRIFUNE', note: 'as YAMA' }
@@ -34,7 +39,7 @@ const Page = () => {
       <section className="py-4">
         <h2 className={`${titleFont.className} text-lg font-bold`}>BACKGROUND</h2>
         <div className="py-2">
-          <h3 className="pt-4 pb-2">Career</h3>
+          <h3 className="pt-2 pb-2">Career</h3>
           <table className="text-sm text-left">
             <tr className="align-text-top">
               <th className="py-0.5 pr-2 w-[90px] md:w-[150px] font-light">Jan. 2023 -:</th>
@@ -81,12 +86,21 @@ const Page = () => {
       <section className="py-4">
         <h2 className={`${titleFont.className} text-lg font-bold`}>ACTIVITIES</h2>
         <div className="py-2">
+          <h3 className="pt-2 pb-2">Discography</h3>
+          <div className="text-sm">
+            {discography.sort((a, b) => b.year - a.year).map((d, idx) => {
+              const n = discography.length - idx
+              return <p className="py-1">
+                {n}. {d.year}, <a href={d.link} target="_blank" className="text-blue-600 italic">{d.title}</a> ({d.note}).
+              </p>
+            })}
+          </div>
           <h3 className="pt-4 pb-2">Performances <span className="text-sm">(since Apr. 2024)</span></h3>
           <div className="text-sm">
             {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).map((p, idx) => {
               const n = performances.length - idx
               const dateStr = format(parse(p.date, 'yyyyMMdd', new Date), 'MMM. d, yyyy')
-              return <p className="py-1">{n}. {dateStr}, <span className="italic">{p.title}</span> ({p.note})</p>
+              return <p className="py-1">{n}. {dateStr}, <span className="italic">{p.title}</span> ({p.note}).</p>
             })}
           </div>
         </div>
