@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
 import { aggByMonth, aggCameras } from '@/core/diary/aggregate'
 import { getDiaries, getDiaryBySlug, getCameras } from '@/core/diary/retrieve'
 import Article from '@/components/diary/article'
@@ -50,14 +51,14 @@ const Page = async ({ params }: { params: { slug: string }}) => {
             <section className="py-4 flex justify-between">
               <div className="py-2 pr-2 text-sm">
                 {next ? <>
-                  <p>次の日記</p>
-                  <p><Link href={`/diary/entry/${next.slug}`} className="text-blue-500">&lt; {next.showTitle}</Link></p>
+                  <p><ChevronLeftIcon className="w-3.5 h-3.5 inline-block ml-[-3px] pb-0.5" />次の日記</p>
+                  <p><Link href={`/diary/entry/${next.slug}`} className="text-blue-500">{next.showTitle}</Link></p>
                 </> : null}
               </div>
               <div className="py-2 pl-2 text-sm text-right">
                 {prev ? <>
-                  <p>前の日記</p>
-                  <p><Link href={`/diary/entry/${prev.slug}`} className="text-blue-500">{prev.showTitle} &gt;</Link></p>
+                  <p>前の日記<ChevronRightIcon className="w-3.5 h-3.5 inline-block mr-[-3px] pb-0.5" /></p>
+                  <p><Link href={`/diary/entry/${prev.slug}`} className="text-blue-500">{prev.showTitle}</Link></p>
                 </> : null}
               </div>
             </section>
