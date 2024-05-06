@@ -40,7 +40,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
             {cameras.length > 0 ? (
               <p className="my-3 text-xs text-gray-500">
                 この記事の撮影機材: {cameras.map(camera =>
-                  <span key={camera.slug} className="inline-block mr-2 my-1 border-2 border-gray-300 px-1 py-0.5 rounded">
+                  <span key={camera.slug} className="inline-block mr-2 my-1 border-[1px] border-gray-300 px-1 py-0.5 rounded">
                     <Link href={`/diary/camera/${camera.slug}`} className="text-blue-500">{camera.name}</Link>
                   </span>
                 )}

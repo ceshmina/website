@@ -17,18 +17,18 @@ const Pagination = (props: { paginator: Paginator, page: number }) => {
       </p>
       <p className="py-1">
         {page > 1
-          ? <span className="mr-2 border-2 border-gray-300 px-1 py-1 rounded-full">
+          ? <span className="mr-2 border-[1px] border-gray-300 px-1 py-1 rounded-full">
               <Link href={`/diary/list/${page - 1}`} className="text-blue-500"><ChevronLeftIcon className="w-4 h-4 inline-block pb-0.5" /></Link>
             </span>
-          : <span className="mr-2 border-2 border-gray-200 px-1 py-1 rounded-full text-gray-300">
+          : <span className="mr-2 border-[1px] border-gray-200 px-1 py-1 rounded-full text-gray-300">
               <ChevronLeftIcon className="w-4 h-4 inline-block pb-0.5" />
             </span>}
         {` ${page} / ${numPages} `}
         {page < Math.ceil(n / perPage)
-          ? <span className="ml-2 border-2 border-gray-300 px-1 py-1 rounded-full">
+          ? <span className="ml-2 border-[1px] border-gray-300 px-1 py-1 rounded-full">
               <Link href={`/diary/list/${page + 1}`} className="text-blue-500"><ChevronRightIcon className="w-4 h-4 inline-block pb-0.5" /></Link>
             </span>
-          : <span className="ml-2 border-2 border-gray-200 px-1 py-1 rounded-full text-gray-300">
+          : <span className="ml-2 border-[1px] border-gray-200 px-1 py-1 rounded-full text-gray-300">
               <ChevronRightIcon className="w-4 h-4 inline-block pb-0.5" />
             </span>}
       </p>
