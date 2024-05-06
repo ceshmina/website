@@ -7,6 +7,7 @@ import Card from '@/components/diary/card'
 import Sidebar from '@/components/diary/sidebar'
 import { Paginator } from '@/core/diary/pagination'
 import Pagination from '@/components/diary/pagination'
+import { EN_TITLE_FONT } from '@/config'
 
 export const generateStaticParams = async () => {
   const diaries = await getDiaries('data/diary')
@@ -30,9 +31,9 @@ const Page = async ({ params }: { params: { page: string }}) => {
     <main className="max-w-[800px] mx-auto p-4">
       <section className="py-4">
         <div className="py-2 text-sm">
-          <p><Link href="/" className="text-blue-500">戻る</Link></p>
+          <p><Link href="/" className={`${EN_TITLE_FONT.className} font-medium text-blue-500`}>APKAS</Link></p>
         </div>
-        <h1 className="text-2xl font-bold">diary</h1>
+        <h1 className={`${EN_TITLE_FONT.className} text-2xl font-bold`}>DIARY</h1>
       </section>
 
       <div className="md:flex py-4">

@@ -10,7 +10,7 @@ const Sidebar = (props: Props) => {
   const { months, cameras } = props
   return (
     <div>
-      <h2 className="text-sm font-bold">月別</h2>
+      <h2 className="text-sm font-medium">月別</h2>
       <div className="my-4 text-sm text-gray-500">
         {months.map(({ month, count }) =>
           <p key={month.slug} className="my-1.5">
@@ -19,7 +19,7 @@ const Sidebar = (props: Props) => {
         )}
       </div>
 
-      <h2 className="mt-8 text-sm font-bold">撮影機材別</h2>
+      <h2 className="mt-8 text-sm font-medium">撮影機材別</h2>
       <p className="my-4 text-xs text-gray-500">
         {cameras.map(({ camera, count }) =>
           <span key={camera.slug} className="inline-block mr-2 my-1 border-[1px] border-gray-300 px-1 py-0.5 rounded">

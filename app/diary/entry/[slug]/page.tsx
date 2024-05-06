@@ -4,6 +4,7 @@ import { aggByMonth, aggCameras } from '@/core/diary/aggregate'
 import { getDiaries, getDiaryBySlug, getCameras } from '@/core/diary/retrieve'
 import Article from '@/components/diary/article'
 import Sidebar from '@/components/diary/sidebar'
+import { EN_TITLE_FONT } from '@/config'
 
 export const generateStaticParams = async () => {
   const diaries = await getDiaries('data/diary')
@@ -25,9 +26,15 @@ const Page = async ({ params }: { params: { slug: string }}) => {
       <main className="max-w-[800px] mx-auto p-4">
         <section className="py-4">
           <div className="py-2 text-sm">
-            <p><Link href="/diary" className="text-blue-500">戻る</Link></p>
+            <p>
+              <Link href="/" className={`${EN_TITLE_FONT.className} font-medium text-blue-500`}>
+                APKAS
+              </Link> / <Link href="/diary" className={`${EN_TITLE_FONT.className} font-medium text-blue-500`}>
+                DIARY
+              </Link>
+            </p>
           </div>
-          <h1 className="text-2xl font-bold">{diary.showTitle}</h1>
+          <h1 className="text-2xl font-medium">{diary.showTitle}</h1>
         </section>
 
         <div className="md:flex py-4">
