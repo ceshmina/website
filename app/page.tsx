@@ -93,7 +93,7 @@ const Page = () => {
               </p>
             })}
           </div>
-          <h3 className="pt-4 pb-2">Performances <span className="text-sm">(since Apr. 2024)</span></h3>
+          <h3 className="pt-4 pb-2">Performances <span className="text-sm">(since April 2024)</span></h3>
           <div className="text-sm">
             {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).map((p, idx) => {
               const n = performances.length - idx
