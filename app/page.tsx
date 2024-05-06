@@ -32,7 +32,7 @@ const Page = () => {
             Play Latin folk music known as &quot;folklore&quot; in Japan.
             Member of <a href="https://x.com/yamafolklore" target="_blank" className="text-blue-600">YAMA</a>
             , <a href="https://x.com/grupobrothers" target="_blank" className="text-blue-600">Grupo Brothers</a>
-            , & <a href="https://x.com/StreetFolk_Amid" target="_blank" className="text-blue-600">Los Amidas</a>.
+            , and <a href="https://x.com/StreetFolk_Amid" target="_blank" className="text-blue-600">Los Amidas</a>.
           </p>
         </div>
       </section>
@@ -43,42 +43,42 @@ const Page = () => {
           <h3 className="pt-2 pb-2">Career</h3>
           <table className="text-sm text-left">
             <tr className="align-text-top">
-              <th className="py-0.5 pr-2 w-[90px] md:w-[150px] font-light">Jan. 2023 -:</th>
-              <td className="pr-1 w-[80px] md:w-[130px]">Data scientist</td>
-              <td>@ <a href="https://adways-deee.net" target="_blank" className="text-blue-600">ADWAYS DEEE Inc.</a></td>
+              <th className="py-0.5 pr-2 w-[90px] md:w-[150px] font-light">Jan 2023 -,</th>
+              <td className="pr-1 w-[80px] md:w-[130px]">Data scientist,</td>
+              <td><a href="https://adways-deee.net" target="_blank" className="text-blue-600">ADWAYS DEEE Inc.</a></td>
             </tr>
             <tr className="align-text-top">
-              <th className="py-0.5 pr-2 font-light">Apr. 2021 - Dec. 2022:</th>
-              <td className="pr-1">Software engineer</td>
-              <td>@ <a href="https://www.adways.net/en" target="_blank" className="text-blue-600">Adways Inc.</a></td>
+              <th className="py-0.5 pr-2 font-light">Apr 2021 - Dec 2022,</th>
+              <td className="pr-1">Software engineer,</td>
+              <td><a href="https://www.adways.net/en" target="_blank" className="text-blue-600">Adways Inc.</a></td>
             </tr>
           </table>
 
           <h3 className="pt-4 pb-2">Education</h3>
           <table className="text-sm text-left">
             <tr className="align-text-top">
-              <th className="py-0.5 pr-2 w-[90px] md:w-[150px] font-light">Apr. 2019 - Mar. 2021:</th>
-              <td className="pr-1 w-[80px] md:w-[130px]">M. Sc. in Physics</td>
+              <th className="py-0.5 pr-2 w-[90px] md:w-[150px] font-light">Apr 2019 - Mar 2021,</th>
+              <td className="pr-1 w-[80px] md:w-[130px]">M. Sc. in Physics,</td>
               <td>
-                @ Graduate School of Science/
+                Graduate School of Science/
                 <a href="https://www.icrr.u-tokyo.ac.jp/en" target="_blank" className="text-blue-600">Institute for Cosmic Ray Research</a>,
-                the University of Tokyo
+                the University of Tokyo.
               </td>
             </tr>
             <tr className="align-text-top">
-              <th className="py-0.5 pr-2 font-light">Apr. 2017 - Mar. 2019:</th>
-              <td className="pr-1">B. Sc. in Physics</td>
-              <td>@ Faculty of Science, the University of Tokyo</td>
+              <th className="py-0.5 pr-2 font-light">Apr 2017 - Mar 2019,</th>
+              <td className="pr-1">B. Sc. in Physics,</td>
+              <td>Faculty of Science, the University of Tokyo.</td>
             </tr>
             <tr className="align-text-top">
-              <th className="py-0.5 pr-2 font-light">Apr. 2015 - Mar. 2017:</th>
+              <th className="py-0.5 pr-2 font-light">Apr 2015 - Mar 2017,</th>
               <td className="pr-1"></td>
-              <td>@ College of Arts and Science, the University of Tokyo</td>
+              <td>College of Arts and Science, the University of Tokyo.</td>
             </tr>
             <tr className="align-text-top">
-              <th className="py-0.5 pr-2 font-light">Apr. 2012 - Mar. 2015:</th>
+              <th className="py-0.5 pr-2 font-light">Apr 2012 - Mar 2015,</th>
               <td className="pr-1"></td>
-              <td>@ Todaiji Gakuen High School</td>
+              <td>Todaiji Gakuen High School.</td>
             </tr>
           </table>
         </div>
