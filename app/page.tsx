@@ -12,7 +12,8 @@ const discography = [
 
 const performances = [
   { date: '20240421', title: 'ホセ犬伏『再会のサンバ』リリース記念フォルクローレコンサート', note: 'support' },
-  { date: '20240428', title: 'フォルクローレ演奏会2024 en IRIFUNE', note: 'as YAMA' }
+  { date: '20240428', title: 'フォルクローレ演奏会2024 en IRIFUNE', note: 'as YAMA' },
+  { date: '20240506', title: '水道橋フォルクローレライブ春', note: 'as Grupo Brothers/with tapaTunes' },
 ]
 
 const Page = () => {
@@ -99,7 +100,7 @@ const Page = () => {
           <div className="text-sm">
             {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).map((p, idx) => {
               const n = performances.length - idx
-              const dateStr = format(parse(p.date, 'yyyyMMdd', new Date), 'MMM. d, yyyy')
+              const dateStr = format(parse(p.date, 'yyyyMMdd', new Date), 'MMM d, yyyy')
               return <p className="py-1" key={idx}>{n}. {dateStr}, <span className="italic">{p.title}</span> ({p.note}).</p>
             })}
           </div>
