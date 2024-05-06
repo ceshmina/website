@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { Bitter, Noto_Sans_JP } from 'next/font/google'
 import './globals.css'
 
-const mainFont = Bitter({ subsets: ['latin'], weight: ["300"], variable: '--font-main' })
-const mainJPFont = Noto_Sans_JP({ subsets: ['latin'], weight: ["300"], variable: '--font-jp' })
+const mainFont = Bitter({ subsets: ['latin'], weight: ["300", "500"], variable: '--font-main' })
+const mainJPFont = Noto_Sans_JP({ subsets: ['latin'], weight: ["300", "500"], variable: '--font-jp' })
 
 export const metadata: Metadata = {
   title: 'ceshmina'

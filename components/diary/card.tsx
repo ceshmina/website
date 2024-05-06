@@ -5,7 +5,7 @@ const Card = (props: { diary: Diary }) => {
   const { diary } = props
   return (
     <div className="py-4">
-      <h2 className="font-bold text-blue-500">
+      <h2 className="font-medium text-blue-500">
         <Link href={`/diary/entry/${diary.slug}`}>{diary.showTitle}</Link>
       </h2>
       <div className="py-2 text-xs font-light text-gray-800">

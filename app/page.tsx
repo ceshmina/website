@@ -1,9 +1,6 @@
 import Link from 'next/link'
-import { Josefin_Slab } from 'next/font/google'
 import { parse, format } from 'date-fns'
-import './globals.css'
-
-const titleFont = Josefin_Slab({ subsets: ['latin'], weight: ["700"] })
+import { EN_TITLE_FONT } from '@/config'
 
 const discography = [
   { year: 2021, title: 'Aventura', link: 'https://linkco.re/SbEUcF0B?lang=en', note: 'as Nishida Friends' },
@@ -20,12 +17,12 @@ const Page = () => {
   return (
     <main className="max-w-[800px] mx-auto px-4 my-8">
       <section className="py-4">
-        <h1 className={`${titleFont.className} text-2xl font-bold`}>APKAS</h1>
-        <p className={`${titleFont.className} py-1`}>SHU/CESHMINA</p>
+        <h1 className={`${EN_TITLE_FONT.className} text-2xl font-bold`}>APKAS</h1>
+        <p className={`${EN_TITLE_FONT.className} py-1`}>SHU/CESHMINA</p>
       </section>
 
       <section className="py-4">
-        <h2 className={`${titleFont.className} text-lg font-bold`}>ABOUT</h2>
+        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>ABOUT</h2>
         <div className="py-2 text-sm">
           <p className="py-1">Software engineer/data scientist.</p>
           <p className="py-1">
@@ -38,7 +35,7 @@ const Page = () => {
       </section>
 
       <section className="py-4">
-        <h2 className={`${titleFont.className} text-lg font-bold`}>BACKGROUND</h2>
+        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>BACKGROUND</h2>
         <div className="py-2">
           <h3 className="pt-2 pb-2">Career</h3>
           <table className="text-sm text-left">
@@ -85,7 +82,7 @@ const Page = () => {
       </section>
 
       <section className="py-4">
-        <h2 className={`${titleFont.className} text-lg font-bold`}>WORKS & ACTIVITIES</h2>
+        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>WORKS & ACTIVITIES</h2>
         <div className="py-2">
           <h3 className="pt-2 pb-2">Discography</h3>
           <div className="text-sm">
@@ -108,7 +105,7 @@ const Page = () => {
       </section>
 
       <section className="py-4">
-        <h2 className={`${titleFont.className} text-lg font-bold`}>LINKS</h2>
+        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>LINKS</h2>
         <div className="py-2 text-sm">
           <p className="py-1">X <a href="https://x.com/ceshmina" target="_blank" className="text-blue-600">@ceshmina</a></p>
           <p className="py-1">Instagram <a href="https://instagram.com/ceshmina" target="_blank" className="text-blue-600">@ceshmina</a></p>
@@ -117,7 +114,7 @@ const Page = () => {
       </section>
 
       <section className="py-4">
-        <h2 className={`${titleFont.className} text-lg font-bold`}>OTHER CONTENTS</h2>
+        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>OTHER CONTENTS</h2>
         <div className="py-2 text-sm">
           <p><Link href="/diary" className="text-blue-600">Diary</Link> (in Japanese)</p>
         </div>
