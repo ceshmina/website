@@ -41,7 +41,7 @@ const Page = () => {
           <table className="text-sm text-left">
             <tr className="align-text-top">
               <th className="py-0.5 pr-2 w-[90px] md:w-[150px] font-light">Jan 2023 -,</th>
-              <td className="pr-1 w-[80px] md:w-[130px]">Data scientist,</td>
+              <td className="pr-1 w-[80px] md:w-[140px]">Data scientist,</td>
               <td><a href="https://adways-deee.net" target="_blank" className="text-blue-600">ADWAYS DEEE Inc.</a></td>
             </tr>
             <tr className="align-text-top">
@@ -55,7 +55,7 @@ const Page = () => {
           <table className="text-sm text-left">
             <tr className="align-text-top">
               <th className="py-0.5 pr-2 w-[90px] md:w-[150px] font-light">Apr 2019 - Mar 2021,</th>
-              <td className="pr-1 w-[80px] md:w-[130px]">M. Sc. in Physics,</td>
+              <td className="pr-1 w-[80px] md:w-[140px]">M. Sc. in Physics,</td>
               <td>
                 Graduate School of Science/
                 <a href="https://www.icrr.u-tokyo.ac.jp/en" target="_blank" className="text-blue-600">Institute for Cosmic Ray Research</a>,
@@ -70,7 +70,7 @@ const Page = () => {
             <tr className="align-text-top">
               <th className="py-0.5 pr-2 font-light">Apr 2015 - Mar 2017,</th>
               <td className="pr-1"></td>
-              <td>College of Arts and Science, the University of Tokyo.</td>
+              <td>College of Arts and Sciences, the University of Tokyo.</td>
             </tr>
             <tr className="align-text-top">
               <th className="py-0.5 pr-2 font-light">Apr 2012 - Mar 2015,</th>
