@@ -88,23 +88,25 @@ export class Month {
 }
 
 export class Camera {
+  type: string
   public slug: string
   public name: string
   exif: string
 
   static cameraMaster = [
-    { slug: 'ilce-7m3', name: 'α7 III', exif: 'ILCE-7M3' },
-    { slug: 'a3101', name: 'iPhone 15 Pro', exif: 'iPhone 15 Pro' },
-    { slug: 'sel24105g', name: 'FE 24-105mm F4 G OSS', exif: 'FE 24-105mm F4 G OSS' },
-    { slug: 'sel70300g', name: 'FE 70-300mm F4.5-5.6 G OSS', exif: 'FE 70-300mm F4.5-5.6 G OSS' },
-    { slug: 'sel24f28g', name: 'FE 24mm F2.8 G', exif: 'FE 24mm F2.8 G' },
-    { slug: 'sel40f25g', name: 'FE 40mm F2.5 G', exif: 'FE 40mm F2.5 G' },
-    { slug: 'sel90m28g', name: 'FE 90mm F2.8 Macro G OSS', exif: 'FE 90mm F2.8 Macro G OSS' },
-    { slug: 'sel1635z', name: 'Vario-Tessar T* FE 16-35mm F4 ZA OSS', exif: 'FE 16-35mm F4 ZA OSS' },
-    { slug: 'sel55f18z', name: 'Sonnar T* FE 55mm F1.8 ZA', exif: 'FE 55mm F1.8 ZA' }
+    { type: 'camera', slug: 'ilce-7m3', name: 'α7 III', exif: 'ILCE-7M3' },
+    { type: 'camera', slug: 'a3101', name: 'iPhone 15 Pro', exif: 'iPhone 15 Pro' },
+    { type: 'lens', slug: 'sel24105g', name: 'FE 24-105mm F4 G OSS', exif: 'FE 24-105mm F4 G OSS' },
+    { type: 'lens', slug: 'sel70300g', name: 'FE 70-300mm F4.5-5.6 G OSS', exif: 'FE 70-300mm F4.5-5.6 G OSS' },
+    { type: 'lens', slug: 'sel24f28g', name: 'FE 24mm F2.8 G', exif: 'FE 24mm F2.8 G' },
+    { type: 'lens', slug: 'sel40f25g', name: 'FE 40mm F2.5 G', exif: 'FE 40mm F2.5 G' },
+    { type: 'lens', slug: 'sel90m28g', name: 'FE 90mm F2.8 Macro G OSS', exif: 'FE 90mm F2.8 Macro G OSS' },
+    { type: 'lens', slug: 'sel1635z', name: 'Vario-Tessar T* FE 16-35mm F4 ZA OSS', exif: 'FE 16-35mm F4 ZA OSS' },
+    { type: 'lens', slug: 'sel55f18z', name: 'Sonnar T* FE 55mm F1.8 ZA', exif: 'FE 55mm F1.8 ZA' }
   ]
 
-  constructor(slug: string, name: string, exif: string) {
+  constructor(type: string, slug: string, name: string, exif: string) {
+    this.type = type
     this.slug = slug
     this.name = name
     this.exif = exif
@@ -113,7 +115,7 @@ export class Camera {
   static bySlug(slug: string): Camera | null {
     const camera = Camera.cameraMaster.find(camera => camera.slug === slug)
     if (camera) {
-      return new Camera(camera.slug, camera.name, camera.exif)
+      return new Camera(camera.type, camera.slug, camera.name, camera.exif)
     } else {
       return null
     }
@@ -122,7 +124,7 @@ export class Camera {
   static byExif(exif: string): Camera | null {
     const camera = Camera.cameraMaster.find(camera => camera.exif === exif)
     if (camera) {
-      return new Camera(camera.slug, camera.name, camera.exif)
+      return new Camera(camera.type, camera.slug, camera.name, camera.exif)
     } else {
       return null
     }

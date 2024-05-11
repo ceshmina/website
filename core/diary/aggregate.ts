@@ -20,8 +20,10 @@ export const aggCameras = async (diaries: Diary[]) => {
     const count = counts.get(camera.slug) || 0
     counts.set(camera.slug, count + 1)
   })
-  return Array.from(counts.entries())
-    .sort((a, b) => b[1] - a[1])
+  const res = Array.from(counts.entries())
     .map(([slug, count]) => ({ camera: Camera.bySlug(slug), count }))
     .filter(({ camera }) => camera !== null) as { camera: Camera, count: number }[]
+  return res.sort((a, b) => (
+    a.camera.type.localeCompare(b.camera.type) || a.camera.slug.localeCompare(b.camera.slug)
+  ))
 }
