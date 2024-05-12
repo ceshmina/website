@@ -139,27 +139,4 @@ export class Exif {
     this.model = model
     this.lens = lens
   }
-
-  get showModel(): string {
-    return this.model === 'ILCE-7M3' ? 'α7 III'
-      : this.model || ''
-  }
-
-  get showLens(): string {
-    return this.lens === 'FE 55mm F1.8 ZA' ? 'Sonnar T* FE 55mm F1.8 ZA'
-      : this.model === 'iPhone 15 Pro' ? ''
-      : this.lens || ''
-  }
-
-  public get showCamera(): string {
-    if (this.showModel && this.showLens) {
-      return `${this.showModel} / ${this.showLens}`
-    } else if (this.showModel) {
-      return this.showModel
-    } else if (this.showLens) {
-      return this.showLens
-    } else {
-      return ''
-    }
-  }
 }
