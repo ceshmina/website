@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import { MapPinIcon, CameraIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
 import { aggByMonth, aggCameras } from '@/core/diary/aggregate'
 import { getDiaries, getDiaryBySlug, getCameras } from '@/core/diary/retrieve'
 import Article from '@/components/diary/article'
@@ -16,6 +16,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
   const diaryItem = await getDiaryBySlug('data/diary', slug)
   if (diaryItem) {
     const { diary, prev, next } = diaryItem
+    const location = diary.location || 'Tokyo, Japan'
     const cameras = await getCameras(diary)
 
     const diariesAll = await getDiaries('data/diary')
@@ -45,9 +46,13 @@ const Page = async ({ params }: { params: { slug: string }}) => {
               </div>
             </section>
 
+            {location ? <p className="mt-3 mb-2 text-xs text-gray-500">
+                <MapPinIcon className="w-4 h-4 inline-block pb-0.5 mr-1.5" />
+                {location}
+              </p> : null}
             {cameras.length > 0 ? (
-              <p className="my-3 text-xs text-gray-500">
-                この記事の撮影機材: {cameras.map(camera =>
+              <p className="mt-2 mb-3 text-xs text-gray-500">
+                <CameraIcon className="w-4 h-4 inline-block pb-0.5 mr-0.5" /> {cameras.map(camera =>
                   <span key={camera.slug} className="inline-block mr-2 my-1 border-[1px] border-gray-300 px-1 py-0.5 rounded">
                     <Link href={`/diary/camera/${camera.slug}`} className="text-blue-500">{camera.name}</Link>
                   </span>
