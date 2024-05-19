@@ -12,9 +12,12 @@ const Card = (props: { diary: Diary }) => {
         <p className="line-clamp-3">{diary.contentNoImgs()}</p>
       </div>
       <div>
-        {diary.thumbnailUrls().map((url, i) => (
-          <img key={i} src={url} className="w-[72px] h-[48px] object-cover inline-block mr-2 mb-2" />
-        ))}
+        {diary.thumbnailUrls().map((url, i) => {
+          if (i % 5 === 0) {
+            return <img key={i} src={url} className="w-[18%] mb-[2%] object-cover inline-block" />
+          } else {
+            return <img key={i} src={url} className="w-[18%] mb-[2%] ml-[2%] object-cover inline-block" />
+          }})}
       </div>
     </div>
   )
