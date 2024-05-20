@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import { Diary } from '@/core/diary/model'
+import { getThumbnailUrlsBySlug } from '@/core/diary/retrieve'
 
-const Card = (props: { diary: Diary, showContent?: boolean }) => {
-  const { diary, showContent } = props
+const Card = async (props: { diary: Diary, showContent?: boolean, cameraSlug?: string }) => {
+  const { diary, showContent, cameraSlug } = props
+  const thumbnailUrls = cameraSlug ? await getThumbnailUrlsBySlug(diary, cameraSlug) : diary.thumbnailUrls()
   return (
     <div className="py-4">
       <h2 className="font-medium text-blue-500">
@@ -14,7 +16,7 @@ const Card = (props: { diary: Diary, showContent?: boolean }) => {
         </div>
       ) : <div className="py-2" />}
       <div>
-        {diary.thumbnailUrls().map((url, i) => {
+        {thumbnailUrls.map((url, i) => {
           if (i % 5 === 0) {
             return <img key={i} src={url} className="w-[18%] mb-[2%] object-cover inline-block" />
           } else {

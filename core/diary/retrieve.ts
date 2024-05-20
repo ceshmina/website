@@ -73,3 +73,26 @@ export const getDiariesByCamera = async (diaries: Diary[], slug: string) => {
   }
   return new DiaryCollection(res)
 }
+
+export const getThumbnailUrlsBySlug = async (diary: Diary, slug: string) => {
+  const imgUrls = diary.imgUrls()
+  const exifs = await Promise.all(imgUrls.map(async url => await getExifByImgUrl(url)))
+  const res: string[] = []
+  for (let i = 0; i < imgUrls.length; i++) {
+    const model = exifs[i].model
+    if (model) {
+      const camera = Camera.byExif(model)
+      if (camera && camera.slug === slug) {
+        res.push(imgUrls[i])
+      }
+    }
+    const lens = exifs[i].lens
+    if (lens) {
+      const camera = Camera.byExif(lens)
+      if (camera && camera.slug === slug) {
+        res.push(imgUrls[i])
+      }
+    }
+  }
+  return res.map(url => url.replace('medium', 'thumbnail'))
+}
