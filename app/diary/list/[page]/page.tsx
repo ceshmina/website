@@ -40,7 +40,7 @@ const Page = async ({ params }: { params: { page: string }}) => {
         <div className="md:w-[70%]">
           <section>
             {diaries.sorted.map(diary => (
-              <Card key={diary.slug} diary={diary} />
+              <Card key={diary.slug} diary={diary} showContent={true} />
             ))}
           </section>
 

@@ -41,7 +41,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
       <div className="md:flex py-4">
         <section className="md:w-[70%]">
           {diaries.sorted.map(diary => (
-            <Card key={diary.slug} diary={diary} />
+            <Card key={diary.slug} diary={diary} showContent={true} />
           ))}
         </section>
 
