@@ -46,6 +46,8 @@ const Page = async ({ params }: { params: { slug: string }}) => {
               </div>
             </section>
 
+            <div className="py-4" />
+
             {location ? <p className="mt-3 mb-2 text-xs text-gray-500">
                 <MapPinIcon className="w-4 h-4 inline-block pb-0.5 mr-1.5" />
                 {location}
