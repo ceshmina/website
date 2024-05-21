@@ -137,11 +137,27 @@ export class Camera {
 export class Exif {
   public model: string | null
   public lens: string | null
+  public focalLength: string | null
   public focalLength35: string | null
+  public fNumber: string | null
+  public exposureTime: string | null
+  public isoSpeedRatings: string | null
 
-  constructor(model: string | null, lens: string | null, focalLength35: string | null = null) {
+  constructor(
+    model: string | null,
+    lens: string | null,
+    focalLength: string | null,
+    focalLength35: string | null,
+    fNumber: string | null,
+    exposureTime: string | null,
+    isoSpeedRatings: string | null
+  ) {
     this.model = model
     this.lens = lens
+    this.focalLength = focalLength
     this.focalLength35 = focalLength35
+    this.fNumber = fNumber
+    this.exposureTime = exposureTime
+    this.isoSpeedRatings = isoSpeedRatings
   }
 }

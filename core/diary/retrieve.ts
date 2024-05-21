@@ -37,7 +37,11 @@ export const getExifByImgUrl = cache(async (url: string) => {
   return new Exif(
     json.Model || null,
     json.LensModel || null,
-    json.FocalLengthIn35mmFilm || null
+    json.FocalLength || null,
+    json.FocalLengthIn35mmFilm || null,
+    json.FNumber || null,
+    json.ExposureTime || null,
+    json.ISOSpeedRatings || null
   )
 })
 
@@ -71,7 +75,11 @@ export const getCamerasByImgUrl = async (url: string) => {
 export const getMetaDataByImgUrl = async (url: string) => {
   const exif = await getExifByImgUrl(url)
   return {
-    focalLength35: exif.focalLength35
+    focalLength: exif.focalLength,
+    focalLength35: exif.focalLength35,
+    fNumber: exif.fNumber,
+    exposureTime: exif.exposureTime,
+    isoSpeedRatings: exif.isoSpeedRatings
   }
 }
 
