@@ -33,7 +33,6 @@ export const getExifByImgUrl = cache(async (url: string) => {
   const exifUrl = url.replace('medium', 'exif').replace('.jpg', '.json')
   const res = await fetch(exifUrl)
   const json = await res.json()
-  console.log(json)
   return new Exif(
     json.Model || null,
     json.LensModel || null,
