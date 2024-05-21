@@ -22,6 +22,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
     const diariesAll = await getDiaries('data/diary')
     const months = aggByMonth(diariesAll.items)
     const camerasAll = await aggCameras(diariesAll.items)
+    const showImgMetaData = slug >= '20240521'
 
     return (
       <main className="max-w-[800px] mx-auto p-4">
@@ -42,7 +43,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
           <div className="md:w-[70%]">
             <section>
               <div className="py-[13px] text-sm">
-                <Article content={diary.content} />
+                <Article content={diary.content} showImgMetaData={showImgMetaData} />
               </div>
             </section>
 

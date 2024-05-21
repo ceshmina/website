@@ -29,12 +29,17 @@ export const getDiariesByMonth = async (diaries: Diary[], slug: string) => {
   return new DiaryCollection(diaries.filter(diary => diary.month === slug))
 }
 
-export const getExifByImgUrl = async (url: string) => {
+export const getExifByImgUrl = cache(async (url: string) => {
   const exifUrl = url.replace('medium', 'exif').replace('.jpg', '.json')
   const res = await fetch(exifUrl)
   const json = await res.json()
-  return new Exif(json.Model || null, json.LensModel || null)
-}
+  console.log(json)
+  return new Exif(
+    json.Model || null,
+    json.LensModel || null,
+    json.FocalLengthIn35mmFilm || null
+  )
+})
 
 export const getCameras = async (diary: Diary) => {
   const exifs = await Promise.all(diary.imgUrls().map(async url => await getExifByImgUrl(url)))
@@ -61,6 +66,13 @@ export const getCamerasByImgUrl = async (url: string) => {
     if (lens) res.push(lens)
   }
   return res
+}
+
+export const getMetaDataByImgUrl = async (url: string) => {
+  const exif = await getExifByImgUrl(url)
+  return {
+    focalLength35: exif.focalLength35
+  }
 }
 
 export const getDiariesByCamera = async (diaries: Diary[], slug: string) => {

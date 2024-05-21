@@ -137,9 +137,11 @@ export class Camera {
 export class Exif {
   public model: string | null
   public lens: string | null
+  public focalLength35: string | null
 
-  constructor(model: string | null, lens: string | null) {
+  constructor(model: string | null, lens: string | null, focalLength35: string | null = null) {
     this.model = model
     this.lens = lens
+    this.focalLength35 = focalLength35
   }
 }
