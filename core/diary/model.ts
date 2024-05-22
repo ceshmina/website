@@ -105,7 +105,8 @@ export class Camera {
     { type: 'lens', slug: 'sel40f25g', name: 'FE 40mm F2.5 G', exif: 'FE 40mm F2.5 G' },
     { type: 'lens', slug: 'sel90m28g', name: 'FE 90mm F2.8 Macro G OSS', exif: 'FE 90mm F2.8 Macro G OSS' },
     { type: 'lens', slug: 'sel1635z', name: 'Vario-Tessar T* FE 16-35mm F4 ZA OSS', exif: 'FE 16-35mm F4 ZA OSS' },
-    { type: 'lens', slug: 'sel55f18z', name: 'Sonnar T* FE 55mm F1.8 ZA', exif: 'FE 55mm F1.8 ZA' }
+    { type: 'lens', slug: 'sel55f18z', name: 'Sonnar T* FE 55mm F1.8 ZA', exif: 'FE 55mm F1.8 ZA' },
+    { type: 'lens', slug: 'cy50f14', name: 'CONTAX Planar T* 50mm F1.4 AE', exif: 'CONTAX Planar T* 50mm F1.4 AE' }
   ]
 
   constructor(type: string, slug: string, name: string, exif: string) {
