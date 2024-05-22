@@ -31,7 +31,7 @@ const Image = async (props: { src: string | null, showMetaData? : boolean }) => 
       if (isoSpeedRatings) {
         metaData.push(`ISO${isoSpeedRatings}`)
       }
-      cameraCaption += metaData.length ? `- ${metaData.join(', ')}` : ''
+      cameraCaption += metaData.length ? ` - ${metaData.join(', ')}` : ''
     }
   }
 
