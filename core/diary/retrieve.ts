@@ -30,7 +30,7 @@ export const getDiariesByMonth = async (diaries: Diary[], slug: string) => {
 }
 
 export const getExifByImgUrl = cache(async (url: string) => {
-  const exifUrl = url.replace('medium', 'exif').replace('.jpg', '.json')
+  const exifUrl = url.split(' ')[0].replace('medium', 'exif').replace('.jpg', '.json')
   const res = await fetch(exifUrl)
   const json = await res.json()
   return new Exif(

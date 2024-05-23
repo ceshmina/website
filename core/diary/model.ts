@@ -38,7 +38,7 @@ export class Diary {
     const urls: string[] = []
     let match: RegExpExecArray | null
     while (match = regex.exec(this.content)) {
-      urls.push(match[1])
+      urls.push(match[1].split(' ')[0])
     }
     return urls
   }

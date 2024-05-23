@@ -1,8 +1,8 @@
 import { getCamerasByImgUrl, getMetaDataByImgUrl } from "@/core/diary/retrieve"
 import { isIP } from "net"
 
-const Image = async (props: { src: string | null, showMetaData? : boolean }) => {
-  const { src, showMetaData } = props
+const Image = async (props: { src: string | null, alt: string, title?: string, showMetaData? : boolean }) => {
+  const { src, alt, title, showMetaData } = props
   if (!src) return null
 
   const cameras = await getCamerasByImgUrl(src)
@@ -36,10 +36,9 @@ const Image = async (props: { src: string | null, showMetaData? : boolean }) => 
   }
 
   return (<>
-    <img src={src} className="py-1" />
-    <p className="text-xs text-gray-500 italic">
-      {cameraCaption}
-    </p>
+    <img src={src} alt={alt} className="py-1" />
+    {title && <p className="text-xs text-gray-500 italic">{title}</p>}
+    <p className="text-xs text-gray-500 italic">{cameraCaption}</p>
   </>)
 }
 
