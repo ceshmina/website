@@ -110,7 +110,7 @@ export class Camera {
     { type: 'lens', slug: 'sel55f18z', name: 'Sonnar T* FE 55mm F1.8 ZA', exif: 'FE 55mm F1.8 ZA' },
     { type: 'lens', slug: 'cy50f14', name: 'CONTAX Planar T* 50mm F1.4 AE', exif: 'CONTAX Planar T* 50mm F1.4 AE' },
     { type: 'lens', slug: 'h-h025', name: 'LUMIX G 25mm F1.7 Asph.', exif: 'LUMIX G 25/F1.7' },
-    { type: 'lens', slug: 'h-fs12032', name: 'LUMIX G VARIO 12-32mm F3.5-5.6 Asph. Mega O.I.S.', exif: 'LUMIX G VARIO 12-32/F3.5-5.6' },
+    { type: 'lens', slug: 'h-fs12032', name: 'LUMIX G Vario 12-32mm F3.5-5.6 Asph. Mega O.I.S.', exif: 'LUMIX G VARIO 12-32/F3.5-5.6' },
     { type: 'lens', slug: 'fdx1855', name: 'AF-P DX NIKKOR 18-55mm F3.5-5.6G VR', exif: '18.0-55.0 mm f/3.5-5.6' },
     { type: 'lens', slug: 'fdx70300', name: 'AF-P DX NIKKOR 70-300mm F4.5-6.3G ED VR', exif: '70.0-300.0 mm f/4.5-6.3' },
     { type: 'lens', slug: 'fdx35f18', name: 'AF-S DX NIKKOR 35mm F1.8G', exif: '35.0 mm f/1.8' }
