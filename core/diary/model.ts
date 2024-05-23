@@ -99,6 +99,8 @@ export class Camera {
     { type: 'camera', slug: 'ilce-7m3', name: 'α7 III', exif: 'ILCE-7M3' },
     { type: 'camera', slug: 'ilce-7s', name: 'α7S', exif: 'ILCE-7S' },
     { type: 'camera', slug: 'a3101', name: 'iPhone 15 Pro', exif: 'iPhone 15 Pro' },
+    { type: 'camera', slug: 'dc-gf9', name: 'LUMIX GF9', exif: 'DC-GF9' },
+    { type: 'camera', slug: 'd5600', name: 'D5600', exif: 'NIKON D5600' },
     { type: 'lens', slug: 'sel24105g', name: 'FE 24-105mm F4 G OSS', exif: 'FE 24-105mm F4 G OSS' },
     { type: 'lens', slug: 'sel70300g', name: 'FE 70-300mm F4.5-5.6 G OSS', exif: 'FE 70-300mm F4.5-5.6 G OSS' },
     { type: 'lens', slug: 'sel24f28g', name: 'FE 24mm F2.8 G', exif: 'FE 24mm F2.8 G' },
@@ -106,7 +108,9 @@ export class Camera {
     { type: 'lens', slug: 'sel90m28g', name: 'FE 90mm F2.8 Macro G OSS', exif: 'FE 90mm F2.8 Macro G OSS' },
     { type: 'lens', slug: 'sel1635z', name: 'Vario-Tessar T* FE 16-35mm F4 ZA OSS', exif: 'FE 16-35mm F4 ZA OSS' },
     { type: 'lens', slug: 'sel55f18z', name: 'Sonnar T* FE 55mm F1.8 ZA', exif: 'FE 55mm F1.8 ZA' },
-    { type: 'lens', slug: 'cy50f14', name: 'CONTAX Planar T* 50mm F1.4 AE', exif: 'CONTAX Planar T* 50mm F1.4 AE' }
+    { type: 'lens', slug: 'cy50f14', name: 'CONTAX Planar T* 50mm F1.4 AE', exif: 'CONTAX Planar T* 50mm F1.4 AE' },
+    { type: 'lens', slug: 'h-h025', name: 'LUMIX G 25mm F1.7 Asph.', exif: 'LUMIX G 25/F1.7' },
+    { type: 'lens', slug: 'fdx1855', name: 'AF-P DX NIKKOR 18-55mm F3.5-5.6G VR', exif: '18.0-55.0 mm f/3.5-5.6' }
   ]
 
   constructor(type: string, slug: string, name: string, exif: string) {
