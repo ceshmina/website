@@ -13,6 +13,8 @@ const Article = (props: { content: string, showImgMetaData?: boolean }) => {
       ),
       img: ({ src }) => <div className="py-4"><Image src={src || null} showMetaData={showImgMetaData} /></div>,
       hr: () => <hr className="mx-auto my-8 w-[300px] max-w-[50%] h-[3px] bg-gray-200 border-0 rounded" />,
+      ul: ({ children }) => <ul className="py-3 pl-5 list-disc">{children}</ul>,
+      li: ({ children }) => <li className="py-0.5">{children}</li>,
     }} >{content}</Markdown>
   )
 }
