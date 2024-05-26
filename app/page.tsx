@@ -12,6 +12,7 @@ const performances = [
   { date: '20240428', title: 'フォルクローレ演奏会2024 en IRIFUNE', note: 'as YAMA' },
   { date: '20240506', title: '水道橋フォルクローレライブ春', note: 'as Grupo Brothers/with tapaTunes' },
   { date: '20240519', title: '第27回三木山フォルクローレ音楽祭' },
+  { date: '20240525', title: '', note: 'as Los Amidas/with ショルヘーノ, すずきかのん, 多賀文音' }
 ]
 
 const Page = () => {
@@ -99,7 +100,11 @@ const Page = () => {
             {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).map((p, idx) => {
               const n = performances.length - idx
               const dateStr = format(parse(p.date, 'yyyyMMdd', new Date), 'MMM d, yyyy')
-              return <p className="py-1" key={idx}>{n}. {dateStr}, <span className="italic">{p.title}</span>{p.note ? ` (${p.note})` : ''}.</p>
+              if (!p.title)
+                return <p className="py-1" key={idx}>{n}. {dateStr} ({p.note}).</p>
+              else {
+                return <p className="py-1" key={idx}>{n}. {dateStr}, <span className="italic">{p.title}</span>{p.note ? ` (${p.note})` : ''}.</p>
+              }
             })}
           </div>
         </div>
