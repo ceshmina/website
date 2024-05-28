@@ -15,10 +15,12 @@ export const aggByMonth = (diaries: Diary[]) => {
 
 export const aggCameras = async (diaries: Diary[]) => {
   const cameras = await Promise.all(diaries.map(async diary => await getCameras(diary)))
+  // exifの表記揺れを吸収するため、slugが同じなら同じとみなす
+  const slugs = cameras.map(cs => [...new Set(cs.map(c => c.slug))])
   const counts: Map<string, number> = new Map()
-  cameras.flat().forEach(camera => {
-    const count = counts.get(camera.slug) || 0
-    counts.set(camera.slug, count + 1)
+  slugs.flat().forEach(slug => {
+    const count = counts.get(slug) || 0
+    counts.set(slug, count + 1)
   })
   const res = Array.from(counts.entries())
     .map(([slug, count]) => ({ camera: Camera.bySlug(slug), count }))

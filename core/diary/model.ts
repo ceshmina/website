@@ -98,6 +98,8 @@ export class Camera {
   static cameraMaster = [
     { type: 'camera', slug: 'ilce-7m3', name: 'α7 III', exif: 'ILCE-7M3' },
     { type: 'camera', slug: 'ilce-7s', name: 'α7S', exif: 'ILCE-7S' },
+    { type: 'camera', slug: 'a2402', name: 'iPhone 12', exif: 'foodie' },
+    { type: 'camera', slug: 'a2402', name: 'iPhone 12', exif: 'iPhone 12' },
     { type: 'camera', slug: 'a3101', name: 'iPhone 15 Pro', exif: 'iPhone 15 Pro' },
     { type: 'camera', slug: 'dc-gf9', name: 'LUMIX GF9', exif: 'DC-GF9' },
     { type: 'camera', slug: 'd5600', name: 'D5600', exif: 'NIKON D5600' },
