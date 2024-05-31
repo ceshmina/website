@@ -8,6 +8,23 @@ const discography = [
 ]
 
 const performances = [
+  { date: '20230219', title: '冬のアルスコンサート', note: 'as Grupo Brothers' },
+  { date: '20230313', title: '筑波大学フォルクローレ愛好会定期コンサート', note: 'as Grupo Brothers' },
+  { date: '20230409', title: 'アンデスの家ボリビア インストアライブ', note: 'as YAMA' },
+  { date: '20230503', title: 'フォルクローレ演奏会2023 en IRIFUNE', note: 'as YAMA' },
+  { date: '20230618', title: '', note: 'as YAMA' },
+  { date: '20230805', title: 'デイケアなんかい コンサート', note: 'as YAMA' },
+  { date: '20230805', title: 'MGユースホステル コンサート', note: 'as YAMA' },
+  { date: '20230806', title: '原爆ピアノ アオギリ平和コンサート', note: 'as YAMA' },
+  { date: '20230806', title: 'きっちんたまがわ コンサート', note: 'as YAMA' },
+  { date: '20230811', title: 'COSQUIN en JAPON 2023', note: 'as Grupo Brothers' },
+  { date: '20230812', title: 'COSQUIN en JAPON 2023 (サブステージ)', note: 'as YAMA' },
+  { date: '20231028', title: 'フォルク人達', note: 'as YAMA/with アシタバ' },
+  { date: '20231104', title: 'マチュピチュ・エン・ハポン2023', note: 'as YAMA' },
+  { date: '20231105', title: 'アンデスの響きコンサート', note: 'as YAMA/with MAYA, Raul Olarte' },
+  { date: '20231125', title: '三田祭', note: 'support' },
+  { date: '20240217', title: '冬のアルスコンサート', note: 'as Grupo Brothers' },
+  { date: '20240225', title: 'ワールドミュージックフェスタ', note: 'as Grupo Brothers' },
   { date: '20240421', title: 'ホセ犬伏『再会のサンバ』リリース記念フォルクローレコンサート', note: 'support' },
   { date: '20240428', title: 'フォルクローレ演奏会2024 en IRIFUNE', note: 'as YAMA' },
   { date: '20240506', title: '水道橋フォルクローレライブ春', note: 'as Grupo Brothers/with tapaTunes' },
@@ -95,7 +112,7 @@ const Page = () => {
               </p>
             })}
           </div>
-          <h3 className="pt-4 pb-2">Performances <span className="text-sm">(since April 2024)</span></h3>
+          <h3 className="pt-4 pb-2">Performances <span className="text-sm">(since 2023)</span></h3>
           <div className="text-sm">
             {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).map((p, idx) => {
               const n = performances.length - idx
