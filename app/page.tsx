@@ -117,10 +117,11 @@ const Page = () => {
             {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).map((p, idx) => {
               const n = performances.length - idx
               const dateStr = format(parse(p.date, 'yyyyMMdd', new Date), 'MMM d, yyyy')
+              const dateLink = <Link href={`/diary/entry/${p.date}`} className="text-blue-600">{dateStr}</Link>
               if (!p.title)
-                return <p className="py-1" key={idx}>{n}. {dateStr} ({p.note}).</p>
+                return <p className="py-1" key={idx}>{n}. {dateLink} ({p.note}).</p>
               else {
-                return <p className="py-1" key={idx}>{n}. {dateStr}, <span className="italic">{p.title}</span>{p.note ? ` (${p.note})` : ''}.</p>
+                return <p className="py-1" key={idx}>{n}. {dateLink}, <span className="italic">{p.title}</span>{p.note ? ` (${p.note})` : ''}.</p>
               }
             })}
           </div>
