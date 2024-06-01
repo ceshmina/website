@@ -7,7 +7,7 @@
 }
 [data-rmiz-btn-zoom],
 [data-rmiz-btn-unzoom] {
-  background-color: rgba(160, 160, 160, 0.8);
+  background-color: rgba(0, 0, 0, 0.85);
   border-radius: 50%;
   border: none;
   box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
