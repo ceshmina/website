@@ -7,7 +7,7 @@
 }
 [data-rmiz-btn-zoom],
 [data-rmiz-btn-unzoom] {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(160, 160, 160, 0.8);
   border-radius: 50%;
   border: none;
   box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
@@ -75,7 +75,7 @@
   background-color: rgba(255, 255, 255, 0);
 }
 [data-rmiz-modal-overlay="visible"] {
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 [data-rmiz-modal-content] {
   position: relative;
@@ -94,4 +94,24 @@
   [data-rmiz-modal-img] {
     transition-duration: 0.01ms !important;
   }
+}
+.zoom-caption {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 1.7rem 2.5rem;
+  opacity: 0.0001;
+  transition: opacity 0.3s;
+}
+.zoom-caption--loaded {
+  opacity: 1;
+}
+.zoom-caption--bottom {
+  inset: auto 0 0 0;
+}
+.zoom-caption--left {
+  max-width: 40rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
