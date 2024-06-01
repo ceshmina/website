@@ -53,7 +53,7 @@ const ImageView = (props: { src: string | null, alt: string, title?: string, cap
       {buttonUnzoom}
       <figure>
         {img}
-        <figcaption className={`${classCaption} text-center text-xs text-gray-100`}>
+        <figcaption className={classCaption}>
           {caption}
         </figcaption>
       </figure>

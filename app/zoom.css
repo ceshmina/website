@@ -99,7 +99,8 @@
   position: absolute;
   background-color: rgba(0, 0, 0, 0.85);
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 12px;
+  text-align: center;
   padding: 1.7rem 2.5rem;
   opacity: 0.0001;
   transition: opacity 0.3s;
