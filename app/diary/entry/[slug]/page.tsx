@@ -23,7 +23,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
     const diariesAll = await getDiaries('data/diary')
     const months = aggByMonth(diariesAll.items)
     const camerasAll = await aggCameras(diariesAll.items)
-    const showImgMetaData = slug >= '20240521'
+    const showImgMetaData = true  // slug >= '20240521'
 
     const locations = aggByLocation(diariesAll.items)
 
