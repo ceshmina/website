@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Bitter, Noto_Sans_JP } from 'next/font/google'
+import './zoom.css'
 import './globals.css'
 
 const mainFont = Bitter({ subsets: ['latin'], weight: ["300", "500"], variable: '--font-main' })

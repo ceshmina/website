@@ -1,5 +1,5 @@
-import { getCamerasByImgUrl, getMetaDataByImgUrl } from "@/core/diary/retrieve"
-import { isIP } from "net"
+import { getCamerasByImgUrl, getMetaDataByImgUrl } from '@/core/diary/retrieve'
+import ImageView from '@/components/diary/imageview'
 
 const Image = async (props: { src: string | null, alt: string, title?: string, showMetaData? : boolean }) => {
   const { src, alt, title, showMetaData } = props
@@ -35,11 +35,7 @@ const Image = async (props: { src: string | null, alt: string, title?: string, s
     }
   }
 
-  return (<>
-    <img src={src} alt={alt} className="py-1" />
-    {title && <p className="text-xs text-gray-500 italic">{title}</p>}
-    <p className="text-xs text-gray-500 italic">{cameraCaption}</p>
-  </>)
+  return <ImageView src={src} alt={alt} title={title} caption={cameraCaption} />
 }
 
 export default Image
