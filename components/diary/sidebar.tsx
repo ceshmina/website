@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Month, Camera } from '@/core/diary/model'
+import { Month, Camera, Location } from '@/core/diary/model'
 
 type Props = {
   months: { month: Month, count: number }[]
@@ -31,11 +31,12 @@ const Sidebar = (props: Props) => {
 
       <h2 className="mt-8 text-sm font-medium">場所別</h2>
       <div className="my-4 text-xs text-gray-500">
-        {locations.map(({ location, count }) =>
-          <p key={location} className="my-1.5">
-            <Link href={`/diary/location/${location}`} className="text-blue-500">{location} ({count})</Link>
-          </p>
-        )}
+        {locations.map(({ location, count }) => {
+          const locSlug = Location.byName(location).slug
+          return (<p key={location} className="my-1.5">
+            <Link href={`/diary/location/${locSlug}`} className="text-blue-500">{location} ({count})</Link>
+          </p>)
+        })}
       </div>
     </div>
   )

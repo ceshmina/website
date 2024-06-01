@@ -171,3 +171,23 @@ export class Exif {
     this.isoSpeedRatings = isoSpeedRatings
   }
 }
+
+export class Location {
+  public slug: string
+  public name: string
+
+  constructor(slug: string, name: string) {
+    this.slug = slug
+    this.name = name
+  }
+
+  static bySlug(slug: string): Location {
+    const name = decodeURIComponent(slug)
+    return new Location(slug, name)
+  }
+
+  static byName(name: string): Location {
+    const slug = encodeURIComponent(name)
+    return new Location(slug, name)
+  }
+}

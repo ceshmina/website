@@ -1,6 +1,6 @@
 import { cache } from 'react'
 import { promises as fs } from 'fs'
-import { Diary, DiaryCollection, Camera, Exif } from '@/core/diary/model'
+import { Diary, DiaryCollection, Camera, Exif, Location } from '@/core/diary/model'
 
 export const getDiaries = cache(async (dir: string) => {
   const _getDiaries = async (dir: string) => {
@@ -114,4 +114,9 @@ export const getThumbnailUrlsBySlug = cache(async (diary: Diary, slug: string) =
     }
   }
   return res.map(url => url.replace('medium', 'thumbnail'))
+})
+
+export const getDiariesByLocation = cache(async (diaries: Diary[], slug: string) => {
+  const locName = Location.bySlug(slug).name
+  return new DiaryCollection(diaries.filter(diary => diary.location === locName))
 })
