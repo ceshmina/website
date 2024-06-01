@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { MapPinIcon, CameraIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import { Location } from '@/core/diary/model'
 import { aggByMonth, aggByLocation, aggCameras } from '@/core/diary/aggregate'
 import { getDiaries, getDiaryBySlug, getCameras } from '@/core/diary/retrieve'
 import Article from '@/components/diary/article'
@@ -16,7 +17,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
   const diaryItem = await getDiaryBySlug('data/diary', slug)
   if (diaryItem) {
     const { diary, prev, next } = diaryItem
-    const location = diary.location || 'Tokyo, Japan'
+    const location = Location.byName(diary.location)
     const cameras = await getCameras(diary)
 
     const diariesAll = await getDiaries('data/diary')
@@ -53,7 +54,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
 
             {location ? <p className="mt-3 mb-2 text-xs text-gray-500">
                 <MapPinIcon className="w-4 h-4 inline-block pb-0.5 mr-1.5" />
-                {location}
+                <Link href={`/diary/location/${location.slug}`} className="text-blue-500">{location.name}</Link>
               </p> : null}
             {cameras.length > 0 ? (
               <p className="mt-2 mb-3 text-xs text-gray-500">
