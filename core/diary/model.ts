@@ -5,7 +5,7 @@ export class Diary {
   slug: string
   date: Date
   title: string | null
-  location: string | null
+  location: string
   content: string
 
   constructor(slug: string, mdContent: string) {
@@ -13,7 +13,7 @@ export class Diary {
     this.date = parse(slug, 'yyyyMMdd', new Date())
     const { data, content } = matter(mdContent)
     this.title = data.title || null
-    this.location = data.location || null
+    this.location = data.location || 'Tokyo, Japan'
     this.content = content
   }
 

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { DIARY_PER_PAGE } from '@/config'
 import { DiaryCollection } from '@/core/diary/model'
-import { aggByMonth, aggCameras } from '@/core/diary/aggregate'
+import { aggByMonth, aggByLocation, aggCameras } from '@/core/diary/aggregate'
 import { getDiaries } from '@/core/diary/retrieve'
 import Card from '@/components/diary/card'
 import Sidebar from '@/components/diary/sidebar'
@@ -25,6 +25,7 @@ const Page = async ({ params }: { params: { page: string }}) => {
   const diaries = new DiaryCollection(diariesAll.sorted.slice(paginator.minIndex(pageInt), paginator.maxIndex(pageInt)))
 
   const months = aggByMonth(diariesAll.items)
+  const locations = aggByLocation(diariesAll.items)
   const cameras = await aggCameras(diariesAll.items)
 
   return (
@@ -50,7 +51,7 @@ const Page = async ({ params }: { params: { page: string }}) => {
         </div>
 
         <div className="md:w-[30%] md:pl-4 py-4">
-          <Sidebar months={months} cameras={cameras} />
+          <Sidebar months={months} cameras={cameras} locations={locations} />
         </div>
       </div>
     </main>

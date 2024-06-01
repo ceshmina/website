@@ -13,6 +13,18 @@ export const aggByMonth = (diaries: Diary[]) => {
     .map(([month, count]) => ({ month: Month.bySlug(month), count }))
 }
 
+export const aggByLocation = (diaries: Diary[]) => {
+  const counts: Map<string, number> = new Map()
+  diaries.forEach(diary => {
+    const location = diary.location
+    const count = counts.get(location) || 0
+    counts.set(location, count + 1)
+  })
+  return Array.from(counts.entries())
+    .map(([location, count]) => ({ location, count }))
+    .sort((a, b) => a.location.localeCompare(b.location))
+}
+
 export const aggCameras = async (diaries: Diary[]) => {
   const cameras = await Promise.all(diaries.map(async diary => await getCameras(diary)))
   // exifの表記揺れを吸収するため、slugが同じなら同じとみなす
