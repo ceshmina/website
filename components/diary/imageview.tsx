@@ -61,7 +61,7 @@ const ImageView = (props: { src: string | null, alt: string, title?: string, cap
   }
 
   return (<div>
-    <Zoom ZoomContent={ZoomContent} zoomMargin={16}>
+    <Zoom ZoomContent={ZoomContent}>
       <img src={src} alt={alt} title={title} loading='lazy' />
       <div className="pt-1">
         {title && <p className="text-xs text-gray-500 italic">{title}</p>}
