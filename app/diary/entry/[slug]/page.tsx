@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { MapPinIcon, CameraIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
 import { Location } from '@/core/diary/model'
-import { aggByMonth, aggByLocation, aggCameras } from '@/core/diary/aggregate'
+import { aggByLocation } from '@/core/diary/aggregate'
 import { getDiaries, getDiaryBySlug, getCameras } from '@/core/diary/retrieve'
 import Article from '@/components/diary/article'
 import Sidebar from '@/components/diary/sidebar'
@@ -21,8 +21,6 @@ const Page = async ({ params }: { params: { slug: string }}) => {
     const cameras = await getCameras(diary)
 
     const diariesAll = await getDiaries('data/diary')
-    const months = aggByMonth(diariesAll.items)
-    const camerasAll = await aggCameras(diariesAll.items)
     const showImgMetaData = true  // slug >= '20240521'
 
     const locations = aggByLocation(diariesAll.items)
@@ -83,7 +81,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
           </div>
 
           <div className="md:w-[30%] md:pl-4 py-4">
-            <Sidebar months={months} cameras={camerasAll} locations={locations} />
+            <Sidebar />
           </div>
         </div>
       </main>

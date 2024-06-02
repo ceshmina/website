@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Location } from '@/core/diary/model'
-import { aggByMonth, aggByLocation, aggCameras } from '@/core/diary/aggregate'
+import { aggByLocation } from '@/core/diary/aggregate'
 import { getDiaries, getDiariesByLocation } from '@/core/diary/retrieve'
 import Card from '@/components/diary/card'
 import Sidebar from '@/components/diary/sidebar'
@@ -19,10 +19,6 @@ const Page = async ({ params }: { params: { slug: string }}) => {
   const diariesAll = await getDiaries('data/diary')
   const diaries = await getDiariesByLocation(diariesAll.items, slug)
   const n = diaries.items.length
-
-  const months = aggByMonth(diariesAll.items)
-  const locations = aggByLocation(diariesAll.items)
-  const cameras = await aggCameras(diariesAll.items)
 
   return (
     <main className="max-w-[800px] mx-auto p-4">
@@ -47,7 +43,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
         </section>
 
         <div className="md:w-[30%] md:pl-4 py-4">
-          <Sidebar months={months} cameras={cameras} locations={locations} />
+          <Sidebar />
         </div>
       </div>
     </main>

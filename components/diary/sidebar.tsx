@@ -1,14 +1,13 @@
 import Link from 'next/link'
-import { Month, Camera, Location } from '@/core/diary/model'
+import { getDiaries } from '@/core/diary/retrieve'
+import { aggByMonth, aggByLocation, aggCameras } from '@/core/diary/aggregate'
+import { Location } from '@/core/diary/model'
 
-type Props = {
-  months: { month: Month, count: number }[]
-  cameras: { camera: Camera, count: number }[]
-  locations: { location: string, count: number }[]
-}
-
-const Sidebar = (props: Props) => {
-  const { months, cameras, locations } = props
+const Sidebar = async () => {
+  const diaries = await getDiaries('data/diary')
+  const months = aggByMonth(diaries.items)
+  const locations = aggByLocation(diaries.items)
+  const cameras = await aggCameras(diaries.items)
   return (
     <div>
       <h2 className="text-sm font-medium">月別</h2>
