@@ -29,7 +29,8 @@ const performances = [
   { date: '20240428', title: 'フォルクローレ演奏会2024 en IRIFUNE', location: 'Yokohama', note: 'as YAMA' },
   { date: '20240506', title: '水道橋フォルクローレライブ春', location: 'Tokyo', note: 'as Grupo Brothers/with tapaTunes' },
   { date: '20240519', title: '第27回三木山フォルクローレ音楽祭', location: 'Miki' },
-  { date: '20240525', title: '', location: 'Hamura', note: 'as Los Amidas/with ショルヘーノ, すずきかのん, 多賀文音' }
+  { date: '20240525', title: '', location: 'Hamura', note: 'as Los Amidas/with ショルヘーノ, すずきかのん, 多賀文音' },
+  { date: '20240602', title: '', location: 'Sodegaura', note: 'as Grupo Brothers' }
 ]
 
 const Page = () => {
