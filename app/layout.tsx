@@ -5,7 +5,7 @@ import './globals.css'
 
 const mainFont = Bitter({ subsets: ['latin'], weight: ["300", "500"], variable: '--font-main' })
 const mainJPFont = Noto_Sans_JP({ subsets: ['latin'], weight: ["300", "500"], variable: '--font-jp' })
-const monoFont = Sono({ subsets: ['latin'], weight: ["400"], variable: '--font-mono' })
+const monoFont = Sono({ subsets: ['latin'], weight: ["300"], variable: '--font-code' })
 
 export const metadata: Metadata = {
   title: 'ceshmina'
