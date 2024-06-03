@@ -15,6 +15,7 @@ const Article = (props: { content: string, showImgMetaData?: boolean }) => {
       hr: () => <hr className="mx-auto my-8 w-[300px] max-w-[50%] h-[3px] bg-gray-200 border-0 rounded" />,
       ul: ({ children }) => <ul className="py-3 pl-5 list-disc">{children}</ul>,
       li: ({ children }) => <li className="py-0.5">{children}</li>,
+      code: ({ children }) => <code className="text-[13px] bg-gray-200 px-1.5 py-0.5 rounded">{children}</code>,
     }} >{content}</Markdown>
   )
 }
