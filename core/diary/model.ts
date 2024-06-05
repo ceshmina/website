@@ -196,10 +196,14 @@ export class Photo {
   public imgUrl: string
   public thumbnailUrl: string
   public date: string
+  public diaryLink: string
+  public diaryTitle: string
 
-  constructor(imgUrl: string, thumbnailUrl: string, date: string) {
+  constructor(imgUrl: string, thumbnailUrl: string, date: string, diaryLink: string, diaryTitle: string) {
     this.imgUrl = imgUrl
     this.thumbnailUrl = thumbnailUrl
     this.date = date
+    this.diaryLink = diaryLink
+    this.diaryTitle = diaryTitle
   }
 }

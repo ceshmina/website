@@ -1,7 +1,6 @@
 import { cache } from 'react'
 import { promises as fs } from 'fs'
 import { Diary, DiaryCollection, Camera, Exif, Location, Photo } from '@/core/diary/model'
-import { format } from 'date-fns'
 
 export const getDiaries = cache(async (dir: string) => {
   const _getDiaries = async (dir: string) => {
@@ -125,8 +124,11 @@ export const getDiariesByLocation = cache(async (diaries: Diary[], slug: string)
 export const getAllImages = cache(async (diaries: Diary[]) => {
   return diaries.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .flatMap(diary => diary.imgUrls().reverse().map(url => new Photo(
-      url,
-      url.replace('medium', 'thumbnail'),
-      format(diary.date, 'yyyyMMdd')
-    )))
+        url,
+        url.replace('medium', 'thumbnail'),
+        diary.slug,
+        `/diary/entry/${diary.slug}`,
+        diary.showTitle
+      )
+    ))
 })

@@ -13,8 +13,8 @@ const cx = (mods: Record<string, boolean>): string => {
   return cns.join(' ')
 }
 
-const ImageThumbnail = (props: { src: string, largeSrc: string }) => {
-  const { src, largeSrc } = props
+const ImageThumbnail = (props: { src: string, largeSrc: string, diaryLink: string, diaryTitle: string }) => {
+  const { src, largeSrc, diaryLink, diaryTitle } = props
   if (!src) return null
 
   const ZoomContent = ({ buttonUnzoom, modalState, img }: {
@@ -53,6 +53,9 @@ const ImageThumbnail = (props: { src: string, largeSrc: string }) => {
       {buttonUnzoom}
       <figure>
         {img}
+        <figcaption className={classCaption}>
+          <a href={diaryLink} className='text-blue-500'>{diaryTitle}</a>
+        </figcaption>
       </figure>
     </div>
   }
