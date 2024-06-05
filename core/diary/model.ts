@@ -191,3 +191,15 @@ export class Location {
     return new Location(slug, name)
   }
 }
+
+export class Photo {
+  public imgUrl: string
+  public thumbnailUrl: string
+  public date: string
+
+  constructor(imgUrl: string, thumbnailUrl: string, date: string) {
+    this.imgUrl = imgUrl
+    this.thumbnailUrl = thumbnailUrl
+    this.date = date
+  }
+}

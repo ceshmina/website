@@ -4,7 +4,7 @@ import { EN_TITLE_FONT } from '@/config'
 
 const Page = async () => {
   const diaries = await getDiaries('data/diary')
-  const imgUrls = await getAllImages(diaries.items)
+  const photos = await getAllImages(diaries.items)
 
   return (
     <main className="max-w-[800px] mx-auto p-4">
@@ -20,12 +20,23 @@ const Page = async () => {
       </section>
 
       <div className="py-8">
-        {imgUrls.map((url, i) => {
-          const thumbnailUrl = url.replace('medium', 'thumbnail')
-          if (i % 5 === 0) {
-            return <img key={i} src={thumbnailUrl} className="w-[18%] mb-[2%] object-cover inline-block" />
+        {photos.map((p, i) => {
+          const thumbnailUrl = p.thumbnailUrl
+          const showDate = i === 0 || p.date !== photos[i - 1].date
+          let className = 'w-[18%] object-cover inline-block'
+          if (i % 5 !== 0) {
+            className += ' ml-[2%]'
+          }
+          if (showDate) {
+            return <div key={i} className={className}>
+              <p className="text-[10px] md:text-xs text-gray-500">{p.date}</p>
+              <img src={thumbnailUrl} />
+            </div>
           } else {
-            return <img key={i} src={thumbnailUrl} className="w-[18%] mb-[2%] ml-[2%] object-cover inline-block" />
+            return <div key={i} className={className}>
+              <p className="text-[10px] md:text-xs text-gray-500">&nbsp;</p>
+              <img src={thumbnailUrl} />
+            </div>
           }
         })}
       </div>
