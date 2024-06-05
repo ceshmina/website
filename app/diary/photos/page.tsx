@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getDiaries, getAllImages } from '@/core/diary/retrieve'
 import { EN_TITLE_FONT } from '@/config'
+import ImageThumbnail from '@/components/diary/imagethumbnail'
 
 const Page = async () => {
   const diaries = await getDiaries('data/diary')
@@ -21,6 +22,7 @@ const Page = async () => {
 
       <div className="py-8">
         {photos.map((p, i) => {
+          const imgUrl = p.imgUrl
           const thumbnailUrl = p.thumbnailUrl
           const showDate = i === 0 || p.date !== photos[i - 1].date
           let className = 'w-[18%] object-cover inline-block'
@@ -30,12 +32,12 @@ const Page = async () => {
           if (showDate) {
             return <div key={i} className={className}>
               <p className="text-[10px] md:text-xs text-gray-500">{p.date}</p>
-              <img src={thumbnailUrl} />
+              <ImageThumbnail src={thumbnailUrl} largeSrc={imgUrl} />
             </div>
           } else {
             return <div key={i} className={className}>
               <p className="text-[10px] md:text-xs text-gray-500">&nbsp;</p>
-              <img src={thumbnailUrl} />
+              <ImageThumbnail src={thumbnailUrl} largeSrc={imgUrl} />
             </div>
           }
         })}
