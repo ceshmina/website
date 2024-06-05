@@ -37,6 +37,10 @@ const Sidebar = async () => {
           </p>)
         })}
       </div>
+
+      <h2 className="mt-8 text-sm font-medium">
+        <Link href="/diary/photos" className="text-blue-500">Photos</Link>
+      </h2>
     </div>
   )
 }

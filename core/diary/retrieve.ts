@@ -120,3 +120,8 @@ export const getDiariesByLocation = cache(async (diaries: Diary[], slug: string)
   const locName = Location.bySlug(slug).name
   return new DiaryCollection(diaries.filter(diary => diary.location === locName))
 })
+
+export const getAllImages = cache(async (diaries: Diary[]) => {
+  return diaries.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .flatMap(diary => diary.imgUrls().reverse())
+})
