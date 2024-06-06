@@ -115,7 +115,8 @@ export class Camera {
     { type: 'lens', slug: 'h-fs12032', name: 'LUMIX G Vario 12-32mm F3.5-5.6 Asph. Mega O.I.S.', exif: 'LUMIX G VARIO 12-32/F3.5-5.6' },
     { type: 'lens', slug: 'fdx1855', name: 'AF-P DX NIKKOR 18-55mm F3.5-5.6G VR', exif: '18.0-55.0 mm f/3.5-5.6' },
     { type: 'lens', slug: 'fdx70300', name: 'AF-P DX NIKKOR 70-300mm F4.5-6.3G ED VR', exif: '70.0-300.0 mm f/4.5-6.3' },
-    { type: 'lens', slug: 'fdx35f18', name: 'AF-S DX NIKKOR 35mm F1.8G', exif: '35.0 mm f/1.8' }
+    { type: 'lens', slug: 'fdx35f18', name: 'AF-S DX NIKKOR 35mm F1.8G', exif: '35.0 mm f/1.8' },
+    { type: 'lens', slug: 'utulens', name: 'Utulens 32mm F16', exif: 'Utulens 32mm F16' }
   ]
 
   constructor(type: string, slug: string, name: string, exif: string) {
