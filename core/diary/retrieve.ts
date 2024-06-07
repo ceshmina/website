@@ -132,3 +132,12 @@ export const getAllImages = cache(async (diaries: Diary[]) => {
       )
     ))
 })
+
+export const getDiaryWithSameMD = cache(async (diaries: Diary[], diary: Diary) => {
+  const res = diaries.filter(d => 
+    d.date.getFullYear() < diary.date.getFullYear()
+    && d.date.getMonth() === diary.date.getMonth()
+    && d.date.getDate() === diary.date.getDate()
+  )
+  return res.sort((a, b) => b.date.getTime() - a.date.getTime())
+})

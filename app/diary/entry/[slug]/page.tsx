@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { MapPinIcon, CameraIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
 import { Location } from '@/core/diary/model'
-import { aggByLocation } from '@/core/diary/aggregate'
-import { getDiaries, getDiaryBySlug, getCameras } from '@/core/diary/retrieve'
+import { getDiaries, getDiaryBySlug, getCameras, getDiaryWithSameMD } from '@/core/diary/retrieve'
 import Article from '@/components/diary/article'
+import Card from '@/components/diary/card'
 import Sidebar from '@/components/diary/sidebar'
 import { EN_TITLE_FONT } from '@/config'
 
@@ -20,10 +20,10 @@ const Page = async ({ params }: { params: { slug: string }}) => {
     const location = Location.byName(diary.location)
     const cameras = await getCameras(diary)
 
-    const diariesAll = await getDiaries('data/diary')
     const showImgMetaData = true  // slug >= '20240521'
 
-    const locations = aggByLocation(diariesAll.items)
+    const diariesAll = await getDiaries('data/diary')
+    const pastDiaries = await getDiaryWithSameMD(diariesAll.items, diary)
 
     return (
       <main className="max-w-[800px] mx-auto p-4">
@@ -78,6 +78,13 @@ const Page = async ({ params }: { params: { slug: string }}) => {
                 </> : null}
               </div>
             </section>
+
+            {pastDiaries.length > 0 && <section className="py-4">
+                <h2 className="mt-8 font-medium">同じ日付の記事</h2>
+                {pastDiaries.map(diary => <Card key={diary.slug} diary={diary} showContent={true} />)}
+            </section>}
+            
+            <div className="py-4" /> 
           </div>
 
           <div className="md:w-[30%] md:pl-4 py-4">
