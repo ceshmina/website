@@ -11,9 +11,6 @@ const Image = async (props: { src: string | null, alt: string, title?: string, s
   let cameraCaption = cameras.map(c => c.name).join(', ')
   if (showMetaData) {
     const isIPhone = cameraCaption.includes('iPhone')
-    if (isIPhone && focalLength35) {
-      cameraCaption += ` - ${focalLength35}mm`
-    }
     if (!isIPhone) {
       const metaData: string[] = []
       if (focalLength && focalLength != focalLength35) {
