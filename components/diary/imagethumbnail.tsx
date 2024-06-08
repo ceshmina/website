@@ -4,7 +4,6 @@ import Link from 'next/link'
 
 const ImageThumbnail = (props: { src: string, largeSrc: string, diaryLink: string, diaryTitle: string }) => {
   const { src, largeSrc, diaryLink, diaryTitle } = props
-  if (!src) return null
 
   const [isZoom, setIsZoom] = useState(false)
   const toggleZoom = () => {
