@@ -24,22 +24,11 @@ const ImageView = (props: { src: string | null, alt: string, title?: string, cap
   }) => {
     const [isLoaded, setIsLoaded] = useState(false)
 
-    const imgProps = (img as ReactElement<HTMLImageElement>)?.props
-    const imgWidth = imgProps?.width
-    const imgHeight = imgProps?.height
-
-    const classCaption = useMemo(() => {
-      const hasWidthHeight = imgWidth != null && imgHeight != null
-      const imgRatioLargerThanWindow =
-        imgWidth / imgHeight > window.innerWidth / window.innerHeight
-
-      return cx({
-        'zoom-caption': true,
-        'zoom-caption--loaded': isLoaded,
-        'zoom-caption--bottom': hasWidthHeight && imgRatioLargerThanWindow,
-        'zoom-caption--left': hasWidthHeight && !imgRatioLargerThanWindow,
-      })
-    }, [imgWidth, imgHeight, isLoaded])
+    const classCaption = cx({
+      'zoom-caption': true,
+      'zoom-caption--loaded': isLoaded,
+      'zoom-caption--bottom': true
+    })
 
     useLayoutEffect(() => {
       if (modalState === 'LOADED') {
@@ -50,7 +39,6 @@ const ImageView = (props: { src: string | null, alt: string, title?: string, cap
     }, [modalState])
 
     return <div>
-      {buttonUnzoom}
       <figure>
         {img}
         <figcaption className={classCaption}>
@@ -61,7 +49,7 @@ const ImageView = (props: { src: string | null, alt: string, title?: string, cap
   }
 
   return (<div>
-    <Zoom ZoomContent={ZoomContent}>
+    <Zoom ZoomContent={ZoomContent} canSwipeToUnzoom={false}>
       <img src={src} alt={alt} title={title} loading='lazy' />
       <div className="pt-1">
         {title && <p className="text-xs text-gray-500 italic">{title}</p>}
