@@ -7,5 +7,6 @@ next-env.d.ts
 
 /data/*
 !/data/.gitkeep
+!/data/static.ts
 
 out
