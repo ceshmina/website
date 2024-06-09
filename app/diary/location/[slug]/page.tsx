@@ -21,7 +21,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
   const n = diaries.items.length
 
   return (
-    <main className="max-w-[800px] mx-auto p-4">
+    <main className="max-w-[960px] mx-auto p-4">
       <section className="py-4">
         <div className="py-2 text-sm">
           <p>
