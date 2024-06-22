@@ -9,7 +9,7 @@ import { EN_TITLE_FONT } from '@/config'
 export const generateStaticParams = async () => {
   const diaries = await getDiaries('data/diary')
   const cameras = await aggCameras(diaries.items)
-  return cameras.map(({ camera }) => ({ slug: camera.slug }))
+  return cameras.map(({ camera }) => ({ slug: camera.name }))
 }
 
 const Page = async ({ params }: { params: { slug: string }}) => {
