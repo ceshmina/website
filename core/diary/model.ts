@@ -139,32 +139,33 @@ export class Photo {
 
 export class Camera {
   private _type: string
-  private _slug: string
   private _name: string
 
-  constructor(type: string, slug: string, name: string) {
+  constructor(type: string, name: string) {
     this._type = type
-    this._slug = slug
     this._name = name
   }
 
   get type(): string { return this._type }
-  get slug(): string { return this._slug }
   get name(): string { return this._name }
 
+  get slug(): string {
+    return encodeURIComponent(this._name)
+  }
+
   static bySlug(slug: string): Camera | null {
-    const camera = CAMERA_MASTER.find(camera => camera.slug === slug)
+    const name = decodeURIComponent(slug)
+    const camera = CAMERA_MASTER.find(camera => camera.name === name)
     if (camera) {
-      return new Camera(camera.type, camera.slug, camera.name)
+      return new Camera(camera.type, camera.name)
     } else {
       return null
     }
   }
-
   static byExif(exif: string): Camera | null {
     const camera = CAMERA_MASTER.find(camera => camera.exif === exif)
     if (camera) {
-      return new Camera(camera.type, camera.slug, camera.name)
+      return new Camera(camera.type, camera.name)
     } else {
       return null
     }
@@ -224,7 +225,6 @@ export class Location {
     const name = decodeURIComponent(slug)
     return new Location(slug, name)
   }
-
   static byName(name: string): Location {
     const slug = encodeURIComponent(name)
     return new Location(slug, name)
