@@ -1,7 +1,11 @@
 import { parse, format } from 'date-fns'
 import matter from 'gray-matter'
 
-import { DEFAULT_LOCATION, IMAGE_DEFAULT_PREFIX, IMAGE_THUMBNAIL_PREFIX } from '@/core/const'
+import {
+  DEFAULT_LOCATION,
+  IMAGE_DEFAULT_PREFIX, IMAGE_THUMBNAIL_PREFIX,
+  CAMERA_MASTER
+} from '@/core/const'
 
 
 export class Diary {
@@ -92,13 +96,16 @@ export class DiaryCollection {
 
 
 export class Month {
-  public slug: string
-  public name: string
+  private _slug: string
+  private _name: string
 
   constructor(slug: string, name: string) {
-    this.slug = slug
-    this.name = name
+    this._slug = slug
+    this._name = name
   }
+
+  get slug(): string { return this._slug }
+  get name(): string { return this._name }
 
   static bySlug(slug: string): Month {
     const date = parse(slug, 'yyyyMM', new Date())
@@ -106,59 +113,58 @@ export class Month {
   }
 }
 
-export class Camera {
-  type: string
-  public slug: string
-  public name: string
-  exif: string
 
-  static cameraMaster = [
-    { type: 'camera', slug: 'ilce-7m3', name: 'α7 III', exif: 'ILCE-7M3' },
-    { type: 'camera', slug: 'ilce-7s', name: 'α7S', exif: 'ILCE-7S' },
-    { type: 'camera', slug: 'a2402', name: 'iPhone 12', exif: 'foodie' },
-    { type: 'camera', slug: 'a2402', name: 'iPhone 12', exif: 'iPhone 12' },
-    { type: 'camera', slug: 'a3101', name: 'iPhone 15 Pro', exif: 'iPhone 15 Pro' },
-    { type: 'camera', slug: 'dc-gf9', name: 'LUMIX GF9', exif: 'DC-GF9' },
-    { type: 'camera', slug: 'pene-p7', name: 'PEN E-P7', exif: 'E-P7' },
-    { type: 'camera', slug: 'd5600', name: 'D5600', exif: 'NIKON D5600' },
-    { type: 'lens', slug: 'sel24105g', name: 'FE 24-105mm F4 G OSS', exif: 'FE 24-105mm F4 G OSS' },
-    { type: 'lens', slug: 'sel70300g', name: 'FE 70-300mm F4.5-5.6 G OSS', exif: 'FE 70-300mm F4.5-5.6 G OSS' },
-    { type: 'lens', slug: 'sel24f28g', name: 'FE 24mm F2.8 G', exif: 'FE 24mm F2.8 G' },
-    { type: 'lens', slug: 'sel40f25g', name: 'FE 40mm F2.5 G', exif: 'FE 40mm F2.5 G' },
-    { type: 'lens', slug: 'sel90m28g', name: 'FE 90mm F2.8 Macro G OSS', exif: 'FE 90mm F2.8 Macro G OSS' },
-    { type: 'lens', slug: 'sel1635z', name: 'Vario-Tessar T* FE 16-35mm F4 ZA OSS', exif: 'FE 16-35mm F4 ZA OSS' },
-    { type: 'lens', slug: 'sel55f18z', name: 'Sonnar T* FE 55mm F1.8 ZA', exif: 'FE 55mm F1.8 ZA' },
-    { type: 'lens', slug: 'cy50f14', name: 'CONTAX Planar T* 50mm F1.4 AE', exif: 'CONTAX Planar T* 50mm F1.4 AE' },
-    { type: 'lens', slug: 'h-h025', name: 'LUMIX G 25mm F1.7 Asph.', exif: 'LUMIX G 25/F1.7' },
-    { type: 'lens', slug: 'h-fs12032', name: 'LUMIX G Vario 12-32mm F3.5-5.6 Asph. Mega O.I.S.', exif: 'LUMIX G VARIO 12-32/F3.5-5.6' },
-    { type: 'lens', slug: 'om1442', name: 'M.ZUIKO Digital ED 14-42mm F3.5-5.6 EZ', exif: 'OLYMPUS M.14-42mm F3.5-5.6 EZ' },
-    { type: 'lens', slug: 'om40150', name: 'M.ZUIKO Digital ED 40-150mm F4-5.6 R', exif: 'OLYMPUS M.40-150mm F4.0-5.6 R' },
-    { type: 'lens', slug: 'fdx1855', name: 'AF-P DX NIKKOR 18-55mm F3.5-5.6G VR', exif: '18.0-55.0 mm f/3.5-5.6' },
-    { type: 'lens', slug: 'fdx70300', name: 'AF-P DX NIKKOR 70-300mm F4.5-6.3G ED VR', exif: '70.0-300.0 mm f/4.5-6.3' },
-    { type: 'lens', slug: 'fdx35f18', name: 'AF-S DX NIKKOR 35mm F1.8G', exif: '35.0 mm f/1.8' },
-    { type: 'lens', slug: 'utulens', name: 'Utulens 32mm F16', exif: 'Utulens 32mm F16' }
-  ]
+export class Photo {
+  private _imageUrl: string
+  private _thumbnailUrl: string
+  private _date: string
+  private _diaryLink: string
+  private _diaryTitle: string
 
-  constructor(type: string, slug: string, name: string, exif: string) {
-    this.type = type
-    this.slug = slug
-    this.name = name
-    this.exif = exif
+  constructor(imageUrl: string, thumbnailUrl: string, date: string, diaryLink: string, diaryTitle: string) {
+    this._imageUrl = imageUrl
+    this._thumbnailUrl = thumbnailUrl
+    this._date = date
+    this._diaryLink = diaryLink
+    this._diaryTitle = diaryTitle
   }
 
+  get imageUrl(): string { return this._imageUrl }
+  get thumbnailUrl(): string { return this._thumbnailUrl }
+  get date(): string { return this._date }
+  get diaryLink(): string { return this._diaryLink }
+  get diaryTitle(): string { return this._diaryTitle }
+}
+
+
+export class Camera {
+  private _type: string
+  private _slug: string
+  private _name: string
+
+  constructor(type: string, slug: string, name: string) {
+    this._type = type
+    this._slug = slug
+    this._name = name
+  }
+
+  get type(): string { return this._type }
+  get slug(): string { return this._slug }
+  get name(): string { return this._name }
+
   static bySlug(slug: string): Camera | null {
-    const camera = Camera.cameraMaster.find(camera => camera.slug === slug)
+    const camera = CAMERA_MASTER.find(camera => camera.slug === slug)
     if (camera) {
-      return new Camera(camera.type, camera.slug, camera.name, camera.exif)
+      return new Camera(camera.type, camera.slug, camera.name)
     } else {
       return null
     }
   }
 
   static byExif(exif: string): Camera | null {
-    const camera = Camera.cameraMaster.find(camera => camera.exif === exif)
+    const camera = CAMERA_MASTER.find(camera => camera.exif === exif)
     if (camera) {
-      return new Camera(camera.type, camera.slug, camera.name, camera.exif)
+      return new Camera(camera.type, camera.slug, camera.name)
     } else {
       return null
     }
@@ -166,13 +172,13 @@ export class Camera {
 }
 
 export class Exif {
-  public model: string | null
-  public lens: string | null
-  public focalLength: string | null
-  public focalLength35: string | null
-  public fNumber: string | null
-  public exposureTime: string | null
-  public isoSpeedRatings: string | null
+  private _model: string | null
+  private _lens: string | null
+  private _focalLength: string | null
+  private _focalLength35: string | null
+  private _fNumber: string | null
+  private _exposureTime: string | null
+  private _isoSpeedRatings: string | null
 
   constructor(
     model: string | null,
@@ -183,24 +189,36 @@ export class Exif {
     exposureTime: string | null,
     isoSpeedRatings: string | null
   ) {
-    this.model = model
-    this.lens = lens
-    this.focalLength = focalLength
-    this.focalLength35 = focalLength35
-    this.fNumber = fNumber
-    this.exposureTime = exposureTime
-    this.isoSpeedRatings = isoSpeedRatings
+    this._model = model
+    this._lens = lens
+    this._focalLength = focalLength
+    this._focalLength35 = focalLength35
+    this._fNumber = fNumber
+    this._exposureTime = exposureTime
+    this._isoSpeedRatings = isoSpeedRatings
   }
+
+  get model(): string | null { return this._model }
+  get lens(): string | null { return this._lens }
+  get focalLength(): string | null { return this._focalLength }
+  get focalLength35(): string | null { return this._focalLength35 }
+  get fNumber(): string | null { return this._fNumber }
+  get exposureTime(): string | null { return this._exposureTime }
+  get isoSpeedRatings(): string | null { return this._isoSpeedRatings }
 }
 
+
 export class Location {
-  public slug: string
-  public name: string
+  private _slug: string
+  private _name: string
 
   constructor(slug: string, name: string) {
-    this.slug = slug
-    this.name = name
+    this._slug = slug
+    this._name = name
   }
+
+  get slug(): string { return this._slug }
+  get name(): string { return this._name }
 
   static bySlug(slug: string): Location {
     const name = decodeURIComponent(slug)
@@ -210,21 +228,5 @@ export class Location {
   static byName(name: string): Location {
     const slug = encodeURIComponent(name)
     return new Location(slug, name)
-  }
-}
-
-export class Photo {
-  public imgUrl: string
-  public thumbnailUrl: string
-  public date: string
-  public diaryLink: string
-  public diaryTitle: string
-
-  constructor(imgUrl: string, thumbnailUrl: string, date: string, diaryLink: string, diaryTitle: string) {
-    this.imgUrl = imgUrl
-    this.thumbnailUrl = thumbnailUrl
-    this.date = date
-    this.diaryLink = diaryLink
-    this.diaryTitle = diaryTitle
   }
 }

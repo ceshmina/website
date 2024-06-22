@@ -22,7 +22,7 @@ const Page = async () => {
 
       <div className="py-8">
         {photos.map((p, i) => {
-          const { imgUrl, thumbnailUrl, diaryLink, diaryTitle } = p
+          const { imageUrl, thumbnailUrl, diaryLink, diaryTitle } = p
           const showDate = i === 0 || p.date !== photos[i - 1].date
           let className = 'w-[18%] object-cover inline-block'
           if (i % 5 !== 0) {
@@ -31,12 +31,12 @@ const Page = async () => {
           if (showDate) {
             return <div key={i} className={className}>
               <p className="text-[10px] md:text-xs text-gray-500">{p.date}</p>
-              <ImageThumbnail src={thumbnailUrl} largeSrc={imgUrl} diaryLink={diaryLink} diaryTitle={diaryTitle} />
+              <ImageThumbnail src={thumbnailUrl} largeSrc={imageUrl} diaryLink={diaryLink} diaryTitle={diaryTitle} />
             </div>
           } else {
             return <div key={i} className={className}>
               <p className="text-[10px] md:text-xs text-gray-500">&nbsp;</p>
-              <ImageThumbnail src={thumbnailUrl} largeSrc={imgUrl} diaryLink={diaryLink} diaryTitle={diaryTitle} />
+              <ImageThumbnail src={thumbnailUrl} largeSrc={imageUrl} diaryLink={diaryLink} diaryTitle={diaryTitle} />
             </div>
           }
         })}
