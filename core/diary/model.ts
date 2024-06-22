@@ -1,78 +1,95 @@
 import { parse, format } from 'date-fns'
 import matter from 'gray-matter'
 
+import { DEFAULT_LOCATION, IMAGE_DEFAULT_PREFIX, IMAGE_THUMBNAIL_PREFIX } from '@/core/const'
+
+
 export class Diary {
-  slug: string
-  date: Date
-  title: string | null
-  location: string
-  content: string
+  private _slug: string
+  private _date: Date
+  private _title: string | null
+  private _location: string
+  private _content: string
 
   constructor(slug: string, mdContent: string) {
-    this.slug = slug
-    this.date = parse(slug, 'yyyyMMdd', new Date())
+    this._slug = slug
+    this._date = parse(slug, 'yyyyMMdd', new Date())
     const { data, content } = matter(mdContent)
-    this.title = data.title || null
-    this.location = data.location || 'Tokyo, Japan'
-    this.content = content
+    this._title = data.title || null
+    this._location = data.location || DEFAULT_LOCATION
+    this._content = content
   }
 
-  public get month(): string {
-    return format(this.date, 'yyyyMM')
+  get slug(): string { return this._slug }
+  get date(): Date { return this._date }
+  get location(): string { return this._location }
+  get content(): string { return this._content }
+
+  get month(): string {
+    return format(this._date, 'yyyyMM')
   }
 
-  public get showDate(): string {
-    return format(this.date, 'yyyy年M月d日')
+  showDate(): string {
+    return format(this._date, 'yyyy年M月d日')
+  }
+  showTitle(): string {
+    return this._title ? `${this.showDate()} - ${this._title}` : this.showDate()
   }
 
-  public get showTitle(): string {
-    return this.title ? `${this.showDate} - ${this.title}` : this.showDate
+  contentTextOnly(): string {
+    return this._content.replace(/---/g, '')
+      .replace(/!\[.*\]\(.*\)/g, '')
+      .replace(/\[.*\]\(.*\)/g, '')
   }
 
-  public contentNoImgs(): string {
-    return this.content.replace(/!\[.*\]\(.*\)/g, '')
-  }
-
-  imgUrls(): string[] {
+  imageUrls(): string[] {
     const regex = /!\[.*\]\((.*)\)/g
     const urls: string[] = []
     let match: RegExpExecArray | null
-    while (match = regex.exec(this.content)) {
+    while (match = regex.exec(this._content)) {
       urls.push(match[1].split(' ')[0])
     }
     return urls
   }
-
-  public thumbnailUrls(): string[] {
-    return this.imgUrls().map(url => url.replace('medium', 'thumbnail'))
+  thumbnailUrls(): string[] {
+    return this.imageUrls().map(url => url.replace(IMAGE_DEFAULT_PREFIX, IMAGE_THUMBNAIL_PREFIX))
   }
 }
 
+
+type DiarySearchResult = { diary: Diary, prev: Diary | null, next: Diary | null } | null
+
 export class DiaryCollection {
-  items: Diary[]
+  private _items: Diary[]
 
   constructor(diaries: Diary[]) {
-    this.items = diaries
+    this._items = diaries
   }
 
-  public get sorted(): Diary[] {
-    return this.items.sort((a, b) => b.date.getTime() - a.date.getTime())
+  get items(): Diary[] { return this._items }
+
+  sorted(reverse: boolean = true): DiaryCollection {
+    const items = reverse ?
+      this._items.sort((a, b) => b.date.getTime() - a.date.getTime()) :
+      this._items.sort((a, b) => a.date.getTime() - b.date.getTime())
+    return new DiaryCollection(items)
   }
 
-  public findBySlug(slug: string): { diary: Diary, prev: Diary | null, next: Diary | null } | null {
-    for (let i = 0; i < this.items.length; i++) {
-      const diary = this.items[i]
+  findBySlug(slug: string): DiarySearchResult {
+    for (let i = 0; i < this._items.length; i++) {
+      const diary = this._items[i]
       if (diary.slug === slug) {
         return {
           diary: diary,
-          prev: i > 0 ? this.items[i - 1] : null,
-          next: i < this.items.length - 1 ? this.items[i + 1] : null
+          prev: i > 0 ? this._items[i - 1] : null,
+          next: i < this._items.length - 1 ? this._items[i + 1] : null
         }
       }
     }
     return null
   }
 }
+
 
 export class Month {
   public slug: string

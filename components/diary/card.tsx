@@ -8,11 +8,11 @@ const Card = async (props: { diary: Diary, showContent?: boolean, cameraSlug?: s
   return (
     <div className="py-4">
       <h2 className="font-medium text-blue-500">
-        <Link href={`/diary/entry/${diary.slug}`}>{diary.showTitle}</Link>
+        <Link href={`/diary/entry/${diary.slug}`}>{diary.showTitle()}</Link>
       </h2>
       {showContent ? (
         <div className="py-2 text-xs font-light text-gray-800">
-          <p className="line-clamp-3">{diary.contentNoImgs()}</p>
+          <p className="line-clamp-3">{diary.contentTextOnly()}</p>
         </div>
       ) : <div className="py-2" />}
       <div>

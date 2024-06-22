@@ -13,7 +13,7 @@ const Page = async () => {
   const n = diariesAll.items.length
   const paginator = new Paginator(n, DIARY_PER_PAGE)
   const page = 1
-  const diaries = new DiaryCollection(diariesAll.sorted.slice(paginator.minIndex(page), paginator.maxIndex(page)))
+  const diaries = new DiaryCollection(diariesAll.sorted().items.slice(paginator.minIndex(page), paginator.maxIndex(page)))
 
   return (
     <main className="max-w-[960px] mx-auto p-4">
@@ -27,7 +27,7 @@ const Page = async () => {
       <div className="md:flex py-4">
         <div className="md:w-[70%]">
           <section>
-            {diaries.sorted.map(diary => (
+            {diaries.sorted().items.map(diary => (
               <Card key={diary.slug} diary={diary} showContent={true} />
             ))}
           </section>
