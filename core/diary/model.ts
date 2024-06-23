@@ -92,6 +92,10 @@ export class DiaryCollection {
     }
     return null
   }
+
+  filterByMonth(month: string): DiaryCollection {
+    return new DiaryCollection(this._items.filter(diary => diary.month === month))
+  }
 }
 
 
@@ -217,7 +221,7 @@ export class Location {
   }
 
   get name(): string { return this._name }
-  
+
   get slug(): string {
     return encodeURIComponent(this._name)
   }

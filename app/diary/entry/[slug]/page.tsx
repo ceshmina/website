@@ -8,13 +8,13 @@ import Sidebar from '@/components/diary/sidebar'
 import { EN_TITLE_FONT } from '@/config'
 
 export const generateStaticParams = async () => {
-  const diaries = await getDiaries('data/diary')
+  const diaries = await getDiaries()
   return diaries.items.map(diary => ({ slug: diary.slug }))
 }
 
 const Page = async ({ params }: { params: { slug: string }}) => {
   const { slug } = params
-  const diaryItem = await getDiaryBySlug('data/diary', slug)
+  const diaryItem = await getDiaryBySlug(slug)
   if (diaryItem) {
     const { diary, prev, next } = diaryItem
     const location = new Location(diary.location)
@@ -22,7 +22,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
 
     const showImgMetaData = true  // slug >= '20240521'
 
-    const diariesAll = await getDiaries('data/diary')
+    const diariesAll = await getDiaries()
     const pastDiaries = await getDiaryWithSameMD(diariesAll.items, diary)
 
     return (

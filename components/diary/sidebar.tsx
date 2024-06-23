@@ -4,7 +4,7 @@ import { aggByMonth, aggByLocation, aggCameras } from '@/core/diary/aggregate'
 import { Location } from '@/core/diary/model'
 
 const Sidebar = async () => {
-  const diaries = await getDiaries('data/diary')
+  const diaries = await getDiaries()
   const months = aggByMonth(diaries.items)
   const locations = aggByLocation(diaries.items)
   const cameras = await aggCameras(diaries.items)

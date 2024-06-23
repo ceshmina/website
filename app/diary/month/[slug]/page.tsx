@@ -7,7 +7,7 @@ import Sidebar from '@/components/diary/sidebar'
 import { EN_TITLE_FONT } from '@/config'
 
 export const generateStaticParams = async () => {
-  const diaries = await getDiaries('data/diary')
+  const diaries = await getDiaries()
   const months = aggByMonth(diaries.items)
   return months.map(({ month }) => ({ slug: month.slug }))
 }
@@ -16,8 +16,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
   const { slug } = params
   const month = Month.bySlug(slug)
 
-  const diariesAll = await getDiaries('data/diary')
-  const diaries = await getDiariesByMonth(diariesAll.items, slug)
+  const diaries = await getDiariesByMonth(slug)
   const n = diaries.items.length
 
   return (

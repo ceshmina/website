@@ -1,3 +1,5 @@
+export const DIARY_DIR = 'data/diary'
+
 export const DEFAULT_LOCATION = 'Tokyo, Japan'
 
 export const IMAGE_DEFAULT_PREFIX = 'medium'

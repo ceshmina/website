@@ -1,8 +1,11 @@
 import { cache } from 'react'
 import { promises as fs } from 'fs'
-import { Diary, DiaryCollection, Camera, Exif, Location, Photo } from '@/core/diary/model'
 
-export const getDiaries = cache(async (dir: string) => {
+import { Diary, DiaryCollection, Camera, Exif, Location, Photo } from '@/core/diary/model'
+import { DIARY_DIR } from '@/core/const'
+
+
+export const getDiaries = cache(async () => {
   const _getDiaries = async (dir: string) => {
     const entries = await fs.readdir(dir, { withFileTypes: true })
     const res: Diary[] = []
@@ -17,17 +20,19 @@ export const getDiaries = cache(async (dir: string) => {
     }
     return res
   }
-  return new DiaryCollection(await _getDiaries(dir))
+  return new DiaryCollection(await _getDiaries(DIARY_DIR))
 })
 
-export const getDiaryBySlug = cache(async (dir: string, slug: string) => {
-  const diaries = await getDiaries(dir)
+export const getDiaryBySlug = cache(async (slug: string) => {
+  const diaries = await getDiaries()
   return diaries.findBySlug(slug)
 })
 
-export const getDiariesByMonth = cache(async (diaries: Diary[], slug: string) => {
-  return new DiaryCollection(diaries.filter(diary => diary.month === slug))
+export const getDiariesByMonth = cache(async (month: string) => {
+  const diaries = await getDiaries()
+  return diaries.filterByMonth(month)
 })
+
 
 export const getExifByImgUrl = cache(async (url: string) => {
   const exifUrl = url.split(' ')[0].replace('medium', 'exif').replace('.jpg', '.json')
