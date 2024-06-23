@@ -30,8 +30,8 @@ export const CAMERA_MASTER: CameraMaster[] = [
   { type: 'lens', name: 'LUMIX G Vario 12-32mm F3.5-5.6 Asph. Mega O.I.S.', exif: 'LUMIX G VARIO 12-32/F3.5-5.6' },
   { type: 'lens', name: 'M.ZUIKO DIGITAL ED 14-42mm F3.5-5.6 EZ', exif: 'OLYMPUS M.14-42mm F3.5-5.6 EZ' },
   { type: 'lens', name: 'M.ZUIKO DIGITAL ED 40-150mm F4-5.6 R', exif: 'OLYMPUS M.40-150mm F4.0-5.6 R' },
-  { type: 'lens', name: 'AF-P DX NIKKOR 18-55mm F3.5-5.6G VR', exif: '18.0-55.0 mm f/3.5-5.6' },
-  { type: 'lens', name: 'AF-P DX NIKKOR 70-300mm F4.5-6.3G ED VR', exif: '70.0-300.0 mm f/4.5-6.3' },
-  { type: 'lens', name: 'AF-S DX NIKKOR 35mm F1.8G', exif: '35.0 mm f/1.8' },
+  { type: 'lens', name: 'AF-P DX NIKKOR 18-55mm F3.5-5.6 G VR', exif: '18.0-55.0 mm f/3.5-5.6' },
+  { type: 'lens', name: 'AF-P DX NIKKOR 70-300mm F4.5-6.3 G ED VR', exif: '70.0-300.0 mm f/4.5-6.3' },
+  { type: 'lens', name: 'AF-S DX NIKKOR 35mm F1.8 G', exif: '35.0 mm f/1.8' },
   { type: 'lens', name: 'Utulens 32mm F16', exif: 'Utulens 32mm F16' }
 ]
