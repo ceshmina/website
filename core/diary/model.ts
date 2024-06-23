@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 
 import {
   DEFAULT_LOCATION,
-  IMAGE_DEFAULT_PREFIX, IMAGE_THUMBNAIL_PREFIX,
+  IMAGE_DEFAULT_PREFIX, IMAGE_THUMBNAIL_PREFIX, IMAGE_EXIF_PREFIX,
   CAMERA_MASTER
 } from '@/core/const'
 
@@ -14,6 +14,7 @@ export class Diary {
   private _title: string | null
   private _location: string
   private _content: string
+  private _imageUrls: ImageUrl[]
 
   constructor(slug: string, mdContent: string) {
     this._slug = slug
@@ -22,12 +23,21 @@ export class Diary {
     this._title = data.title || null
     this._location = data.location || DEFAULT_LOCATION
     this._content = content
+
+    const regex = /!\[.*\]\((.*)\)/g
+    const urls: string[] = []
+    let match: RegExpExecArray | null
+    while (match = regex.exec(this._content)) {
+      urls.push(match[1].split(' ')[0])
+    }
+    this._imageUrls = urls.map(url => new ImageUrl(url))
   }
 
   get slug(): string { return this._slug }
   get date(): Date { return this._date }
   get location(): string { return this._location }
   get content(): string { return this._content }
+  get imageUrls(): ImageUrl[] { return this._imageUrls }
 
   get month(): string {
     return format(this._date, 'yyyyMM')
@@ -46,17 +56,11 @@ export class Diary {
       .replace(/\[.*\]\(.*\)/g, '')
   }
 
-  imageUrls(): string[] {
-    const regex = /!\[.*\]\((.*)\)/g
-    const urls: string[] = []
-    let match: RegExpExecArray | null
-    while (match = regex.exec(this._content)) {
-      urls.push(match[1].split(' ')[0])
-    }
-    return urls
+  imageDefaultUrls(): string[] {
+    return this._imageUrls.map(url => url.url)
   }
-  thumbnailUrls(): string[] {
-    return this.imageUrls().map(url => url.replace(IMAGE_DEFAULT_PREFIX, IMAGE_THUMBNAIL_PREFIX))
+  imageThumbnailUrls(): string[] {
+    return this._imageUrls.map(url => url.thumbnailUrl)
   }
 }
 
@@ -115,6 +119,25 @@ export class Month {
     const date = parse(slug, 'yyyyMM', new Date())
     return new Month(slug, format(date, 'yyyy年M月'))
   }
+}
+
+
+export class ImageUrl {
+  private _url: string
+  private _thumbnailUrl: string
+  private _exifUrl: string
+
+  constructor(url: string) {
+    this._url = url
+    this._thumbnailUrl = url.replace(IMAGE_DEFAULT_PREFIX, IMAGE_THUMBNAIL_PREFIX)
+    this._exifUrl = url.split(' ')[0]
+      .replace(IMAGE_DEFAULT_PREFIX, IMAGE_EXIF_PREFIX)
+      .replace('.jpg', '.json')
+  }
+
+  get url(): string { return this._url }
+  get thumbnailUrl(): string { return this._thumbnailUrl }
+  get exifUrl(): string { return this._exifUrl }
 }
 
 

@@ -1,7 +1,10 @@
 import { cache } from 'react'
 import { promises as fs } from 'fs'
 
-import { Diary, DiaryCollection, Camera, Exif, Location, Photo } from '@/core/diary/model'
+import {
+  Diary, DiaryCollection,
+  ImageUrl, Camera, Exif, Location, Photo
+} from '@/core/diary/model'
 import { DIARY_DIR } from '@/core/const'
 
 
@@ -34,9 +37,8 @@ export const getDiariesByMonth = cache(async (month: string) => {
 })
 
 
-export const getExifByImgUrl = cache(async (url: string) => {
-  const exifUrl = url.split(' ')[0].replace('medium', 'exif').replace('.jpg', '.json')
-  const res = await fetch(exifUrl)
+export const getExifByImageUrl = cache(async (url: ImageUrl) => {
+  const res = await fetch(url.exifUrl)
   const json = await res.json()
   return new Exif(
     json.Model || null,
@@ -50,7 +52,7 @@ export const getExifByImgUrl = cache(async (url: string) => {
 })
 
 export const getCameras = cache(async (diary: Diary) => {
-  const exifs = await Promise.all(diary.imageUrls().map(async url => await getExifByImgUrl(url)))
+  const exifs = await Promise.all(diary.imageUrls.map(async url => await getExifByImageUrl(url)))
   const models = [...new Set(
     exifs.map(exif => exif.model).filter((model): model is string => model !== null)
   )]
@@ -62,8 +64,8 @@ export const getCameras = cache(async (diary: Diary) => {
     .filter((camera): camera is Camera => camera !== null)
 })
 
-export const getCamerasByImgUrl = cache(async (url: string) => {
-  const exif = await getExifByImgUrl(url)
+export const getCamerasByImageUrl = cache(async (url: ImageUrl) => {
+  const exif = await getExifByImageUrl(url)
   const res: Camera[] = []
   if (exif.model) {
     const model = Camera.byExif(exif.model)
@@ -76,8 +78,8 @@ export const getCamerasByImgUrl = cache(async (url: string) => {
   return res
 })
 
-export const getMetaDataByImgUrl = cache(async (url: string) => {
-  const exif = await getExifByImgUrl(url)
+export const getMetaDataByImageUrl = cache(async (url: ImageUrl) => {
+  const exif = await getExifByImageUrl(url)
   return {
     focalLength: exif.focalLength,
     focalLength35: exif.focalLength35,
@@ -99,26 +101,26 @@ export const getDiariesByCamera = cache(async (diaries: Diary[], slug: string) =
 })
 
 export const getThumbnailUrlsBySlug = cache(async (diary: Diary, slug: string) => {
-  const imgUrls = diary.imageUrls()
-  const exifs = await Promise.all(imgUrls.map(async url => await getExifByImgUrl(url)))
+  const thumbnailUrls = diary.imageThumbnailUrls()
+  const exifs = await Promise.all(diary.imageUrls.map(async url => await getExifByImageUrl(url)))
   const res: string[] = []
-  for (let i = 0; i < imgUrls.length; i++) {
+  for (let i = 0; i < exifs.length; i++) {
     const model = exifs[i].model
     if (model) {
       const camera = Camera.byExif(model)
       if (camera && camera.slug === slug) {
-        res.push(imgUrls[i])
+        res.push(thumbnailUrls[i])
       }
     }
     const lens = exifs[i].lens
     if (lens) {
       const camera = Camera.byExif(lens)
       if (camera && camera.slug === slug) {
-        res.push(imgUrls[i])
+        res.push(thumbnailUrls[i])
       }
     }
   }
-  return res.map(url => url.replace('medium', 'thumbnail'))
+  return res
 })
 
 export const getDiariesByLocation = cache(async (diaries: Diary[], slug: string) => {
@@ -128,9 +130,9 @@ export const getDiariesByLocation = cache(async (diaries: Diary[], slug: string)
 
 export const getAllImages = cache(async (diaries: Diary[]) => {
   return diaries.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .flatMap(diary => diary.imageUrls().reverse().map(url => new Photo(
-        url,
-        url.replace('medium', 'thumbnail'),
+    .flatMap(diary => diary.imageUrls.reverse().map(url => new Photo(
+        url.url,
+        url.thumbnailUrl,
         diary.slug,
         `/diary/entry/${diary.slug}`,
         diary.showTitle()

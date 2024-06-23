@@ -1,12 +1,14 @@
-import { getCamerasByImgUrl, getMetaDataByImgUrl } from '@/core/diary/retrieve'
+import { ImageUrl } from '@/core/diary/model'
+import { getCamerasByImageUrl, getMetaDataByImageUrl } from '@/core/diary/retrieve'
 import ImageView from '@/components/diary/imageview'
 
 const Image = async (props: { src: string | null, alt: string, title?: string, showMetaData? : boolean }) => {
   const { src, alt, title, showMetaData } = props
   if (!src) return null
 
-  const cameras = await getCamerasByImgUrl(src)
-  const { focalLength, focalLength35, fNumber, exposureTime, isoSpeedRatings } = await getMetaDataByImgUrl(src)
+  const imageUrl = new ImageUrl(src)
+  const cameras = await getCamerasByImageUrl(imageUrl)
+  const { focalLength, focalLength35, fNumber, exposureTime, isoSpeedRatings } = await getMetaDataByImageUrl(imageUrl)
 
   let cameraCaption = cameras.map(c => c.name).join(', ')
   if (showMetaData) {

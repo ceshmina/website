@@ -7,7 +7,7 @@ import Sidebar from '@/components/diary/sidebar'
 import { EN_TITLE_FONT } from '@/config'
 
 export const generateStaticParams = async () => {
-  const diaries = await getDiaries('data/diary')
+  const diaries = await getDiaries()
   const cameras = await aggCameras(diaries.items)
   return cameras.map(({ camera }) => ({ slug: camera.name }))
 }
@@ -17,7 +17,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
   const camera = Camera.bySlug(slug)
   if (!camera) return null
 
-  const diariesAll = await getDiaries('data/diary')
+  const diariesAll = await getDiaries()
   const diaries = await getDiariesByCamera(diariesAll.items, slug)
   const n = diaries.items.length
 

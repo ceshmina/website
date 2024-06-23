@@ -9,7 +9,7 @@ import Pagination from '@/components/diary/pagination'
 import { EN_TITLE_FONT } from '@/config'
 
 export const generateStaticParams = async () => {
-  const diaries = await getDiaries('data/diary')
+  const diaries = await getDiaries()
   const paginator = new Paginator(diaries.items.length, DIARY_PER_PAGE)
   return Array.from({ length: paginator.numPages() }, (_, i) => ({ page: (i + 1).toString() }))
 }
@@ -18,7 +18,7 @@ const Page = async ({ params }: { params: { page: string }}) => {
   const { page } = params
   const pageInt = parseInt(page)
 
-  const diariesAll = await getDiaries('data/diary')
+  const diariesAll = await getDiaries()
   const n = diariesAll.items.length
   const paginator = new Paginator(n, DIARY_PER_PAGE)
   const diaries = new DiaryCollection(diariesAll.sorted().items.slice(paginator.minIndex(pageInt), paginator.maxIndex(pageInt)))

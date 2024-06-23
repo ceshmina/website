@@ -4,7 +4,7 @@ import { getThumbnailUrlsBySlug } from '@/core/diary/retrieve'
 
 const Card = async (props: { diary: Diary, showContent?: boolean, cameraSlug?: string }) => {
   const { diary, showContent, cameraSlug } = props
-  const thumbnailUrls = cameraSlug ? await getThumbnailUrlsBySlug(diary, cameraSlug) : diary.thumbnailUrls()
+  const thumbnailUrls = cameraSlug ? await getThumbnailUrlsBySlug(diary, cameraSlug) : diary.imageThumbnailUrls()
   return (
     <div className="py-4">
       <h2 className="font-medium text-blue-500">

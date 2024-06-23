@@ -4,7 +4,7 @@ import { EN_TITLE_FONT } from '@/config'
 import ImageThumbnail from '@/components/diary/imagethumbnail'
 
 const Page = async () => {
-  const diaries = await getDiaries('data/diary')
+  const diaries = await getDiaries()
   const photos = await getAllImages(diaries.items)
 
   return (
