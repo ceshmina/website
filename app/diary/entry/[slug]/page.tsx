@@ -17,7 +17,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
   const diaryItem = await getDiaryBySlug('data/diary', slug)
   if (diaryItem) {
     const { diary, prev, next } = diaryItem
-    const location = Location.byName(diary.location)
+    const location = new Location(diary.location)
     const cameras = await getCameras(diary)
 
     const showImgMetaData = true  // slug >= '20240521'

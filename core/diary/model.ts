@@ -210,23 +210,20 @@ export class Exif {
 
 
 export class Location {
-  private _slug: string
   private _name: string
 
-  constructor(slug: string, name: string) {
-    this._slug = slug
+  constructor(name: string) {
     this._name = name
   }
 
-  get slug(): string { return this._slug }
   get name(): string { return this._name }
+  
+  get slug(): string {
+    return encodeURIComponent(this._name)
+  }
 
   static bySlug(slug: string): Location {
     const name = decodeURIComponent(slug)
-    return new Location(slug, name)
-  }
-  static byName(name: string): Location {
-    const slug = encodeURIComponent(name)
-    return new Location(slug, name)
+    return new Location(name)
   }
 }

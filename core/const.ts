@@ -1,8 +1,11 @@
 export const DEFAULT_LOCATION = 'Tokyo, Japan'
+
 export const IMAGE_DEFAULT_PREFIX = 'medium'
 export const IMAGE_THUMBNAIL_PREFIX = 'thumbnail'
 
+
 type CameraMaster = { type: 'camera' | 'lens', name: string, exif: string }
+
 export const CAMERA_MASTER: CameraMaster[] = [
   { type: 'camera', name: 'α7 III', exif: 'ILCE-7M3' },
   { type: 'camera', name: 'α7S', exif: 'ILCE-7S' },
