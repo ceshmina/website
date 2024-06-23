@@ -4,7 +4,7 @@ const PHOTOURL_DEFAULT_PREFIX = 'medium'
 const PHOTOURL_THUMBNAIL_PREFIX = 'thumbnail'
 const PHOTOURL_EXIF_PREFIX = 'exif'
 
-class PhotoUrl {
+export class PhotoUrl {
   private _url: string
   private _thumbnailUrl: string
   private _exifUrl: string
@@ -57,18 +57,22 @@ class Photo {
     this._exif = exif
   }
 
-  static async byUrl(url: PhotoUrl): Promise<Photo> {
-    const res = await (await fetch(url.exifUrl)).json()
-    const exif = new Exif(
-      res.Model || null,
-      res.LensModel || null,
-      res.FocalLength || null,
-      res.FocalLengthIn35mmFilm || null,
-      res.FNumber || null,
-      res.ExposureTime || null,
-      res.ISOSpeedRatings || null
-    )
-    return new Photo(url, exif)
+  static async byUrl(url: PhotoUrl): Promise<Photo | null> {
+    try {
+      const res = await (await fetch(url.exifUrl)).json()
+      const exif = new Exif(
+        res.Model || null,
+        res.LensModel || null,
+        res.FocalLength || null,
+        res.FocalLengthIn35mmFilm || null,
+        res.FNumber || null,
+        res.ExposureTime || null,
+        res.ISOSpeedRatings || null
+      )
+      return new Photo(url, exif)
+    } catch (_) {
+      return null
+    }
   }
 }
 
@@ -77,6 +81,6 @@ export class PhotoCollection extends Collection<Photo> {
     const photos = await Promise.all(
       urls.map(async url => await Photo.byUrl(url))
     )
-    return new PhotoCollection(photos)
+    return new PhotoCollection(photos.filter(photo => photo !== null) as Photo[])
   }
 }
