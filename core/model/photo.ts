@@ -57,7 +57,7 @@ class Photo {
     this._exif = exif
   }
 
-  static async byUrl(url: PhotoUrl): Promise<Photo | null> {
+  static async fetchByUrl(url: PhotoUrl): Promise<Photo | null> {
     try {
       const res = await (await fetch(url.exifUrl)).json()
       const exif = new Exif(
@@ -77,9 +77,9 @@ class Photo {
 }
 
 export class PhotoCollection extends Collection<Photo> {
-  static async byUrls(urls: PhotoUrl[]): Promise<PhotoCollection> {
+  static async fetchByUrls(urls: PhotoUrl[]): Promise<PhotoCollection> {
     const photos = await Promise.all(
-      urls.map(async url => await Photo.byUrl(url))
+      urls.map(async url => await Photo.fetchByUrl(url))
     )
     return new PhotoCollection(photos.filter(photo => photo !== null) as Photo[])
   }

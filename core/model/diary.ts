@@ -1,6 +1,6 @@
 import { Collection } from '@/core/model/base'
 import { PhotoUrl, PhotoCollection } from '@/core/model/photo'
-import { getDiaryBySlug } from '@/core/retrieve/diary'
+import { fetchDiaries, fetchDiaryBySlug } from '@/core/retrieve/diary'
 import { extractPhotoUrls } from '@/core/util/markdown'
 
 class Diary {
@@ -18,18 +18,22 @@ class Diary {
     this._photos = photos
   }
 
-  static async bySlug(slug: string): Promise<Diary | null> {
-    const res = await getDiaryBySlug(slug)
+  static async fetchBySlug(slug: string): Promise<Diary | null> {
+    const res = await fetchDiaryBySlug(slug)
     if (!res) return null
     const photoUrls = extractPhotoUrls(res.content).map(url => new PhotoUrl(url))
-    const photos = await PhotoCollection.byUrls(photoUrls)
+    const photos = await PhotoCollection.fetchByUrls(photoUrls)
     return new Diary(slug, res.title, res.location, res.content, photos)
   }
 }
 
 class DiaryCollection extends Collection<Diary> {
-  static async bySlugs(slugs: string[]): Promise<DiaryCollection> {
-    const diaries = await Promise.all(slugs.map(async slug => await Diary.bySlug(slug)))
-    return new DiaryCollection(diaries.filter(diary => diary !== null) as Diary[])
+  static async fetch(): Promise<DiaryCollection> {
+    const diaries = await fetchDiaries()
+    return new DiaryCollection(await Promise.all(diaries.map(async diary => {
+      const photoUrls = extractPhotoUrls(diary.content).map(url => new PhotoUrl(url))
+      const photos = await PhotoCollection.fetchByUrls(photoUrls)
+      return new Diary(diary.slug, diary.title, diary.location, diary.content, photos)
+    })))
   }
 }
