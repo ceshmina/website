@@ -1,9 +1,10 @@
+import { cache } from 'react'
 import { promises as fs } from 'fs'
 import matter from 'gray-matter'
 
 const DIARY_DIR = 'data/diary'
 
-export const fetchDiaries = async () => {
+export const fetchDiaries = cache(async () => {
   const _search = async (dir: string): Promise<string[]> => {
     const entries = await fs.readdir(dir, { withFileTypes: true })
     const diaries: string[] = []
@@ -29,9 +30,9 @@ export const fetchDiaries = async () => {
       location: data.location || null
     }
   }))
-}
+})
 
-export const fetchDiaryBySlug = async (slug: string) => {
+export const fetchDiaryBySlug = cache(async (slug: string) => {
   const _search = async (dir: string, slug: string): Promise<string | null> => {
     const entries = await fs.readdir(dir, { withFileTypes: true })
     for (const entry of entries) {
@@ -55,4 +56,4 @@ export const fetchDiaryBySlug = async (slug: string) => {
     title: data.title || null,
     location: data.location || null
   }
-}
+})
