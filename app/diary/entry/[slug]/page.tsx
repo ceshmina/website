@@ -21,6 +21,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
     const cameras = await getCameras(diary)
 
     const showImgMetaData = true  // slug >= '20240521'
+    const useAltAsCaption = slug >= '20240624'
 
     const diariesAll = await getDiaries()
     const pastDiaries = await getDiaryWithSameMD(diariesAll.items, diary)
@@ -44,7 +45,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
           <div className="md:w-[70%]">
             <section>
               <div className="py-[13px] text-sm">
-                <Article content={diary.content} showImgMetaData={showImgMetaData} />
+                <Article content={diary.content} showImgMetaData={showImgMetaData} useAltAsCaption={useAltAsCaption} />
               </div>
             </section>
 

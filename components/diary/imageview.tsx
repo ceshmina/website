@@ -13,8 +13,8 @@ const cx = (mods: Record<string, boolean>): string => {
   return cns.join(' ')
 }
 
-const ImageView = (props: { src: string | null, alt: string, title?: string, caption?: string }) => {
-  const { src, alt, title, caption } = props
+const ImageView = (props: { src: string | null, caption: string, cameraCaption?: string }) => {
+  const { src, caption, cameraCaption } = props
   if (!src) return null
 
   const ZoomContent = ({ buttonUnzoom, modalState, img }: {
@@ -42,7 +42,7 @@ const ImageView = (props: { src: string | null, alt: string, title?: string, cap
       <figure>
         {img}
         <figcaption className={classCaption}>
-          {caption}
+          {cameraCaption}
         </figcaption>
       </figure>
     </div>
@@ -50,9 +50,9 @@ const ImageView = (props: { src: string | null, alt: string, title?: string, cap
 
   return (<div>
     <Zoom ZoomContent={ZoomContent} canSwipeToUnzoom={false}>
-      <img src={src} alt={alt} title={title} loading='lazy' />
+      <img src={src} alt={caption} loading='lazy' />
       <div className="pt-1">
-        {title && <p className="text-xs text-gray-500 italic">{title}</p>}
+        {caption && <p className="text-xs text-gray-500 italic">{caption}</p>}
       </div>
     </Zoom>
   </div>)
