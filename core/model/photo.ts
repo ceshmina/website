@@ -17,6 +17,7 @@ export class PhotoUrl {
       .replace('.jpg', '.json')
   }
 
+  get url(): string { return this._url }
   get exifUrl(): string { return this._exifUrl }
 }
 
@@ -49,13 +50,17 @@ class Exif {
 }
 
 class Photo {
+  private _slug: string
   private _url: PhotoUrl
   private _exif: Exif
 
   constructor(url: PhotoUrl, exif: Exif) {
+    this._slug = url.url
     this._url = url
     this._exif = exif
   }
+
+  get slug(): string { return this._slug }
 
   static async fetchByUrl(url: PhotoUrl): Promise<Photo | null> {
     try {

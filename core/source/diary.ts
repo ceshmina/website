@@ -21,7 +21,7 @@ const markdownPathToDiary = async (path: string): Promise<FetchDiaryResponse> =>
   }
 }
 
-export const fetchDiaries: () => Promise<FetchDiaryResponse[]> = cache(async () => {
+export const fetchDiaries = cache(async (): Promise<FetchDiaryResponse[]> => {
   const _search = async (dir: string): Promise<string[]> => {
     const entries = await fs.readdir(dir, { withFileTypes: true })
     const diaries: string[] = []
@@ -39,7 +39,7 @@ export const fetchDiaries: () => Promise<FetchDiaryResponse[]> = cache(async () 
   return await Promise.all(paths.map(async path => await markdownPathToDiary(path)))
 })
 
-export const fetchDiaryBySlug: (slug: string) => Promise<FetchDiaryResponse | null> = cache(async (slug: string) => {
+export const fetchDiaryBySlug = cache(async (slug: string): Promise<FetchDiaryResponse | null> => {
   const _search = async (dir: string, slug: string): Promise<string | null> => {
     const entries = await fs.readdir(dir, { withFileTypes: true })
     for (const entry of entries) {

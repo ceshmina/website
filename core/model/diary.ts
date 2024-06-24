@@ -1,6 +1,6 @@
 import { Collection } from '@/core/model/base'
 import { PhotoUrl, PhotoCollection } from '@/core/model/photo'
-import { type FetchDiaryResponse, fetchDiaries, fetchDiaryBySlug } from '@/core/retrieve/diary'
+import { type FetchDiaryResponse, fetchDiaries, fetchDiaryBySlug } from '@/core/source/diary'
 import { extractPhotoUrls } from '@/core/util/markdown'
 
 const fetchResponseToDiary = async (res: FetchDiaryResponse): Promise<Diary> => {
@@ -12,7 +12,7 @@ const fetchResponseToDiary = async (res: FetchDiaryResponse): Promise<Diary> => 
   return new Diary(slug, content, title, location, photos)
 }
 
-class Diary {
+export class Diary {
   private _slug: string
   private _content: string
   private _title: string | null
@@ -27,6 +27,8 @@ class Diary {
     this._photos = photos
   }
 
+  get slug(): string { return this._slug }
+
   static async fetchBySlug(slug: string): Promise<Diary | null> {
     const res = await fetchDiaryBySlug(slug)
     if (res) {
@@ -37,7 +39,7 @@ class Diary {
   }
 }
 
-class DiaryCollection extends Collection<Diary> {
+export class DiaryCollection extends Collection<Diary> {
   static async fetch(): Promise<DiaryCollection> {
     const ress = await fetchDiaries()
     return new DiaryCollection(await Promise.all(
