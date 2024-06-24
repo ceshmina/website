@@ -1,3 +1,5 @@
+import { parse, format } from 'date-fns'
+
 import { Collection } from '@/core/model/base'
 import { PhotoUrl, PhotoCollection } from '@/core/model/photo'
 import { type FetchDiaryResponse, fetchDiaries, fetchDiaryBySlug } from '@/core/source/diary'
@@ -14,6 +16,7 @@ const fetchResponseToDiary = async (res: FetchDiaryResponse): Promise<Diary> => 
 
 export class Diary {
   private _slug: string
+  private _date: Date
   private _content: string
   private _title: string | null
   private _location: string | null
@@ -21,6 +24,7 @@ export class Diary {
 
   constructor(slug: string, content: string, title: string | null, location: string | null, photos: PhotoCollection) {
     this._slug = slug
+    this._date = parse(slug, 'yyyyMMdd', new Date())
     this._content = content
     this._title = title
     this._location = location
@@ -28,6 +32,9 @@ export class Diary {
   }
 
   get slug(): string { return this._slug }
+  get date(): Date { return this._date }
+  get location(): string | null { return this._location }
+  get photos(): PhotoCollection { return this._photos }
 
   static async fetchBySlug(slug: string): Promise<Diary | null> {
     const res = await fetchDiaryBySlug(slug)
@@ -37,13 +44,31 @@ export class Diary {
       return null
     }
   }
+
+  showDate(): string {
+    return format(this._date, 'yyyy年M月d日')
+  }
+
+  showTitle(): string {
+    return this.showDate() + this._title ? ` - ${this._title}` : ''
+  }
 }
 
-export class DiaryCollection extends Collection<Diary> {
+export class DiaryCollection extends Collection<Diary, DiaryCollection> {
+  protected create(items: Diary[]): DiaryCollection {
+    return new DiaryCollection(items)
+  }
+
   static async fetch(): Promise<DiaryCollection> {
     const ress = await fetchDiaries()
     return new DiaryCollection(await Promise.all(
       ress.map(async res => await fetchResponseToDiary(res))
+    ))
+  }
+
+  filterByDate(date: Date): DiaryCollection {
+    return new DiaryCollection(this._items.filter(d =>
+      d.date.getMonth() === date.getMonth() && d.date.getDate() === date.getDate()
     ))
   }
 }

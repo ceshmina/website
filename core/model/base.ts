@@ -2,18 +2,20 @@ type CollectionItem = {
   readonly slug: string
 }
 
-export class Collection<T extends CollectionItem> {
-  private _items: T[]
+export abstract class Collection<T extends CollectionItem, C extends Collection<T, C>> {
+  protected _items: T[]
 
   constructor(items: T[]) {
     this._items = items
   }
 
-  sort(reverse: boolean = true): Collection<T> {
+  protected abstract create(items: T[]): C
+
+  sort(reverse: boolean = true): C {
     const sorted = reverse ?
       this._items.sort((a, b) => a.slug.localeCompare(b.slug)) :
       this._items.sort((a, b) => b.slug.localeCompare(a.slug))
-    return new Collection(sorted)
+    return this.create(sorted)
   }
 
   get length(): number {

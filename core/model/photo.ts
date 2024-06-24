@@ -47,6 +47,9 @@ class Exif {
     this._exposureTime = exposureTime
     this._isoSensitivity = isoSensitivity
   }
+
+  get model(): string | null { return this._model }
+  get lens(): string | null { return this._lens }
 }
 
 class Photo {
@@ -61,6 +64,7 @@ class Photo {
   }
 
   get slug(): string { return this._slug }
+  get exif(): Exif { return this._exif }
 
   static async fetchByUrl(url: PhotoUrl): Promise<Photo | null> {
     try {
@@ -81,11 +85,21 @@ class Photo {
   }
 }
 
-export class PhotoCollection extends Collection<Photo> {
+export class PhotoCollection extends Collection<Photo, PhotoCollection> {
+  protected create(items: Photo[]): PhotoCollection {
+    return new PhotoCollection(items)
+  }
+
   static async fetchByUrls(urls: PhotoUrl[]): Promise<PhotoCollection> {
     const photos = await Promise.all(
       urls.map(async url => await Photo.fetchByUrl(url))
     )
     return new PhotoCollection(photos.filter(photo => photo !== null) as Photo[])
+  }
+
+  uniqueCameras(): string[] {
+    const models = Array.from(new Set(this._items.map(photo => photo.exif.model)))
+    const lenses = Array.from(new Set(this._items.map(photo => photo.exif.lens)))
+    return models.concat(lenses).filter(v => v !== null) as string[]
   }
 }
