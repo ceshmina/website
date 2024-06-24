@@ -13,8 +13,8 @@ export abstract class Collection<T extends CollectionItem, C extends Collection<
 
   sort(reverse: boolean = true): C {
     const sorted = reverse ?
-      this._items.sort((a, b) => a.slug.localeCompare(b.slug)) :
-      this._items.sort((a, b) => b.slug.localeCompare(a.slug))
+      [...this._items].sort((a, b) => a.slug.localeCompare(b.slug)) :
+      [...this._items].sort((a, b) => b.slug.localeCompare(a.slug))
     return this.create(sorted)
   }
 
