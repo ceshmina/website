@@ -6,6 +6,7 @@ import {
   ImageUrl, Camera, Exif, Location, Photo
 } from '@/core/diary/model'
 import { DIARY_DIR } from '@/core/const'
+import { headers } from 'next/headers'
 
 
 export const getDiaries = cache(async () => {
@@ -38,7 +39,7 @@ export const getDiariesByMonth = cache(async (month: string) => {
 
 
 export const getExifByImageUrl = cache(async (url: ImageUrl) => {
-  const res = await fetch(url.exifUrl)
+  const res = await fetch(url.exifUrl, { headers: { connection: 'close' } })
   const json = await res.json()
   return new Exif(
     json.Model || null,
