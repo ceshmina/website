@@ -40,7 +40,11 @@ export class Diary {
   get imageUrls(): ImageUrl[] { return this._imageUrls }
 
   get month(): string {
-    return format(this._date, 'yyyyMM')
+    if (this._date <= new Date('2022-12-31')) {
+      return format(this._date, 'yyyy')
+    } else {
+      return format(this._date, 'yyyyMM')
+    }
   }
 
   showDate(): string {
@@ -116,8 +120,13 @@ export class Month {
   get name(): string { return this._name }
 
   static bySlug(slug: string): Month {
+    if (slug.length === 4) {
+      const date = parse(slug, 'yyyy', new Date())
+      return new Month(slug, format(date, 'yyyy年'))
+    } else {
     const date = parse(slug, 'yyyyMM', new Date())
     return new Month(slug, format(date, 'yyyy年M月'))
+    }
   }
 }
 
