@@ -17,6 +17,7 @@ export const CAMERA_MASTER: CameraMaster[] = [
   { type: 'camera', name: 'iPhone 12', exif: 'foodie' },
   { type: 'camera', name: 'iPhone 12', exif: 'iPhone 12' },
   { type: 'camera', name: 'iPhone 15 Pro', exif: 'iPhone 15 Pro' },
+  { type: 'camera', name: 'Pixel 4a', exif: 'Pixel 4a' },
   { type: 'camera', name: 'LUMIX GF9', exif: 'DC-GF9' },
   { type: 'camera', name: 'PEN E-P7', exif: 'E-P7' },
   { type: 'camera', name: 'D5600', exif: 'NIKON D5600' },
