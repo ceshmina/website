@@ -39,7 +39,7 @@ export const getDiariesByMonth = cache(async (month: string) => {
 
 export const getExifByImageUrl = cache(async (url: ImageUrl) => {
   let n_retry = 0
-  while (n_retry < 3) {
+  while (n_retry < 10) {
     try {
       const res = await fetch(url.exifUrl, { headers: { connection: 'close' } })
       const json = await res.json()
