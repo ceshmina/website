@@ -54,6 +54,7 @@ export const getExifByImageUrl = cache(async (url: ImageUrl) => {
       )
     } catch (_) {
       console.log(`Failed to fetch exif ${url.exifUrl}. Retry...`)
+      setTimeout(() => {}, 100)
       n_retry++
     }
   }
