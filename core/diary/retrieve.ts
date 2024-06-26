@@ -38,27 +38,17 @@ export const getDiariesByMonth = cache(async (month: string) => {
 
 
 export const getExifByImageUrl = cache(async (url: ImageUrl) => {
-  let n_retry = 0
-  while (n_retry < 10) {
-    try {
-      const res = await fetch(url.exifUrl, { headers: { connection: 'close' } })
-      const json = await res.json()
-      return new Exif(
-        json.Model || null,
-        json.LensModel || null,
-        json.FocalLength || null,
-        json.FocalLengthIn35mmFilm || null,
-        json.FNumber || null,
-        json.ExposureTime || null,
-        json.ISOSpeedRatings || null
-      )
-    } catch (_) {
-      console.log(`Failed to fetch exif ${url.exifUrl}. Retry...`)
-      setTimeout(() => {}, 100)
-      n_retry++
-    }
-  }
-  throw new Error(`Failed to fetch exif ${url.exifUrl}`)
+  const res = await fetch(url.exifUrl, { headers: { connection: 'close' } })
+  const json = await res.json()
+  return new Exif(
+    json.Model || null,
+    json.LensModel || null,
+    json.FocalLength || null,
+    json.FocalLengthIn35mmFilm || null,
+    json.FNumber || null,
+    json.ExposureTime || null,
+    json.ISOSpeedRatings || null
+  )
 })
 
 export const getCameras = cache(async (diary: Diary) => {
