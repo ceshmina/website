@@ -19,6 +19,7 @@ const Article = (props: { content: string, showImgMetaData?: boolean, useAltAsCa
       ul: ({ children }) => <ul className="py-3 pl-5 list-disc">{children}</ul>,
       li: ({ children }) => <li className="py-0.5">{children}</li>,
       code: ({ children }) => <code className="text-[13px] bg-gray-200 px-1.5 py-0.5 rounded">{children}</code>,
+      blockquote: ({ children }) => <blockquote className="border-l-4 border-gray-300 pl-2 ml-1 my-4">{children}</blockquote>
     }} >{content}</Markdown>
   )
 }
