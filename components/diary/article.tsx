@@ -11,7 +11,8 @@ const Article = (props: { content: string, showImgMetaData?: boolean, useAltAsCa
         ? <a href={href} className="text-blue-600" target="_blank">{children}</a>
         : <a href={href} className="text-blue-600">{children}</a>
       ),
-      h2: ({ children }) => <h2 className="text-lg font-bold py-4">{children}</h2>,
+      h2: ({ children }) => <h2 className="text-lg font-normal py-4">{children}</h2>,
+      h3: ({ children }) => <h3 className="text-base font-normal py-2">{children}</h3>,
       img: ({ src, alt, title }) => <div className="py-4">
         <Image src={src || null} alt={alt || ''} title={title} showMetaData={showImgMetaData} useAltAsCaption={useAltAsCaption} />
       </div>,
