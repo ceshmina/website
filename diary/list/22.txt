@@ -1,10 +1,10 @@
 3:I[5613,[],""]
 5:I[1778,[],""]
 4:["page","22","d"]
-0:["8PN9z-ES18LpkMpw-bSuz",[[["",{"children":["diary",{"children":["list",{"children":[["page","22","d"],{"children":["__PAGE__?{\"page\":\"22\"}",{}]}]}]}]},"$undefined","$undefined",true],["",{"children":["diary",{"children":["list",{"children":[["page","22","d"],{"children":["__PAGE__",{},["$L1","$L2",null]]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","diary","children","list","children","$4","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/486b5e9fb56ac4d0.css","precedence":"next","crossOrigin":""}]]}]]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","diary","children","list","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","diary","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,["$","html",null,{"lang":"en","children":[["$","body",null,{"className":"__variable_50803f __variable_6537a7 __variable_1c7f7b","children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}],["$","footer",null,{"className":"my-8","children":["$","p",null,{"className":"__className_50803f text-center text-[10px] font-light text-gray-500","children":"©2024 APKAS"}]}]]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/34feb639c403d918.css","precedence":"next","crossOrigin":""}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/d300d45493cc54e5.css","precedence":"next","crossOrigin":""}]],"$L6"]]]]
+0:["Ao0Zn1FXjcoqai-mNSOfL",[[["",{"children":["diary",{"children":["list",{"children":[["page","22","d"],{"children":["__PAGE__?{\"page\":\"22\"}",{}]}]}]}]},"$undefined","$undefined",true],["",{"children":["diary",{"children":["list",{"children":[["page","22","d"],{"children":["__PAGE__",{},["$L1","$L2",null]]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","diary","children","list","children","$4","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/486b5e9fb56ac4d0.css","precedence":"next","crossOrigin":""}]]}]]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","diary","children","list","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","diary","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,["$","html",null,{"lang":"en","children":[["$","body",null,{"className":"__variable_50803f __variable_6537a7 __variable_1c7f7b","children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}],["$","footer",null,{"className":"my-8","children":["$","p",null,{"className":"__className_50803f text-center text-[10px] font-light text-gray-500","children":"©2024 APKAS"}]}]]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/34feb639c403d918.css","precedence":"next","crossOrigin":""}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/d300d45493cc54e5.css","precedence":"next","crossOrigin":""}]],"$L6"]]]]
 6:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"ceshmina"}],["$","meta","3",{"name":"next-size-adjust"}]]
 1:null
-7:I[5250,["112","static/chunks/112-f20620be4369f930.js","68","static/chunks/app/diary/list/%5Bpage%5D/page-ecc26f9162a581a0.js"],""]
+7:I[5250,["112","static/chunks/112-f20620be4369f930.js","68","static/chunks/app/diary/list/%5Bpage%5D/page-4c69969c25d451e8.js"],""]
 2:["$","main",null,{"className":"max-w-[960px] mx-auto p-4","children":[["$","section",null,{"className":"py-4","children":[["$","div",null,{"className":"py-2 text-sm","children":["$","p",null,{"children":["$","$L7",null,{"href":"/","className":"__className_a09ae9 font-medium text-blue-500","children":"APKAS"}]}]}],["$","h1",null,{"className":"__className_a09ae9 text-2xl font-bold","children":"DIARY"}]]}],["$","div",null,{"className":"md:flex py-4","children":[["$","div",null,{"className":"md:w-[70%]","children":[["$","section",null,{"children":["$L8","$L9","$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e","$L1f","$L20"]}],["$","section",null,{"className":"py-4 text-center text-sm text-gray-500","children":["$","div",null,{"children":[["$","p",null,{"className":"py-1","children":[526," - ",550," / ",598,"件"]}],["$","p",null,{"className":"py-1","children":[["$","span",null,{"className":"mr-2 border-[1px] border-gray-300 px-1 py-1 rounded-full","children":["$","$L7",null,{"href":"/diary/list/1","className":"text-blue-500","children":["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 24 24","fill":"currentColor","aria-hidden":"true","data-slot":"icon","aria-labelledby":"$undefined","className":"w-4 h-4 inline-block pb-0.5","children":[null,["$","path",null,{"fillRule":"evenodd","d":"M10.72 11.47a.75.75 0 0 0 0 1.06l7.5 7.5a.75.75 0 1 0 1.06-1.06L12.31 12l6.97-6.97a.75.75 0 0 0-1.06-1.06l-7.5 7.5Z","clipRule":"evenodd"}],["$","path",null,{"fillRule":"evenodd","d":"M4.72 11.47a.75.75 0 0 0 0 1.06l7.5 7.5a.75.75 0 1 0 1.06-1.06L6.31 12l6.97-6.97a.75.75 0 0 0-1.06-1.06l-7.5 7.5Z","clipRule":"evenodd"}]]}]}]}],["$","span",null,{"className":"mr-2 border-[1px] border-gray-300 px-1 py-1 rounded-full","children":["$","$L7",null,{"href":"/diary/list/21","className":"text-blue-500","children":["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 24 24","fill":"currentColor","aria-hidden":"true","data-slot":"icon","aria-labelledby":"$undefined","className":"w-4 h-4 inline-block pb-0.5","children":[null,["$","path",null,{"fillRule":"evenodd","d":"M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z","clipRule":"evenodd"}]]}]}]}]," 22 / 24 ",["$","span",null,{"className":"ml-2 border-[1px] border-gray-300 px-1 py-1 rounded-full","children":["$","$L7",null,{"href":"/diary/list/23","className":"text-blue-500","children":["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 24 24","fill":"currentColor","aria-hidden":"true","data-slot":"icon","aria-labelledby":"$undefined","className":"w-4 h-4 inline-block pb-0.5","children":[null,["$","path",null,{"fillRule":"evenodd","d":"M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z","clipRule":"evenodd"}]]}]}]}],["$","span",null,{"className":"ml-2 border-[1px] border-gray-300 px-1 py-1 rounded-full","children":["$","$L7",null,{"href":"/diary/list/24","className":"text-blue-500","children":["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 24 24","fill":"currentColor","aria-hidden":"true","data-slot":"icon","aria-labelledby":"$undefined","className":"w-4 h-4 inline-block pb-0.5","children":[null,["$","path",null,{"fillRule":"evenodd","d":"M13.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L11.69 12 4.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z","clipRule":"evenodd"}],["$","path",null,{"fillRule":"evenodd","d":"M19.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06L17.69 12l-6.97-6.97a.75.75 0 0 1 1.06-1.06l7.5 7.5Z","clipRule":"evenodd"}]]}]}]}]]}]]}]}]]}],["$","div",null,{"className":"md:w-[30%] md:pl-4 py-4","children":"$L21"}]]}]]}]
 8:["$","div",null,{"className":"py-4","children":[["$","h2",null,{"className":"font-medium text-blue-500","children":["$","$L7",null,{"href":"/diary/entry/20170104","children":"2017年1月4日 - あけおめ / 1月の目標"}]}],["$","div",null,{"className":"py-2 text-xs font-light text-gray-800","children":["$","p",null,{"className":"line-clamp-3","children":"\nあけましておめでとうございます. 2017年になりましたね.\n\n今年はブログも少しずつ動かしていきたいと思います.\n\n今年の抱負みたいなのは Facebook にも書いたので面倒だしここに細かく書くことはしませんが, とりあえず要約すると \"規則正しい生活をする\" みたいな感じになると思います.\n\n三が日はやっぱり微妙になってしまいましたが今日から目標達成に向けて頑張っていきたいと思います. (フラグ)\n\nで, 1年の目標とは別に, 1か月単位で細かい (?) 目標を立てることにしました.\nとりあえず1月の目標は,\n\n- 星座を全部覚える\n- 部屋の大掃除を終わらせる\n\nになりました.\n\n星座を全部覚えるっていうのは特に深い意味はないですが, 最近天文系の授業もとっていて天文への興味が増したこと, 小学校のときにはノートに全部書いて覚えていたのに忘れてしまったこと, などが理由としてありそうです (なら星座とか覚えてないで勉強しろよって言われるかもしれませんが...)\n\n部屋の大掃除っていうのはアレですね, 本当なら年末にやるはずだったんですがだらだらしていたら年が明けてしまっていました.\n\nもうすぐ引っ越しもしないといけないしこの機会に終わらせてしまおうというわけです.\n\nでも一気にやるのはつらいし時間もないので, 適当に分散させて1月中くらいにやろうということになりました.\n\n\n\nではでは, 1月からいきなり目標達成できないみたいなことにならないように頑張っていきたいと思います.\n\n今日からまたバイトが始まってつらいですが, みなさんも頑張っていきましょう.\n\nゆるゆる更新していくつもりなので, みなさま今年もどうぞよろしくお願いいたしますm(_ _)m\n"}]}],["$","div",null,{"children":[]}]]}]
 22:Td19,
@@ -320,70 +320,70 @@ Philosophy の後半に出てくる sophia はもともとギリシャ語か何�
 
 *1:ドヴォルザークの交響曲第7番のこと。めっちゃかっこいいよ。
 1f:["$","div",null,{"className":"py-4","children":[["$","h2",null,{"className":"font-medium text-blue-500","children":["$","$L7",null,{"href":"/diary/entry/20160131","children":"2016年1月31日 - フィルハーモニー"}]}],["$","div",null,{"className":"py-2 text-xs font-light text-gray-800","children":["$","p",null,{"className":"line-clamp-3","children":"$29"}]}],["$","div",null,{"children":[]}]]}]
-2a:T1ce2,
-物理をやったことがあってもなくても, エントロピーという単語を聞いたことがある人は多いかもしれない (まどマギに出てきたね). このエントロピーというのがなかなかよくわからない概念で困るのだけれど (ぼくもよくわからない), やっぱり大事な概念なので,今日はちょっとその話をしようと思う*1.
+2a:T1e3a,
+物理をやったことがあってもなくても, エントロピーという単語を聞いたことがある人は多いかもしれない (まどマギに出てきたね). このエントロピーというのがなかなかよくわからない概念で困るのだけれど (ぼくもよくわからない), やっぱり大事な概念なので, 今日はちょっとその話をしようと思う*1.
 
 
 
 エントロピーという物理量はまず熱力学で登場する. 標準的なやり方だと, クラウジウスという人がやった方法をとることが多い.
 
-「熱効率」という概念がある. 2つの熱源 (温度はT_1, T_2 (T_1 < T_2)) があって, 高温の熱源T_2からQ_2の熱を受け取って低温の熱源T_1にQ′_1の熱を捨てる (つまり, 外部にW = Q_2 − Q′_1だけの仕事をする) ようなサイクルを考えよう. このときこのサイクルの効率eというのを
+「熱効率」という概念がある. 2つの熱源 (温度は $T_1$, $T_2$ ($T_1 < T_2$)) があって, 高温の熱源 $T_2$ から $Q_2$ の熱を受け取って低温の熱源 $T_1$ に $Q'_1$ の熱を捨てる (つまり, 外部に $W = Q_2 − Q'_1$ だけの仕事をする) ようなサイクルを考えよう. このときこのサイクルの効率 $e$ というのを
 
-e = \frac{W}{Q_2} = 1− \frac{Q′_1}{Q_2}
+$$ e = \displaystyle\frac{W}{Q_2} = 1− \frac{Q'_1}{Q_2} $$
 
 で定義する. この効率eについてはすごい定理があって, 一般に
 
-e \le 1 − \frac{T_1}{T_2}
+$$ e \le 1 − \displaystyle\frac{T_1}{T_2} $$
 
-が成り立つというものだ. つまり, 2つの熱源の間で熱の受け渡しをおこなうようなサイクルの効率は, その温度だけで決まる値1 − T_1/T_2を超えることはない.
+が成り立つというものだ. つまり, 2つの熱源の間で熱の受け渡しをおこなうようなサイクルの効率は, その温度だけで決まる値 $1 − T_1/T_2$ を超えることはない.
 
 これらの式からは
 
-\frac{Q′_1}{T_1} \ge \frac{Q_2}{T_2}
+$$ \displaystyle\frac{Q'_1}{T_1} \ge \frac{Q_2}{T_2} $$
 
-という関係が得られる. いまは低温熱源に捨てる熱をQ′_1としたけれど, これを吸収する熱がQ_1 = −Q′_1であると思うことにすると
+という関係が得られる. いまは低温熱源に捨てる熱を $Q'_1$ としたけれど, これを吸収する熱が $Q_1 = −Q'_1$ であると思うことにすると
 
-\frac{Q_1}{T_1} + \frac{Q_2}{T_2} \le 0
+$$ \displaystyle\frac{Q_1}{T_1} + \frac{Q_2}{T_2} \le 0 $$
 
 になる.
 
-クラウジウスさんは, 一般にn個の熱源T_1, T_2, ..., Tnがあって, それぞれの熱源TiからはQiの熱を吸収するようなサイクルに対して
+クラウジウスさんは, 一般に $n$ 個の熱源 $T_1, T_2, ..., T_n$ があって, それぞれの熱源 $T_i$ からは $Q_i$ の熱を吸収するようなサイクルに対して
 
-\sum_{i = 1}^n \frac{Q_i}{T_i} \le 0
+$$ \displaystyle\sum_{i = 1}^n \frac{Q_i}{T_i} \le 0 $$
 
 が成り立つことを示した. これをクラウジウスの不等式という. もっと一般的に, 温度が連続的に変わる場合は積分で
 
-\oint\frac{dQ}{T} \le 0
+$$ \displaystyle\oint\frac{dQ}{T} \le 0 $$
 
 という関係式になる (サイクルだから周回積分で書いている). これらの式で等号が成り立つのは一連の熱の受け渡しを逆回しでおこなうことができるときで, サイクルが可逆サイクルであるという.
 
-で, エントロピーが登場するのは可逆サイクルのときだ. 周回積分が0になるので, ある状態Aから別の状態Bまでの積分
+で, エントロピーが登場するのは可逆サイクルのときだ. 周回積分が $0$ になるので, ある状態 $A$ から別の状態 $B$ までの積分
 
-\int_A^B \frac{dQ}{T}
+$$ \displaystyle\int_A^B \frac{dQ}{T} $$
 
-というのは, その積分路によらないことがわかるだろう (別の道を通って戻ってくると0になるので). そこである状態Oを適当に決めて, 任意の状態Aにおける次のような量
+というのは, その積分路によらないことがわかるだろう (別の道を通って戻ってくると0になるので). そこである状態 $O$ を適当に決めて, 任意の状態 $A$ における次のような量
 
-S(A) = \int_O^A \frac{dQ}{T}
+$$ S(A) = \displaystyle\int_O^A \frac{dQ}{T} $$
 
 が定義できる. このSをエントロピーというのだ.
 
 
 
-これでエントロピーが定義できたけれど, よくわからない. 統計力学でこのエントロピーが系の「乱雑さ」を表す量である (ボルツマン定数をk, 系のとりうる状態の数をWとすると, S = k\log Wという関係がある) ことがわかって, これはこれですごい定理なのだけれど, ここでは熱力学の文脈でエントロピーの意味をもう少し考えてみることにしよう.
+これでエントロピーが定義できたけれど, よくわからない. 統計力学でこのエントロピーが系の「乱雑さ」を表す量である (ボルツマン定数を $k$ , 系のとりうる状態の数を $W$ とすると, $S = k\log W$ という関係がある) ことがわかって, これはこれですごい定理なのだけれど, ここでは熱力学の文脈でエントロピーの意味をもう少し考えてみることにしよう.
 
 熱力学のエントロピーに関する話はたくさんあるけれど, ここでは有名な「エントロピー増大則」を紹介することにする.
 
-状態AからBまで不可逆変化 (irで表す) し, そのあとBからAに可逆変化で戻ってくるようなサイクルを考えよう. 不可逆サイクルなので,
+状態AからBまで不可逆変化 ($\mathrm{ir}$ で表す) し, そのあと $B$ から $A$ に可逆変化で戻ってくるようなサイクルを考えよう. 不可逆サイクルなので,
 
-\int_{A, ir}^B \frac{dQ}{T} + \int_A^B \frac{dQ}{T} < 0
+$$ \displaystyle\int_{A, \mathrm{ir}}^B \frac{dQ}{T} + \int_A^B \frac{dQ}{T} < 0 $$
 
-が成り立つけれど, 後半は可逆なので\int_A^B \frac{dQ}{T} = S(B) - S(A)だから
+が成り立つけれど, 後半は可逆なので $\int_A^B dQ/T = S(B) - S(A)$ だから
 
-\int_{A, ir}^B \frac{dQ}{T} < S(B) - S(A)
+$$ \displaystyle\int_{A, \mathrm{ir}}^B \frac{dQ}{T} < S(B) - S(A) $$
 
-とくに前半が断熱変化 (外と熱のやりとりがない, すなわちdQ = 0) だとすると
+とくに前半が断熱変化 (外と熱のやりとりがない, すなわち $dQ = 0$) だとすると
 
-0 < S(B) − S(A)
+$$ 0 < S(B) − S(A) $$
 
 となって, 「断熱変化でエントロピーは増大する」という結果が得られる.
 
@@ -393,7 +393,7 @@ S(A) = \int_O^A \frac{dQ}{T}
 
 ちなみに「宇宙は断熱系だから...」と思ってこのエントロピー増大則を宇宙全体に適用して, 「宇宙はどんどん乱雑になっていって, ついには時間的に変化するものが何もなくなる死の世界が訪れる (= 宇宙の熱的死)」という考えをした人がいたみたいだけれど, いちおうこの議論が微妙な理由を述べておくと, 宇宙全体が断熱系かどうか (これはそうだと思うけど) わからないし, そもそもビッグバンで「時空が生まれて」その後「空間そのものが膨張」したりしていて (と信じられていて), いろいろと考えに入れる必要がありそうなこと, またもっと基本的な問題としては, 宇宙はたぶん平衡状態になったことはないということがある.
 
-上で「状態AからBが不可逆...」と書いたけれど, そもそもここで「状態」と言っているのは「平衡状態」のことで, 変化の途中はともかく, エントロピー増大則の最初と最後は平衡状態である必要がある (ちなみに, (準) 平衡状態を保ったまま変化するのが可逆変化だ). だから宇宙全体にエントロピー増大則を適用するのはいろいろと微妙そう, なのである.
+上で「状態 $A$ から $B$ が不可逆...」と書いたけれど, そもそもここで「状態」と言っているのは「平衡状態」のことで, 変化の途中はともかく, エントロピー増大則の最初と最後は平衡状態である必要がある (ちなみに, (準) 平衡状態を保ったまま変化するのが可逆変化だ). だから宇宙全体にエントロピー増大則を適用するのはいろいろと微妙そう, なのである.
 
 いま書いた「変化の前後は平衡状態である」というのは熱力学の欠点であるように思えるかもしれないけれど, 逆にいえば, 最初と最後さえ平衡状態ならその間でどんなに激しい変化をしていてもよい.
 
@@ -401,11 +401,11 @@ S(A) = \int_O^A \frac{dQ}{T}
 
 
 
-それにしても上のクラウジウスさんがやったエントロピーの定義はわかりにくいので, 田崎さんの本[2]とかでは別のやり方で定義されている. この本では, 先に内部エネルギーUとヘルムホルツの自由エネルギーFを定義して, そこからエントロピーを
+それにしても上のクラウジウスさんがやったエントロピーの定義はわかりにくいので, 田崎さんの本[2]とかでは別のやり方で定義されている. この本では, 先に内部エネルギー $U$ とヘルムホルツの自由エネルギー $F$ を定義して, そこからエントロピーを
 
-S = U − FT
+$$ S = U − FT $$
 
-で定義している. これだと「乱雑さっぽさ」みたいなものが直接わかりやすくていい... ように個人的には思う. だって, 自由エネルギーは「系ができる仕事」に関する概念で, 内部エネルギーのうち「自由に使える部分」のように思えるし, とすれば残りの部分U−Fはどうにも取り出せない部分, つまり乱雑さとして中に取り込まれてしまっているもの, という気がする.
+で定義している. これだと「乱雑さっぽさ」みたいなものが直接わかりやすくていい... ように個人的には思う. だって, 自由エネルギーは「系ができる仕事」に関する概念で, 内部エネルギーのうち「自由に使える部分」のように思えるし, とすれば残りの部分 $U − FT$ はどうにも取り出せない部分, つまり乱雑さとして中に取り込まれてしまっているもの, という気がする.
 
 やっぱりこれも統計力学の結果をこじつけただけのような気がしてきた. やっぱり統計力学の助けを借りるしかないのかなあ. (終)
 
