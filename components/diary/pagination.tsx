@@ -1,10 +1,12 @@
 import Link from 'next/link'
 import { ChevronLeftIcon, ChevronDoubleLeftIcon, ChevronRightIcon, ChevronDoubleRightIcon } from '@heroicons/react/24/solid'
-import { Paginator } from '@/core/diary/pagination'
+import { Paginator as OldPaginator } from '@/core/diary/pagination'
 
-const Pagination = (props: { paginator: Paginator, page: number }) => {
+import { CollectionItem, Collection, Paginator } from '@/core/model/base'
+
+const Pagination = <T extends CollectionItem, C extends Collection<T, C>>(props: { paginator: Paginator<T, C> | OldPaginator, page: number }) => {
   const { paginator, page } = props
-  const n = paginator.n
+  const n = paginator instanceof Paginator ? paginator.length : paginator.n
   const perPage = paginator.perPage
   const numPages = paginator.numPages()
   const minIndex = paginator.minIndex(page)

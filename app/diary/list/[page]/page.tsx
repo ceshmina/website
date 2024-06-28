@@ -1,27 +1,24 @@
 import Link from 'next/link'
 import { DIARY_PER_PAGE } from '@/config'
-import { DiaryCollection } from '@/core/diary/model'
-import { getDiaries } from '@/core/diary/retrieve'
 import Card from '@/components/diary/card'
-import Sidebar from '@/components/diary/sidebar'
-import { Paginator } from '@/core/diary/pagination'
 import Pagination from '@/components/diary/pagination'
+import Sidebar from '@/components/diary/sidebar'
 import { EN_TITLE_FONT } from '@/config'
 
+import { Paginator } from '@/core/model/base'
+import { DiaryCollection } from '@/core/model/diary'
+
 export const generateStaticParams = async () => {
-  const diaries = await getDiaries()
-  const paginator = new Paginator(diaries.items.length, DIARY_PER_PAGE)
+  const diaries = await DiaryCollection.fetch()
+  const paginator = new Paginator(diaries, DIARY_PER_PAGE)
   return Array.from({ length: paginator.numPages() }, (_, i) => ({ page: (i + 1).toString() }))
 }
 
 const Page = async ({ params }: { params: { page: string }}) => {
-  const { page } = params
-  const pageInt = parseInt(page)
+  const diaries = (await DiaryCollection.fetch()).sort()
+  const paginator = new Paginator(diaries, DIARY_PER_PAGE)
 
-  const diariesAll = await getDiaries()
-  const n = diariesAll.items.length
-  const paginator = new Paginator(n, DIARY_PER_PAGE)
-  const diaries = new DiaryCollection(diariesAll.sorted().items.slice(paginator.minIndex(pageInt), paginator.maxIndex(pageInt)))
+  const slice = paginator.sliceByPage(parseInt(params.page))
 
   return (
     <main className="max-w-[960px] mx-auto p-4">
@@ -35,13 +32,13 @@ const Page = async ({ params }: { params: { page: string }}) => {
       <div className="md:flex py-4">
         <div className="md:w-[70%]">
           <section>
-            {diaries.sorted().items.map(diary => (
+            {slice.sort().map(diary => (
               <Card key={diary.slug} diary={diary} showContent={true} />
             ))}
           </section>
 
           <section className="py-4 text-center text-sm text-gray-500">
-            <Pagination paginator={paginator} page={pageInt} />
+            <Pagination paginator={paginator} page={parseInt(params.page)} />
           </section>
         </div>
 
