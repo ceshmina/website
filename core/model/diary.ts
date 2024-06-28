@@ -3,7 +3,7 @@ import { parse, format } from 'date-fns'
 import { Collection } from '@/core/model/base'
 import { PhotoUrl, PhotoCollection } from '@/core/model/photo'
 import { type FetchDiaryResponse, fetchDiaries, fetchDiaryBySlug } from '@/core/source/diary'
-import { extractPhotoUrls } from '@/core/util/markdown'
+import { extractPhotoUrls, extractTextOnly } from '@/core/util/markdown'
 
 
 const DEFAULT_LOCATION = 'Tokyo, Japan'
@@ -56,6 +56,10 @@ export class Diary {
   showTitle(): string {
     return this._title ? this.showDate() + ` - ${this._title}` : this.showDate()
   }
+
+  contentTextOnly(): string {
+    return extractTextOnly(this._content)
+  }
 }
 
 export class DiaryCollection extends Collection<Diary, DiaryCollection> {
@@ -70,9 +74,14 @@ export class DiaryCollection extends Collection<Diary, DiaryCollection> {
     ))
   }
 
-  filterByDate(date: Date): DiaryCollection {
-    return new DiaryCollection(this._items.filter(d =>
+  filterByDate(date: Date, pastOnly: boolean = true): DiaryCollection {
+    const filtered = this._items.filter(d =>
       d.date.getMonth() === date.getMonth() && d.date.getDate() === date.getDate()
-    ))
+    )
+    if (pastOnly) {
+      return this.create(filtered.filter(d => d.date < date))
+    } else {
+      return this.create(filtered)
+    }
   }
 }

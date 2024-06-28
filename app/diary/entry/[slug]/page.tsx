@@ -24,7 +24,7 @@ const Page = async ({ params }: { params: { slug: string }}) => {
 
   const location = diary.location
   const uniqueCameras = diary.photos.uniqueCameras()
-  const pastDiaries = await getDiariesWithSameDate(slug)
+  const pastDiaries = (await getDiariesWithSameDate(slug)).sort()
 
   const showImgMetaData = true  // slug >= '20240521'
   const useAltAsCaption = slug >= '20240624'
@@ -83,12 +83,10 @@ const Page = async ({ params }: { params: { slug: string }}) => {
             </div>
           </section>
 
-          {/* Cardのリファクタ後に復活させる
           {pastDiaries.length > 0 && <section className="py-4">
               <h2 className="mt-8 font-medium">同じ日付の記事</h2>
               {pastDiaries.map(diary => <Card key={diary.slug} diary={diary} showContent={true} />)}
           </section>}
-          */}
           
           <div className="py-4" /> 
         </div>

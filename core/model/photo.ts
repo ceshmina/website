@@ -49,6 +49,7 @@ export class PhotoUrl {
   }
 
   get url(): string { return this._url }
+  get thumbnailUrl(): string { return this._thumbnailUrl }
   get exifUrl(): string { return this._exifUrl }
 }
 
@@ -95,6 +96,7 @@ class Photo {
   }
 
   get slug(): string { return this._slug }
+  get url(): PhotoUrl { return this._url }
   get exif(): Exif { return this._exif }
 
   static async fetchByUrl(url: PhotoUrl): Promise<Photo | null> {
@@ -126,6 +128,10 @@ export class PhotoCollection extends Collection<Photo, PhotoCollection> {
       urls.map(async url => await Photo.fetchByUrl(url))
     )
     return new PhotoCollection(photos.filter(photo => photo !== null) as Photo[])
+  }
+
+  thumbnailUrls(): string[] {
+    return this._items.map(photo => photo.url.thumbnailUrl)
   }
 
   uniqueCameras(): string[] {

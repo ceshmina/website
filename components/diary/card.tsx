@@ -1,10 +1,15 @@
 import Link from 'next/link'
-import { Diary } from '@/core/diary/model'
+import { Diary as OldDiary } from '@/core/diary/model'
 import { getThumbnailUrlsBySlug } from '@/core/diary/retrieve'
+import { Diary } from '@/core/model/diary'
 
-const Card = async (props: { diary: Diary, showContent?: boolean, cameraSlug?: string }) => {
+
+const Card = async (props: { diary: Diary | OldDiary, showContent?: boolean, cameraSlug?: string }) => {
   const { diary, showContent, cameraSlug } = props
-  const thumbnailUrls = cameraSlug ? await getThumbnailUrlsBySlug(diary, cameraSlug) : diary.imageThumbnailUrls()
+  const thumbnailUrls = diary instanceof Diary ?
+    diary.photos.thumbnailUrls() :
+    cameraSlug ? await getThumbnailUrlsBySlug(diary, cameraSlug) : diary.imageThumbnailUrls()
+
   return (
     <div className="py-4">
       <h2 className="font-medium text-blue-500">

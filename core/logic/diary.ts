@@ -7,8 +7,8 @@ export const getDiaryBySlugWithNext = cache(async (slug: string) => {
 
   const diaries = (await DiaryCollection.fetch()).sort()
   const index = diaries.getIndexBySlug(slug)
-  const prev = index > 0 ? diaries.getItemByIndex(index - 1) : null
-  const next = index < diaries.length - 1 ? diaries.getItemByIndex(index + 1) : null
+  const next = index > 0 ? diaries.getItemByIndex(index - 1) : null
+  const prev = index < diaries.length - 1 ? diaries.getItemByIndex(index + 1) : null
   return { diary, prev, next }
 })
 

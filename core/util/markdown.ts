@@ -8,3 +8,11 @@ export const extractPhotoUrls = (content: string): string[] => {
   }
   return urls
 }
+
+export const extractTextOnly = (content: string): string => {
+  const text = content
+    .replace(/\[(.*?)\]\(.*?\)/g, '$1')
+    .replace(/!\[.*\]\(.*\)/g, '')
+  
+  return text
+}
