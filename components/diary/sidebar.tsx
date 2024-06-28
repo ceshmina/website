@@ -8,6 +8,7 @@ import { DiaryCollection } from '@/core/model/diary'
 const Sidebar = async () => {
   const diaries = await DiaryCollection.fetch()
   const months = diaries.aggByMonth()
+  const cameras = diaries.aggByCameras()
   // const locations = aggByLocation(diaries.items)
   // const cameras = await aggCameras(diaries.items)
   return (
@@ -22,16 +23,16 @@ const Sidebar = async () => {
       </div>
 
 
-      {/*
       <h2 className="mt-8 text-sm font-medium">撮影機材別</h2>
       <div className="my-4 text-xs text-gray-500">
-        {cameras.map(({ camera, count }) =>
-          <p key={camera.slug} className="my-1.5">
-            <Link href={`/diary/camera/${camera.slug}`} className="text-blue-500">{camera.name} ({count})</Link>
+        {cameras.map(({ name, count }) =>
+          <p key={name} className="my-1.5">
+            <Link href={`/diary/camera/${name}`} className="text-blue-500">{name} ({count})</Link>
           </p>
         )}
       </div>
 
+      {/*
       <h2 className="mt-8 text-sm font-medium">場所別</h2>
       <div className="my-4 text-xs text-gray-500">
         {locations.map(({ location, count }) => {

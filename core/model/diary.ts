@@ -2,7 +2,7 @@ import { parse, format } from 'date-fns'
 
 import { Collection } from '@/core/model/base'
 import { Month } from '@/core/model/datetime'
-import { PhotoUrl, PhotoCollection } from '@/core/model/photo'
+import { CAMERA_MASTER, PhotoUrl, PhotoCollection } from '@/core/model/photo'
 import { type FetchDiaryResponse, fetchDiaries, fetchDiaryBySlug } from '@/core/source/diary'
 import { extractPhotoUrls, extractTextOnly } from '@/core/util/markdown'
 
@@ -109,5 +109,16 @@ export class DiaryCollection extends Collection<Diary, DiaryCollection> {
       res.sort((a, b) => a[0].localeCompare(b[0]))
     
     return sorted.map(([slug, count]) => ({ month: new Month(slug), count }))
+  }
+
+  aggByCameras(): { name: string, count: number }[] {
+    const cameras = this._items.map(diary => diary.photos.uniqueCameras())
+    const counts: Map<string, number> = new Map()
+    cameras.flat().forEach(name => {
+      const count = counts.get(name) || 0
+      counts.set(name, count + 1)
+    })
+    const names = Array.from(new Set(CAMERA_MASTER.map(c => c.name)))
+    return names.map(name => ({ name, count: counts.get(name) || 0 }))
   }
 }
