@@ -22,8 +22,16 @@ export abstract class Collection<T extends CollectionItem, C extends Collection<
     return this._items.length
   }
 
+  reverse(): C {
+    return this.create([...this._items].reverse())
+  }
+
   map<U>(fn: (item: T) => U): U[] {
     return this._items.map(fn)
+  }
+
+  flatMap<U>(fn: (item: T) => U[]): U[] {
+    return this._items.flatMap(fn)
   }
 
   slugs(): string[] {

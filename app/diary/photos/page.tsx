@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import { getDiaries, getAllImages } from '@/core/diary/retrieve'
 import { EN_TITLE_FONT } from '@/config'
 import ImageThumbnail from '@/components/diary/imagethumbnail'
 
+import { getAllImages } from '@/core/logic/diary'
+
 const Page = async () => {
-  const diaries = await getDiaries()
-  const photos = await getAllImages(diaries.items)
+  const images = await getAllImages()
 
   return (
     <main className="max-w-[800px] mx-auto p-4">
@@ -21,22 +21,28 @@ const Page = async () => {
       </section>
 
       <div className="py-8">
-        {photos.map((p, i) => {
-          const { imageUrl, thumbnailUrl, diaryLink, diaryTitle } = p
-          const showDate = i === 0 || p.date !== photos[i - 1].date
+        {images.map((p, i) => {
+          const { url, diary } = p
+          const showDate = i === 0 || diary.date !== images[i - 1].diary.date
           let className = 'w-[18%] object-cover inline-block'
           if (i % 5 !== 0) {
             className += ' ml-[2%]'
           }
           if (showDate) {
             return <div key={i} className={className}>
-              <p className="text-[10px] md:text-xs text-gray-500">{p.date}</p>
-              <ImageThumbnail src={thumbnailUrl} largeSrc={imageUrl} diaryLink={diaryLink} diaryTitle={diaryTitle} />
+              <p className="text-[10px] md:text-xs text-gray-500">{diary.slug}</p>
+              <ImageThumbnail
+                src={url.thumbnailUrl} largeSrc={url.url}
+                diaryLink={`/diary/entry/${diary.slug}`} diaryTitle={diary.showTitle()}
+              />
             </div>
           } else {
             return <div key={i} className={className}>
               <p className="text-[10px] md:text-xs text-gray-500">&nbsp;</p>
-              <ImageThumbnail src={thumbnailUrl} largeSrc={imageUrl} diaryLink={diaryLink} diaryTitle={diaryTitle} />
+              <ImageThumbnail
+                src={url.thumbnailUrl} largeSrc={url.url}
+                diaryLink={`/diary/entry/${diary.slug}`} diaryTitle={diary.showTitle()}
+              />
             </div>
           }
         })}

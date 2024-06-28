@@ -39,3 +39,8 @@ export const getDiariesByLocation = cache(async (location: string) => {
   const res = diaries.filterByLocation(location).sort()
   return res
 })
+
+export const getAllImages = cache(async () => {
+  const diaries = (await DiaryCollection.fetch()).sort()
+  return diaries.flatMap(diary => diary.photos.reverse().map(photo => ({ url: photo.url, diary })))
+})
