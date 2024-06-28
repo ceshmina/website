@@ -21,6 +21,14 @@ export abstract class Collection<T extends CollectionItem, C extends Collection<
   get length(): number {
     return this._items.length
   }
+
+  map<U>(fn: (item: T) => U): U[] {
+    return this._items.map(fn)
+  }
+
+  slugs(): string[] {
+    return this._items.map(i => i.slug)
+  }
   
   getIndexBySlug(slug: string): number {
     return this._items.findIndex(i => i.slug === slug)

@@ -5,10 +5,13 @@ import { PhotoUrl, PhotoCollection } from '@/core/model/photo'
 import { type FetchDiaryResponse, fetchDiaries, fetchDiaryBySlug } from '@/core/source/diary'
 import { extractPhotoUrls } from '@/core/util/markdown'
 
+
+const DEFAULT_LOCATION = 'Tokyo, Japan'
+
 const fetchResponseToDiary = async (res: FetchDiaryResponse): Promise<Diary> => {
   const { slug, metadata, content } = res
   const title = metadata.title || null
-  const location = metadata.location || null
+  const location = metadata.location || DEFAULT_LOCATION
   const photoUrls = extractPhotoUrls(content).map(url => new PhotoUrl(url))
   const photos = await PhotoCollection.fetchByUrls(photoUrls)
   return new Diary(slug, content, title, location, photos)
@@ -33,6 +36,7 @@ export class Diary {
 
   get slug(): string { return this._slug }
   get date(): Date { return this._date }
+  get content(): string { return this._content }
   get location(): string | null { return this._location }
   get photos(): PhotoCollection { return this._photos }
 
@@ -50,7 +54,7 @@ export class Diary {
   }
 
   showTitle(): string {
-    return this.showDate() + this._title ? ` - ${this._title}` : ''
+    return this._title ? this.showDate() + ` - ${this._title}` : this.showDate()
   }
 }
 

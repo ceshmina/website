@@ -14,7 +14,7 @@ export const getDiaryBySlugWithNext = cache(async (slug: string) => {
 
 export const getDiariesWithSameDate = cache(async (slug: string) => {
   const diary = await Diary.fetchBySlug(slug)
-  if (!diary) return null
+  if (!diary) return new DiaryCollection([])
 
   const diaries = (await DiaryCollection.fetch()).sort() as DiaryCollection
   const res = diaries.filterByDate(diary.date)
