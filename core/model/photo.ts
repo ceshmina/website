@@ -10,12 +10,6 @@ export const CAMERA_MASTER = [
   { name: 'LUMIX GF9', exif: 'DC-GF9' },
   { name: 'PEN E-P7', exif: 'E-P7' },
   { name: 'D5600', exif: 'NIKON D5600' },
-  { name: 'iPhone 6', exif: 'iPhone 6' },
-  { name: 'iPhone 8', exif: 'iPhone 8' },
-  { name: 'iPhone 12', exif: 'foodie' },
-  { name: 'iPhone 12', exif: 'iPhone 12' },
-  { name: 'iPhone 15 Pro', exif: 'iPhone 15 Pro' },
-  { name: 'Pixel 4a', exif: 'Pixel 4a' },
   { name: 'Vario-Tessar T* FE 16-35mm F4 ZA OSS', exif: 'FE 16-35mm F4 ZA OSS' },
   { name: 'FE 24-105mm F4 G OSS', exif: 'FE 24-105mm F4 G OSS' },
   { name: 'FE 70-300mm F4.5-5.6 G OSS', exif: 'FE 70-300mm F4.5-5.6 G OSS' },
@@ -31,6 +25,12 @@ export const CAMERA_MASTER = [
   { name: 'AF-P DX NIKKOR 18-55mm F3.5-5.6 G VR', exif: '18.0-55.0 mm f/3.5-5.6' },
   { name: 'AF-P DX NIKKOR 70-300mm F4.5-6.3 G ED VR', exif: '70.0-300.0 mm f/4.5-6.3' },
   { name: 'AF-S DX NIKKOR 35mm F1.8 G', exif: '35.0 mm f/1.8' },
+  { name: 'iPhone 6', exif: 'iPhone 6' },
+  { name: 'iPhone 8', exif: 'iPhone 8' },
+  { name: 'iPhone 12', exif: 'foodie' },
+  { name: 'iPhone 12', exif: 'iPhone 12' },
+  { name: 'iPhone 15 Pro', exif: 'iPhone 15 Pro' },
+  { name: 'Pixel 4a', exif: 'Pixel 4a' },
   { name: 'Utulens 32mm F16', exif: 'Utulens 32mm F16' }
 ]
 

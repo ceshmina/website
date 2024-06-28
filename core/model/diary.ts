@@ -12,7 +12,7 @@ const DEFAULT_LOCATION = 'Tokyo, Japan'
 const fetchResponseToDiary = async (res: FetchDiaryResponse): Promise<Diary> => {
   const { slug, metadata, content } = res
   const title = metadata.title || null
-  const location = metadata.location || DEFAULT_LOCATION
+  const location = metadata.location
   const photoUrls = extractPhotoUrls(content).map(url => new PhotoUrl(url))
   const photos = await PhotoCollection.fetchByUrls(photoUrls)
   return new Diary(slug, content, title, location, photos)
@@ -24,7 +24,7 @@ export class Diary {
   private _month: Month
   private _content: string
   private _title: string | null
-  private _location: string | null
+  private _location: string
   private _photos: PhotoCollection
 
   constructor(slug: string, content: string, title: string | null, location: string | null, photos: PhotoCollection) {
@@ -35,7 +35,7 @@ export class Diary {
       new Month(slug.substring(0, 6))
     this._content = content
     this._title = title
-    this._location = location
+    this._location = location || DEFAULT_LOCATION
     this._photos = photos
   }
 
@@ -43,7 +43,7 @@ export class Diary {
   get date(): Date { return this._date }
   get month(): string { return this._month.slug }
   get content(): string { return this._content }
-  get location(): string | null { return this._location }
+  get location(): string { return this._location }
   get photos(): PhotoCollection { return this._photos }
 
   static async fetchBySlug(slug: string): Promise<Diary | null> {
@@ -111,14 +111,26 @@ export class DiaryCollection extends Collection<Diary, DiaryCollection> {
     return sorted.map(([slug, count]) => ({ month: new Month(slug), count }))
   }
 
-  aggByCameras(): { name: string, count: number }[] {
+  aggByCameras(): { camera: string, count: number }[] {
     const cameras = this._items.map(diary => diary.photos.uniqueCameras())
     const counts: Map<string, number> = new Map()
     cameras.flat().forEach(name => {
       const count = counts.get(name) || 0
       counts.set(name, count + 1)
     })
-    const names = Array.from(new Set(CAMERA_MASTER.map(c => c.name)))
-    return names.map(name => ({ name, count: counts.get(name) || 0 }))
+    const masters = Array.from(new Set(CAMERA_MASTER.map(c => c.name)))
+    return masters.map(camera => ({ camera, count: counts.get(camera) || 0 }))
+  }
+
+  aggByLocation(): { location: string, count: number }[] {
+    const counts: Map<string, number> = new Map()
+    this._items.forEach(diary => {
+      const location = diary.location
+      const count = counts.get(location) || 0
+      counts.set(location, count + 1)
+    })
+    return Array.from(counts.entries())
+      .map(([location, count]) => ({ location, count }))
+      .sort((a, b) => a.location.localeCompare(b.location))
   }
 }

@@ -1,16 +1,14 @@
 import Link from 'next/link'
-import { getDiaries } from '@/core/diary/retrieve'
-import { aggByMonth, aggByLocation, aggCameras } from '@/core/diary/aggregate'
-import { Location } from '@/core/diary/model'
 
 import { DiaryCollection } from '@/core/model/diary'
+
 
 const Sidebar = async () => {
   const diaries = await DiaryCollection.fetch()
   const months = diaries.aggByMonth()
   const cameras = diaries.aggByCameras()
-  // const locations = aggByLocation(diaries.items)
-  // const cameras = await aggCameras(diaries.items)
+  const locations = diaries.aggByLocation()
+
   return (
     <div>
       <h2 className="text-sm font-medium">月別</h2>
@@ -25,24 +23,21 @@ const Sidebar = async () => {
 
       <h2 className="mt-8 text-sm font-medium">撮影機材別</h2>
       <div className="my-4 text-xs text-gray-500">
-        {cameras.map(({ name, count }) =>
-          <p key={name} className="my-1.5">
-            <Link href={`/diary/camera/${name}`} className="text-blue-500">{name} ({count})</Link>
+        {cameras.map(({ camera, count }) =>
+          <p key={camera} className="my-1.5">
+            <Link href={`/diary/camera/${camera}`} className="text-blue-500">{camera} ({count})</Link>
           </p>
         )}
       </div>
 
-      {/*
       <h2 className="mt-8 text-sm font-medium">場所別</h2>
       <div className="my-4 text-xs text-gray-500">
         {locations.map(({ location, count }) => {
-          const locSlug = new Location(location).slug
           return (<p key={location} className="my-1.5">
-            <Link href={`/diary/location/${locSlug}`} className="text-blue-500">{location} ({count})</Link>
+            <Link href={`/diary/location/${location}`} className="text-blue-500">{location} ({count})</Link>
           </p>)
         })}
       </div>
-      */}
 
       <h2 className="mt-8 text-sm font-medium">
         <Link href="/diary/photos" className="text-blue-500">Photos</Link>
