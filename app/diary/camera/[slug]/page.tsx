@@ -1,25 +1,23 @@
 import Link from 'next/link'
-import { Camera } from '@/core/diary/model'
-import { aggCameras } from '@/core/diary/aggregate'
-import { getDiaries, getDiariesByCamera } from '@/core/diary/retrieve'
 import Card from '@/components/diary/card'
 import Sidebar from '@/components/diary/sidebar'
 import { EN_TITLE_FONT } from '@/config'
 
+import { DiaryCollection } from '@/core/model/diary'
+import { getDiariesByCamera } from '@/core/logic/diary'
+
+
 export const generateStaticParams = async () => {
-  const diaries = await getDiaries()
-  const cameras = await aggCameras(diaries.items)
-  return cameras.map(({ camera }) => ({ slug: camera.name }))
+  const diaries = await DiaryCollection.fetch()
+  const cameras = diaries.aggByCameras()
+  return cameras.map(({ camera }) => ({ slug: camera }))
 }
 
 const Page = async ({ params }: { params: { slug: string }}) => {
   const { slug } = params
-  const camera = Camera.bySlug(slug)
-  if (!camera) return null
-
-  const diariesAll = await getDiaries()
-  const diaries = await getDiariesByCamera(diariesAll.items, slug)
-  const n = diaries.items.length
+  const name = decodeURIComponent(slug)
+  const diaries = await getDiariesByCamera(name)
+  const n = diaries.length
 
   return (
     <main className="max-w-[960px] mx-auto p-4">
@@ -33,13 +31,13 @@ const Page = async ({ params }: { params: { slug: string }}) => {
             </Link>
           </p>
         </div>
-        <h1 className="text-2xl font-medium">撮影機材: {camera.name} の日記一覧 ({n}件)</h1>
+        <h1 className="text-2xl font-medium">撮影機材: {name} の日記一覧 ({n}件)</h1>
       </section>
 
       <div className="md:flex py-4">
         <section className="md:w-[70%]">
-          {diaries.sorted().items.map(diary => (
-            <Card key={diary.slug} diary={diary} cameraSlug={camera.slug} />
+          {diaries.sort().map(diary => (
+            <Card key={diary.slug} diary={diary} cameraSlug={name} />
           ))}
         </section>
 

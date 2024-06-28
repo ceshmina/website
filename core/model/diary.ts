@@ -95,6 +95,10 @@ export class DiaryCollection extends Collection<Diary, DiaryCollection> {
     }
   }
 
+  filterByMonth(month: Month): DiaryCollection {
+    return this.create(this._items.filter(d => d.month === month.slug))
+  }
+
   aggByMonth(reverse: boolean = true): { month: Month, count: number }[] {
     const counts: Map<string, number> = new Map()
     this._items.forEach(diary => {
@@ -111,6 +115,10 @@ export class DiaryCollection extends Collection<Diary, DiaryCollection> {
     return sorted.map(([slug, count]) => ({ month: new Month(slug), count }))
   }
 
+  filterByCamera(camera: string): DiaryCollection {
+    return this.create(this._items.filter(d => d.photos.uniqueCameras().includes(camera)))
+  }
+
   aggByCameras(): { camera: string, count: number }[] {
     const cameras = this._items.map(diary => diary.photos.uniqueCameras())
     const counts: Map<string, number> = new Map()
@@ -120,6 +128,10 @@ export class DiaryCollection extends Collection<Diary, DiaryCollection> {
     })
     const masters = Array.from(new Set(CAMERA_MASTER.map(c => c.name)))
     return masters.map(camera => ({ camera, count: counts.get(camera) || 0 }))
+  }
+
+  filterByLocation(location: string): DiaryCollection {
+    return this.create(this._items.filter(d => d.location === location))
   }
 
   aggByLocation(): { location: string, count: number }[] {

@@ -1,4 +1,5 @@
 import { cache } from 'react'
+import { Month } from '@/core/model/datetime'
 import { Diary, DiaryCollection } from '@/core/model/diary'
 
 export const getDiaryBySlugWithNext = cache(async (slug: string) => {
@@ -18,5 +19,23 @@ export const getDiariesWithSameDate = cache(async (slug: string) => {
 
   const diaries = (await DiaryCollection.fetch()).sort() as DiaryCollection
   const res = diaries.filterByDate(diary.date)
+  return res
+})
+
+export const getDiariesByMonth = cache(async (month: Month) => {
+  const diaries = (await DiaryCollection.fetch())
+  const res = diaries.filterByMonth(month).sort()
+  return res
+})
+
+export const getDiariesByCamera = cache(async (camera: string) => {
+  const diaries = (await DiaryCollection.fetch())
+  const res = diaries.filterByCamera(camera).sort()
+  return res
+})
+
+export const getDiariesByLocation = cache(async (location: string) => {
+  const diaries = (await DiaryCollection.fetch())
+  const res = diaries.filterByLocation(location).sort()
   return res
 })
