@@ -3,11 +3,13 @@ import { getDiaries } from '@/core/diary/retrieve'
 import { aggByMonth, aggByLocation, aggCameras } from '@/core/diary/aggregate'
 import { Location } from '@/core/diary/model'
 
+import { DiaryCollection } from '@/core/model/diary'
+
 const Sidebar = async () => {
-  const diaries = await getDiaries()
-  const months = aggByMonth(diaries.items)
-  const locations = aggByLocation(diaries.items)
-  const cameras = await aggCameras(diaries.items)
+  const diaries = await DiaryCollection.fetch()
+  const months = diaries.aggByMonth()
+  // const locations = aggByLocation(diaries.items)
+  // const cameras = await aggCameras(diaries.items)
   return (
     <div>
       <h2 className="text-sm font-medium">月別</h2>
@@ -19,6 +21,8 @@ const Sidebar = async () => {
         )}
       </div>
 
+
+      {/*
       <h2 className="mt-8 text-sm font-medium">撮影機材別</h2>
       <div className="my-4 text-xs text-gray-500">
         {cameras.map(({ camera, count }) =>
@@ -37,6 +41,7 @@ const Sidebar = async () => {
           </p>)
         })}
       </div>
+      */}
 
       <h2 className="mt-8 text-sm font-medium">
         <Link href="/diary/photos" className="text-blue-500">Photos</Link>

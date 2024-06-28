@@ -1,6 +1,7 @@
 import { parse, format } from 'date-fns'
 
 import { Collection } from '@/core/model/base'
+import { Month } from '@/core/model/datetime'
 import { PhotoUrl, PhotoCollection } from '@/core/model/photo'
 import { type FetchDiaryResponse, fetchDiaries, fetchDiaryBySlug } from '@/core/source/diary'
 import { extractPhotoUrls, extractTextOnly } from '@/core/util/markdown'
@@ -20,6 +21,7 @@ const fetchResponseToDiary = async (res: FetchDiaryResponse): Promise<Diary> => 
 export class Diary {
   private _slug: string
   private _date: Date
+  private _month: Month
   private _content: string
   private _title: string | null
   private _location: string | null
@@ -28,6 +30,9 @@ export class Diary {
   constructor(slug: string, content: string, title: string | null, location: string | null, photos: PhotoCollection) {
     this._slug = slug
     this._date = parse(slug, 'yyyyMMdd', new Date())
+    this._month = this._date.getFullYear() < 2023 ?
+      new Month(slug.substring(0, 4)) :
+      new Month(slug.substring(0, 6))
     this._content = content
     this._title = title
     this._location = location
@@ -36,6 +41,7 @@ export class Diary {
 
   get slug(): string { return this._slug }
   get date(): Date { return this._date }
+  get month(): string { return this._month.slug }
   get content(): string { return this._content }
   get location(): string | null { return this._location }
   get photos(): PhotoCollection { return this._photos }
@@ -51,6 +57,10 @@ export class Diary {
 
   showDate(): string {
     return format(this._date, 'yyyy年M月d日')
+  }
+
+  showMonth(): string {
+    return this._month.name
   }
 
   showTitle(): string {
@@ -83,5 +93,21 @@ export class DiaryCollection extends Collection<Diary, DiaryCollection> {
     } else {
       return this.create(filtered)
     }
+  }
+
+  aggByMonth(reverse: boolean = true): { month: Month, count: number }[] {
+    const counts: Map<string, number> = new Map()
+    this._items.forEach(diary => {
+      const slug = diary.month
+      const count = counts.get(slug) || 0
+      counts.set(slug, count + 1)
+    })
+
+    const res = Array.from(counts.entries())
+    const sorted = reverse ?
+      res.sort((a, b) => b[0].localeCompare(a[0])) :
+      res.sort((a, b) => a[0].localeCompare(b[0]))
+    
+    return sorted.map(([slug, count]) => ({ month: new Month(slug), count }))
   }
 }

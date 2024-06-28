@@ -11,8 +11,8 @@ export const extractPhotoUrls = (content: string): string[] => {
 
 export const extractTextOnly = (content: string): string => {
   const text = content
-    .replace(/\[(.*?)\]\(.*?\)/g, '$1')
     .replace(/!\[.*\]\(.*\)/g, '')
+    .replace(/\[(.*?)\]\(.*?\)/g, '$1')
   
   return text
 }
