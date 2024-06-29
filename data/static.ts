@@ -26,5 +26,6 @@ export const performances = [
   { date: '20240506', title: '水道橋フォルクローレライブ春', location: 'Tokyo', note: 'as Grupo Brothers/with tapaTunes' },
   { date: '20240519', title: '第27回三木山フォルクローレ音楽祭', location: 'Miki' },
   { date: '20240525', title: '', location: 'Hamura', note: 'as Los Amidas/with ショルヘーノ, すずきかのん, 多賀文音' },
-  { date: '20240602', title: '', location: 'Sodegaura', note: 'as Grupo Brothers' }
+  { date: '20240602', title: '', location: 'Sodegaura', note: 'as Grupo Brothers' },
+  { date: '20240629', title: '第2回京都フォルクローレ街角ステージ', location: 'Kyoto' }
 ]
