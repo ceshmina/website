@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { parse, format } from 'date-fns'
 import { EN_TITLE_FONT } from '@/config'
 import { discography, performances } from '@/data/static'
+import RandomImage from '@/components/random'
 
 const Page = () => {
   return (
@@ -12,8 +13,7 @@ const Page = () => {
       </section>
 
       <div className="pt-2 pb-12">
-        <img src="/cat.jpg" className="w-[100%]" />
-        <p className="text-right text-xs text-gray-500 italic py-1 pr-4 md:pr-1">Chefchaouen, Morocco</p>
+        <RandomImage />
       </div>
 
       <section className="py-4 px-4 md:px-0">
