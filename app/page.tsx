@@ -5,13 +5,18 @@ import { discography, performances } from '@/data/static'
 
 const Page = () => {
   return (
-    <main className="max-w-[800px] mx-auto px-4 my-8">
-      <section className="py-4">
+    <main className="max-w-[800px] mx-auto md:px-4 my-8">
+      <section className="py-4 px-4 md:px-0">
         <h1 className={`${EN_TITLE_FONT.className} text-2xl font-bold`}>APKAS</h1>
         <p className={`${EN_TITLE_FONT.className} py-1`}>SHU/CESHMINA</p>
       </section>
 
-      <section className="py-4">
+      <div className="pt-2 pb-12">
+        <img src="/cat.jpg" className="w-[100%]" />
+        <p className="text-right text-xs text-gray-500 italic py-1 pr-4 md:pr-1">Chefchaouen, Morocco</p>
+      </div>
+
+      <section className="py-4 px-4 md:px-0">
         <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>ABOUT</h2>
         <div className="py-2 text-sm">
           <p className="py-1">Software engineer/data scientist.</p>
@@ -24,7 +29,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className="py-4">
+      <section className="py-4 px-4 md:px-0">
         <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>BACKGROUND</h2>
         <div className="py-2">
           <h3 className="pt-2 pb-2">Career</h3>
@@ -71,7 +76,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className="py-4">
+      <section className="py-4 px-4 md:px-0">
         <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>WORKS & ACTIVITIES</h2>
         <div className="py-2">
           <h3 className="pt-2 pb-2">Discography</h3>
@@ -101,7 +106,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className="py-4">
+      <section className="py-4 px-4 md:px-0">
         <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>LINKS</h2>
         <div className="py-2 text-sm">
           <p className="py-1">X <a href="https://x.com/ceshmina" target="_blank" className="text-blue-600">@ceshmina</a></p>
@@ -110,7 +115,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className="py-4">
+      <section className="py-4 px-4 md:px-0">
         <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>OTHER CONTENTS</h2>
         <div className="py-2 text-sm">
           <p><Link href="/diary" className="text-blue-600">Diary</Link> (in Japanese)</p>
