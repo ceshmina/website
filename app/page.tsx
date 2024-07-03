@@ -1,9 +1,8 @@
-'use client'
 import Link from 'next/link'
-import { Link as Scroll } from 'react-scroll'
 import { parse, format } from 'date-fns'
 import { EN_TITLE_FONT } from '@/config'
 import { discography, performances } from '@/data/static'
+import Navigation from '@/components/navigation'
 import RandomImage from '@/components/random'
 
 const Page = () => {
@@ -15,10 +14,7 @@ const Page = () => {
           <p className={`${EN_TITLE_FONT.className} py-1`}>SHU/CESHMINA</p>
         </div>
         <div className="md:mr-1">
-          <p className={`${EN_TITLE_FONT.className} text-sm font-bold`}>
-            <span className="mr-4"><Scroll to="about" duration={300} smooth>ABOUT</Scroll></span>
-            <span><Scroll to="works" duration={300} smooth>WORKS</Scroll></span>
-          </p>
+          <Navigation />
         </div>
       </header>
 
