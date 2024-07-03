@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { parse, format } from 'date-fns'
+import { FaXTwitter, FaInstagram, FaGithub } from 'react-icons/fa6'
+import { PiNotebook } from 'react-icons/pi'
 import { EN_TITLE_FONT } from '@/config'
 import { discography, performances } from '@/data/static'
 import Navigation from '@/components/navigation'
@@ -112,19 +114,23 @@ const Page = () => {
         </div>
       </section>
 
-      <section className="py-4 px-4 md:px-0">
-        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>LINKS</h2>
-        <div className="py-2 text-sm">
-          <p className="py-1">X <a href="https://x.com/ceshmina" target="_blank" className="text-blue-600">@ceshmina</a></p>
-          <p className="py-1">Instagram <a href="https://instagram.com/ceshmina" target="_blank" className="text-blue-600">@ceshmina</a></p>
-          <p className="py-1">GitHub <a href="https://github.com/ceshmina" target="_blank" className="text-blue-600">@ceshmina</a></p>
+      <section className="mt-16 border-t-2 py-4 px-4 md:px-1 flex justify-between">
+        <div className="py-1 text-xs">
+          <p className="py-0.5 md:inline">
+            <FaXTwitter className="inline pb-[1px]" /> <a href="https://x.com/ceshmina" target="_blank" className="text-blue-600">ceshmina</a>
+          </p>
+          <p className="py-0.5 md:inline md:pl-4">
+            <FaInstagram className="inline pb-[1px]" /> <a href="https://instagram.com/ceshmina" target="_blank" className="text-blue-600">ceshmina</a>
+          </p>
+          <p className="py-0.5 md:inline md:pl-4">
+            <FaGithub className="inline pb-[1px]" /> <a href="https://github.com/ceshmina" target="_blank" className="text-blue-600">ceshmina</a>
+          </p>
         </div>
-      </section>
 
-      <section className="py-4 px-4 md:px-0">
-        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>OTHER CONTENTS</h2>
-        <div className="py-2 text-sm">
-          <p><Link href="/diary" className="text-blue-600">Diary</Link> (in Japanese)</p>
+        <div className="py-1 text-xs">
+          <p className="py-0.5">
+            <PiNotebook className="inline pb-[1px]" /> <Link href="/diary" className="text-blue-600">my diary</Link> (in Japanese)
+          </p>
         </div>
       </section>
     </main>
