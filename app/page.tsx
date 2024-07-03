@@ -1,4 +1,6 @@
+'use client'
 import Link from 'next/link'
+import { Link as Scroll } from 'react-scroll'
 import { parse, format } from 'date-fns'
 import { EN_TITLE_FONT } from '@/config'
 import { discography, performances } from '@/data/static'
@@ -7,16 +9,24 @@ import RandomImage from '@/components/random'
 const Page = () => {
   return (
     <main className="max-w-[800px] mx-auto md:px-4 my-8">
-      <section className="py-4 px-4 md:px-0">
-        <h1 className={`${EN_TITLE_FONT.className} text-2xl font-bold`}>APKAS</h1>
-        <p className={`${EN_TITLE_FONT.className} py-1`}>SHU/CESHMINA</p>
-      </section>
+      <header className="py-4 px-4 md:px-0 flex justify-between items-center">
+        <div className="md:ml-1">
+          <h1 className={`${EN_TITLE_FONT.className} text-2xl font-bold`}>APKAS</h1>
+          <p className={`${EN_TITLE_FONT.className} py-1`}>SHU/CESHMINA</p>
+        </div>
+        <div className="md:mr-1">
+          <p className={`${EN_TITLE_FONT.className} text-sm font-bold`}>
+            <span className="mr-4"><Scroll to="about" duration={300} smooth>ABOUT</Scroll></span>
+            <span><Scroll to="works" duration={300} smooth>WORKS</Scroll></span>
+          </p>
+        </div>
+      </header>
 
       <div className="pt-2 pb-12">
         <RandomImage />
       </div>
 
-      <section className="py-4 px-4 md:px-0">
+      <section id="about" className="py-4 px-4 md:px-0">
         <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>ABOUT</h2>
         <div className="py-2 text-sm">
           <p className="py-1">Software engineer/data scientist.</p>
@@ -76,7 +86,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className="py-4 px-4 md:px-0">
+      <section id="works" className="py-4 px-4 md:px-0">
         <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>WORKS & ACTIVITIES</h2>
         <div className="py-2">
           <h3 className="pt-2 pb-2">Discography</h3>
