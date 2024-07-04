@@ -4,13 +4,17 @@ import { FaXTwitter, FaInstagram, FaGithub } from 'react-icons/fa6'
 import { PiNotebook } from 'react-icons/pi'
 import { EN_TITLE_FONT } from '@/config'
 import { discography, performances } from '@/data/static'
+import SideBar from '@/components/sidebar'
 import Navigation from '@/components/navigation'
 import RandomImage from '@/components/random'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 
 const Page = () => {
-  return (
-    <main className="max-w-[800px] mx-auto md:px-4 my-8">
+  return (<>
+    <div className="md:hidden">
+      <SideBar />
+    </div>
+    <main className="max-w-[800px] mx-auto md:px-4 py-8">
       <header className="py-4 px-4 md:px-0 flex justify-between items-center">
         <div className="md:ml-1">
           <h1 className={`${EN_TITLE_FONT.className} text-2xl font-bold`}>APKAS</h1>
@@ -135,7 +139,7 @@ const Page = () => {
         </div>
       </section>
     </main>
-  )
+  </>)
 }
 
 export default Page
