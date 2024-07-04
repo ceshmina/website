@@ -6,6 +6,7 @@ import { EN_TITLE_FONT } from '@/config'
 import { discography, performances } from '@/data/static'
 import Navigation from '@/components/navigation'
 import RandomImage from '@/components/random'
+import '/node_modules/flag-icons/css/flag-icons.min.css'
 
 const Page = () => {
   return (
