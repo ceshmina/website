@@ -9,7 +9,8 @@ import Navigation from '@/components/navigation'
 import RandomImage from '@/components/random'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 
-const Page = () => {
+export const Page = (props: { lang: 'ja' | 'en' }) => {
+  const { lang } = props
   return (<>
     <div className="md:hidden">
       <SideBar />
@@ -32,13 +33,53 @@ const Page = () => {
       <section id="about" className="py-4 px-4 md:px-0">
         <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>ABOUT</h2>
         <div className="py-2 text-sm">
-          <p className="py-1">Software engineer/data scientist.</p>
-          <p className="py-1">
-            Play Latin folk music known as &quot;folklore&quot; in Japan.
-            Member of <a href="https://x.com/yamafolklore" target="_blank" className="text-blue-600">YAMA</a>
-            , <a href="https://x.com/grupobrothers" target="_blank" className="text-blue-600">Grupo Brothers</a>
-            , and <a href="https://x.com/StreetFolk_Amid" target="_blank" className="text-blue-600">Los Amidas</a>.
-          </p>
+          {lang === 'ja' ?
+            <p className="py-1">
+              ソフトウェアエンジニア/データサイエンティスト。
+            </p> :
+            <p className="py-1">
+              Software engineer/data scientist.
+            </p>
+          } 
+          {lang === 'ja' ?
+            <p className="py-1">
+              インターネット広告会社でwebアプリケーションの開発の他、
+              プロダクトのデータ分析や仮説検証、機械学習モデルの構築に従事しています。
+              最近はデータの民主化や、生成AIの業務活用に興味があります。
+            </p> :
+            <p className="py-1">
+              Work on web application development at an internet advertising company,
+              as well as data analysis, hypothesis testing, and machine learning model building for products.
+              Recently interested in <span className="italic">data democratization</span> and
+              generative AI use cases for the enterprise.
+            </p>
+          }
+          {lang === 'ja' ?
+            <p className="py-1">
+              南米の民族風音楽「フォルクローレ」を演奏しています。
+              <a href="https://x.com/yamafolklore" target="_blank" className="text-blue-600">YAMA</a>、
+              <a href="https://x.com/grupobrothers" target="_blank" className="text-blue-600">グルーポ★ブラザーズ</a>、
+              <a href="https://x.com/StreetFolk_Amid" target="_blank" className="text-blue-600">Los Amidas</a>
+              というグループで、主にサンポーニャとパーカッションを担当しています。
+            </p> :
+            <p className="py-1">
+              Play Latin folk music known as &quot;folklore&quot; in Japan.
+              As a member of <a href="https://x.com/yamafolklore" target="_blank" className="text-blue-600">YAMA</a>,
+              <a href="https://x.com/grupobrothers" target="_blank" className="text-blue-600">Grupo Brothers</a>,
+              and <a href="https://x.com/StreetFolk_Amid" target="_blank" className="text-blue-600">Los Amidas</a>,
+              I mainly play the zampoñas and the percussion.
+            </p>
+          }
+          {lang === 'ja' ?
+            <p className="py-1">
+              最近は写真にハマっています。使用機材 (ボディ) はα7 III、α7S、PEN E-P7です。
+              他には音楽制作、ディズニー、旅行、コンシューマーゲームなどが好きです。
+            </p> :
+            <p className="py-1">
+              Recently, I&apos;ve been into photography, using α7 III, α7S, and PEN E-P7.
+              I also enjoy music production, Disney, traveling, and consumer games.
+            </p>
+          }
         </div>
       </section>
 
@@ -90,7 +131,7 @@ const Page = () => {
       </section>
 
       <section id="works" className="py-4 px-4 md:px-0">
-        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>WORKS & ACTIVITIES</h2>
+        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>WORKS</h2>
         <div className="py-2">
           <h3 className="pt-2 pb-2">Discography</h3>
           <div className="text-sm">
@@ -119,6 +160,20 @@ const Page = () => {
         </div>
       </section>
 
+      <section id="blog" className="py-4 px-4 md:px-0">
+        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>BLOG</h2>
+        <div className="text-sm">
+          <p className="py-1">Under preparation.</p>
+        </div>
+      </section>
+
+      <section id="contact" className="py-4 px-4 md:px-0">
+        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>CONTACT</h2>
+        <div className="text-sm">
+          <p className="py-1">Under preparation.</p>
+        </div>
+      </section>
+
       <section className="mt-16 border-t-2 py-4 px-4 md:px-1 flex justify-between">
         <div className="py-1 text-xs">
           <p className="py-0.5 md:inline">
@@ -142,4 +197,5 @@ const Page = () => {
   </>)
 }
 
-export default Page
+const PageJa = () => <Page lang="ja" />
+export default PageJa
