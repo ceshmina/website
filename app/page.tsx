@@ -53,7 +53,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
               Work on web application development at an internet advertising company,
               and also focus on data analysis, hypothesis testing,
               and building and operating machine learning models for various products.
-              Lately, I've been interested in <span className="italic">data democratization</span> and
+              Lately, I&apos;ve been interested in <span className="italic">data democratization</span> and
               exploring generative AI use cases for enterprises.
             </p>
           }
@@ -66,7 +66,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
               というグループで、主にサンポーニャとパーカッションを担当。
             </p> :
             <p className="py-1">
-              In my free time, I play Latin folk music, known as "folklore," in Japan.
+              In my free time, I play Latin folk music, known as &quot;folklore,&quot; in Japan.
               As a member of <a href="https://x.com/yamafolklore" target="_blank" className="text-blue-600">YAMA</a>
               , <a href="https://x.com/grupobrothers" target="_blank" className="text-blue-600">Grupo Brothers</a>,
               and <a href="https://x.com/StreetFolk_Amid" target="_blank" className="text-blue-600">Los Amidas</a>,
