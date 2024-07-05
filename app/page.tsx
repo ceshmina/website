@@ -3,7 +3,7 @@ import { format, parse } from 'date-fns'
 import { FaXTwitter, FaInstagram, FaGithub, FaMusic } from 'react-icons/fa6'
 import { PiNotebook } from 'react-icons/pi'
 import { MdOutlineEmail } from 'react-icons/md'
-import { EN_TITLE_FONT } from '@/config'
+import { Text, OuterLink, AltFont, Code } from '@/components/styled'
 import SideBar from '@/components/sidebar'
 import Navigation from '@/components/navigation'
 import RandomImage from '@/components/random'
@@ -22,8 +22,8 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
     <main className="mt-8">
       <header className="max-w-[800px] mx-auto py-4 px-4 md:px-0 flex justify-between items-center">
         <div className="md:ml-1">
-          <h1 className={`${EN_TITLE_FONT.className} text-2xl font-bold`}>APKAS</h1>
-          <p className={`${EN_TITLE_FONT.className} py-1`}>SHU/CESHMINA</p>
+          <h1 className="text-2xl font-bold"><AltFont>APKAS</AltFont></h1>
+          <p className="py-1"><AltFont>SHU/CESHMINA</AltFont></p>
         </div>
         <div className="md:mr-1">
           <Navigation />
@@ -35,62 +35,30 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
       </div>
 
       <section id="about" className="max-w-[800px] mx-auto pt-4 pb-8 px-4 md:px-0">
-        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>ABOUT</h2>
-        <div className="py-2 text-sm">
+        <h2 className="text-lg font-bold"><AltFont>ABOUT</AltFont></h2>
+        <div className="py-2">
           {lang === 'ja' ?
-            <p className="py-1">
-              ソフトウェアエンジニア/データサイエンティスト。
-            </p> :
-            <p className="py-1">
-              Software engineer/data scientist.
-            </p>
+            <Text>ソフトウェアエンジニア/データサイエンティスト。</Text> :
+            <Text>Software engineer/data scientist.</Text>
           } 
           {lang === 'ja' ?
-            <p className="py-1">
-              インターネット広告会社でwebアプリケーションの開発の他、<></>
-              プロダクトのデータ分析や仮説検証、機械学習モデルの構築/運用に従事。<></>
-              特にデータの民主化や、生成AIの業務活用に興味がある。
-            </p> :
-            <p className="py-1">
-              Work on web application development at an internet advertising company,
-              and also focus on data analysis, hypothesis testing,
-              and building and operating machine learning models for various products.
-              Lately, I&apos;ve been interested in <span className="italic">data democratization</span> and
-              exploring generative AI use cases for enterprises.
-            </p>
+            <Text>インターネット広告会社でwebアプリケーションの開発の他、プロダクトのデータ分析や仮説検証、機械学習モデルの構築/運用に従事。特にデータの民主化や、生成AIの業務活用に興味がある。</Text> :
+            <Text>Work on web application development at an internet advertising company, and also focus on data analysis, hypothesis testing, and building and operating machine learning models for various products. Lately, I&apos;ve been interested in <span className="italic">data democratization</span> and exploring generative AI use cases for enterprises.</Text>
           }
           {lang === 'ja' ?
-            <p className="py-1">
-              趣味で南米の民族風音楽「フォルクローレ」を演奏している。
-              <a href="https://x.com/yamafolklore" target="_blank" className="text-blue-600">YAMA</a>、
-              <a href="https://x.com/grupobrothers" target="_blank" className="text-blue-600">グルーポ★ブラザーズ</a>、
-              <a href="https://x.com/StreetFolk_Amid" target="_blank" className="text-blue-600">Los Amidas</a>
-              というグループで、主にサンポーニャとパーカッションを担当。
-            </p> :
-            <p className="py-1">
-              In my free time, I play Latin folk music, known as &quot;folklore,&quot; in Japan.
-              As a member of <a href="https://x.com/yamafolklore" target="_blank" className="text-blue-600">YAMA</a>
-              , <a href="https://x.com/grupobrothers" target="_blank" className="text-blue-600">Grupo Brothers</a>,
-              and <a href="https://x.com/StreetFolk_Amid" target="_blank" className="text-blue-600">Los Amidas</a>,
-              I primarily play the zampoñas and percussion instruments.
-            </p>
+            <Text>趣味で南米の民族風音楽「フォルクローレ」を演奏している。<OuterLink href="https://x.com/yamafolklore">YAMA</OuterLink>、<OuterLink href="https://x.com/grupobrothers">グルーポ★ブラザーズ</OuterLink>、<OuterLink href="https://x.com/StreetFolk_Amid">Los Amidas</OuterLink>というグループで、主にサンポーニャとパーカッションを担当。</Text> :
+            <Text>In my free time, I play Latin folk music, known as &quot;folklore,&quot; in Japan. As a member of <OuterLink href="https://x.com/yamafolklore">YAMA</OuterLink>, <OuterLink href="https://x.com/grupobrothers">Grupo Brothers</OuterLink>, and <OuterLink href="https://x.com/StreetFolk_Amid" >Los Amidas</OuterLink>, I primarily play the zampoñas and percussion instruments.</Text>
           }
           {lang === 'ja' ?
-            <p className="py-1">
-              最近は写真にハマっている。<></>
-              他には音楽制作、ディズニー、旅行、コンシューマーゲームなどが好き。
-            </p> :
-            <p className="py-1">
-              Recently, I&apos;ve taken up photography.
-              Also enjoy music production, Disney, traveling, and playing video games.
-            </p>
+            <Text>最近は写真にハマっている。他には音楽制作、ディズニー、旅行、コンシューマーゲームなどが好き。</Text> :
+            <Text>Recently, I&apos;ve taken up photography. Also enjoy music production, Disney, traveling, and playing video games.</Text>
           }
         </div>
       </section>
 
       <section className="py-8 text-gray-100 bg-gray-800">
         <div className="max-w-[838px] mx-auto pt-4 pb-12 px-4 md:border-2 border-gray-100">
-          <h3 className={`${EN_TITLE_FONT.className} font-bold pt-2 pb-4 pl-1`}>CAREER</h3>
+          <h3 className="font-bold pt-2 pb-4 pl-1"><AltFont>CAREER</AltFont></h3>
           <Job
             period="JAN 2023 - PRESENT"
             job="Data scientist"
@@ -124,7 +92,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
               'Python', 'Flask', 'BigQuery', 'Kubernetes', 'deep learning']}
           />
 
-          <h3 className={`${EN_TITLE_FONT.className} font-bold pt-8 pb-4 pl-1`}>EDUCATION</h3>
+          <h3 className="font-bold pt-8 pb-4 pl-1"><AltFont>EDUCATION</AltFont></h3>
           <School
             period="APR 2019 - MAR 2021"
             job="M. Sc. in Physics"
@@ -149,13 +117,12 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
       </section>
 
       <section id="works" className="max-w-[800px] mx-auto py-16 px-4 md:px-0">
-        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>WORKS</h2>
+        <h2 className="text-lg font-bold"><AltFont>WORKS</AltFont></h2>
         <div className="my-8">
           <div className="my-4 flex justify-between align-bottom border-b-2 border-gray-700">
             <p className="pl-1 pt-1 font-medium">Ambivalencia</p>
-            <p className={`${EN_TITLE_FONT.className} text-sm font-bold px-4 py-1 border-2 border-gray-700 mb-[-2px] text-gray-100 bg-gray-700`}>
-              2022&nbsp;/&nbsp;
-              <FaMusic className="inline mt-[-2px] pb-[2px] mr-1" />ALBUM
+            <p className="text-sm font-bold px-4 py-1 border-2 border-gray-700 mb-[-2px] text-gray-100 bg-gray-700">
+              <AltFont>2022&nbsp;/&nbsp;<FaMusic className="inline mt-[-2px] pb-[2px] mr-1" />ALBUM</AltFont>
             </p>
           </div>
           <div className="flex items-start">
@@ -187,9 +154,8 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
         <div className="my-8">
           <div className="my-4 flex justify-between align-bottom border-b-2 border-gray-700">
             <p className="pl-1 pt-1 font-medium">Aventura</p>
-            <p className={`${EN_TITLE_FONT.className} text-sm font-bold px-4 py-1 border-2 border-gray-700 mb-[-2px] text-gray-100 bg-gray-700`}>
-              2021&nbsp;/&nbsp;
-              <FaMusic className="inline mt-[-2px] pb-[2px] mr-1" />ALBUM
+            <p className="text-sm font-bold px-4 py-1 border-2 border-gray-700 mb-[-2px] text-gray-100 bg-gray-700">
+              <AltFont>2021&nbsp;/&nbsp;<FaMusic className="inline mt-[-2px] pb-[2px] mr-1" />ALBUM</AltFont>
             </p>
           </div>
           <div className="flex items-start">
@@ -219,7 +185,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
           </div>
         </div>
 
-        <h3 className={`${EN_TITLE_FONT.className} font-bold pt-2 pb-4`}>RECENT EVENTS</h3>
+        <h3 className="font-bold pt-2 pb-4"><AltFont>RECENT EVENTS</AltFont></h3>
         <div className="flex flex-wrap justify-between">
           {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).slice(0, 10).map((p, i) => {
             const d = format(parse(p.date, 'yyyyMMdd', new Date()), 'MMM d, yyyy')
@@ -227,7 +193,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
               <Link href={`/diary/entry/${p.date}`}>
                 <div className="flex justify-between">
                   <div className="px-2 py-1">
-                    <p className={`${EN_TITLE_FONT.className} text-xs font-bold`}>{d.toUpperCase()}</p>
+                    <p className="text-xs font-bold"><AltFont>{d.toUpperCase()}</AltFont></p>
                     <p className="text-sm font-bold leading-4 pb-1 font-medium">{p.title}</p>
                     <p className="text-xs text-gray-700">{p.location}{p.location && p.note && ', '}{p.note}</p>
                   </div>
@@ -241,17 +207,17 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
 
       <section id="blog" className="py-8 bg-gray-300">
         <div className="max-w-[838px] mx-auto pt-4 pb-12 px-4">
-          <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>BLOG</h2>
-          <div className="text-sm">
-            <p className="py-1">Under preparation...</p>
+          <h2 className="text-lg font-bold"><AltFont>BLOG</AltFont></h2>
+          <div>
+            <Text>Under preparation...</Text>
           </div>
         </div>
       </section>
 
       <section id="contact" className="max-w-[800px] mx-auto pt-12 pb-8 px-4 md:px-0">
-        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>CONTACT</h2>
+        <h2 className="text-lg font-bold"><AltFont>CONTACT</AltFont></h2>
         <div>
-          <p className="py-2"><MdOutlineEmail className="inline text-sm" /> <code className="text-[13px]">shu[at]apkas.net</code></p>
+          <p className="py-2"><MdOutlineEmail className="inline text-sm" /> <Code>shu[at]apkas.net</Code></p>
         </div>
       </section>
 
