@@ -11,7 +11,7 @@ const Job = (props: { period: string, job: string, company: string, description:
     <div className="pb-4 text-xs text-gray-100">
       {description.map((d, i) => (<p className="py-1" key={i}>{d}</p>))}
       <p className="py-2">
-        <span className="font-bold">Keywords: </span>
+        <span className="font-medium">Keywords: </span>
         {keywords.join(', ')}
       </p>
     </div>

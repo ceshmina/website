@@ -171,13 +171,13 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
               <p className="pt-2 pb-1">{lang === 'ja' ? '各種音楽サブスクサービスにて配信中' : 'Available on various music streaming services'}:</p>
               <p className="leading-6">
                 <Link href="https://open.spotify.com/intl-ja/album/1s3ObF3GkmBId0ZbXMkro4" target="_blank">
-                  <span className="font-medium bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Spotify <FaSpotify className="inline pb-[1px]" /></span>
+                  <span className="inline-block font-medium bg-gray-700 text-white mr-1 px-2 my-0.5 rounded-full">Spotify <FaSpotify className="inline pb-[1px]" /></span>
                 </Link>
                 <Link href="https://music.apple.com/jp/album/ambivalencia/1658982598" target="_blank">
-                  <span className="font-medium bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Apple Music <SiApplemusic className="inline pb-[1px] mr-1" /></span>
+                  <span className="inline-block font-medium bg-gray-700 text-white mr-1 px-2 my-0.5 rounded-full">Apple Music <SiApplemusic className="inline pb-[1px] mr-1" /></span>
                 </Link>
                 <Link href="https://www.amazon.co.jp/music/player/albums/B0BPM6RZ5R?&_encoding=UTF8&tag=tcjaz-22&linkCode=ur2&camp=247&creative=1211" target="_blank">
-                  <span className="font-medium bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Amazon Music <SiAmazonmusic className="inline pb-[1px] mr-1" /></span>
+                  <span className="inline-block font-medium bg-gray-700 text-white mr-1 px-2 my-0.5 rounded-full">Amazon Music <SiAmazonmusic className="inline pb-[1px] mr-1" /></span>
                 </Link>
               </p>
             </div>
@@ -205,13 +205,13 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
               <p className="pt-2 pb-1">{lang === 'ja' ? '各種音楽サブスクサービスにて配信中' : 'Available on various music streaming services'}:</p>
               <p className="leading-6">
                 <Link href="https://open.spotify.com/intl-ja/album/44Dv1jcm8ZgwBxiZhyVCxZ" target="_blank">
-                  <span className="font-medium bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Spotify <FaSpotify className="inline pb-[1px]" /></span>
+                  <span className="inline-block font-medium bg-gray-700 text-white mr-1 px-2 my-0.5 rounded-full">Spotify <FaSpotify className="inline pb-[1px]" /></span>
                 </Link>
                 <Link href="https://music.apple.com/jp/album/aventura/1553005052" target="_blank">
-                  <span className="font-medium bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Apple Music <SiApplemusic className="inline pb-[1px] mr-1" /></span>
+                  <span className="inline-block font-medium bg-gray-700 text-white mr-1 px-2 my-0.5 rounded-full">Apple Music <SiApplemusic className="inline pb-[1px] mr-1" /></span>
                 </Link>
                 <Link href="https://www.amazon.co.jp/music/player/albums/B08WC2Z716?&_encoding=UTF8&tag=tcjaz-22&linkCode=ur2&camp=247&creative=1211" target="_blank">
-                  <span className="font-medium bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Amazon Music <SiAmazonmusic className="inline pb-[1px] mr-1" /></span>
+                  <span className="inline-block font-medium bg-gray-700 text-white mr-1 px-2 my-0.5 rounded-full">Amazon Music <SiAmazonmusic className="inline pb-[1px] mr-1" /></span>
                 </Link>
               </p>
             </div>
