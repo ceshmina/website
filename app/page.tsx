@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { parse, format } from 'date-fns'
-import { FaXTwitter, FaInstagram, FaGithub } from 'react-icons/fa6'
+import { FaXTwitter, FaInstagram, FaGithub, FaMusic, FaSpotify } from 'react-icons/fa6'
+import { SiApplemusic, SiAmazonmusic } from 'react-icons/si'
 import { PiNotebook } from 'react-icons/pi'
 import { EN_TITLE_FONT } from '@/config'
 import { discography, performances } from '@/data/static'
@@ -139,31 +140,61 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
 
       <section id="works" className="max-w-[800px] mx-auto pt-16 pb-8 px-4 md:px-0">
         <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>WORKS</h2>
-        <div className="py-2">
-          <h3 className="pt-2 pb-2">Discography</h3>
-          <div className="text-sm">
-            {discography.sort((a, b) => b.year - a.year).map((d, idx) => {
-              const n = discography.length - idx
-              return <p className="py-1" key={idx}>
-                {n}. {d.year}, <a href={d.link} target="_blank" className="text-blue-600 italic">{d.title}</a> ({d.note}).
+        <div className="my-8">
+          <div className="my-4 flex justify-between align-bottom border-b-2 border-gray-700">
+            <p className="pl-1 pt-1 font-bold">Ambivalencia</p>
+            <p className={`${EN_TITLE_FONT.className} text-sm font-bold px-4 py-1 border-2 border-gray-700 mb-[-2px] text-gray-100 bg-gray-700`}>
+              2022&nbsp;/&nbsp;
+              <FaMusic className="inline mt-[-2px] pb-[2px] mr-1" />ALBUM
+            </p>
+          </div>
+          <div className="flex items-start">
+            <img src="/ambivalencia.webp" className="max-w-[30%] py-1" />
+            <div className="text-xs pl-4">
+              <p className="py-1">西田フレンズとしての2ndアルバム。オンライン・コスキンで初披露した「Espiral」、リーダー・西田のボリビアへの想いを込めた「Para Ti Lejos」など、全11曲を収録。</p>
+              <p className="py-1">11曲中6曲を作曲。サンポーニャとギターを中心に演奏した他、全編のレコーディング・ミキシング・マスタリングを担当した。</p>
+              <p className="pt-2 pb-1">各種音楽サブスクサービスにて配信中:</p>
+              <p className="leading-6">
+                <Link href="https://open.spotify.com/intl-ja/album/1s3ObF3GkmBId0ZbXMkro4" target="_blank">
+                  <span className="font-bold bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Spotify <FaSpotify className="inline pb-[1px]" /></span>
+                </Link>
+                <Link href="https://music.apple.com/jp/album/ambivalencia/1658982598" target="_blank">
+                  <span className="font-bold bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Apple Music <SiApplemusic className="inline pb-[1px] mr-1" /></span>
+                </Link>
+                <Link href="https://www.amazon.co.jp/music/player/albums/B0BPM6RZ5R?&_encoding=UTF8&tag=tcjaz-22&linkCode=ur2&camp=247&creative=1211" target="_blank">
+                  <span className="font-bold bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Amazon Music <SiAmazonmusic className="inline pb-[1px] mr-1" /></span>
+                </Link>
               </p>
-            })}
+            </div>
           </div>
-          <h3 className="pt-4 pb-2">Performances <span className="text-sm">(latest 5 events)</span></h3>
-          <div className="text-sm">
-            {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).slice(0, 5).map((p, idx) => {
-              const n = performances.length - idx
-              const dateStr = format(parse(p.date, 'yyyyMMdd', new Date), 'MMM d, yyyy')
-              const dateLink = <Link href={`/diary/entry/${p.date}`} className="text-blue-600">{dateStr}</Link>
-              const note = p.location && p.note ? `${p.location}, ${p.note}` : p.location || p.location || ''
-              if (!p.title)
-                return <p className="py-1" key={idx}>{n}. {dateLink} ({note}).</p>
-              else {
-                return <p className="py-1" key={idx}>{n}. {dateLink}, <span className="italic">{p.title}</span> ({note}).</p>
-              }
-            })}
+        </div>
+        <div className="my-8">
+          <div className="my-4 flex justify-between align-bottom border-b-2 border-gray-700">
+            <p className="pl-1 pt-1 font-bold">Aventura</p>
+            <p className={`${EN_TITLE_FONT.className} text-sm font-bold px-4 py-1 border-2 border-gray-700 mb-[-2px] text-gray-100 bg-gray-700`}>
+              2021&nbsp;/&nbsp;
+              <FaMusic className="inline mt-[-2px] pb-[2px] mr-1" />ALBUM
+            </p>
           </div>
-          <p className="pt-4 pb-2 text-sm"><Link href="/works" className="text-blue-600">Show all</Link></p>
+          <div className="flex items-start">
+            <img src="/aventura.webp" className="max-w-[30%] py-1" />
+            <div className="text-xs pl-4">
+              <p className="py-1">西田フレンズの記念すべき1stアルバム。リーダー作曲の初めてのオリジナル曲「Tren de Aventura」、ライブで好評の「El Horizonte」などインスト7曲を収録。</p>
+              <p className="py-1">うち3曲を作曲、全編でサンポーニャとギターを中心に演奏している。メンバー2名で分担し、レコーディング・ミキシング・マスタリングを実施。</p>
+              <p className="pt-2 pb-1">各種音楽サブスクサービスにて配信中:</p>
+              <p className="leading-6">
+                <Link href="https://open.spotify.com/intl-ja/album/44Dv1jcm8ZgwBxiZhyVCxZ" target="_blank">
+                  <span className="font-bold bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Spotify <FaSpotify className="inline pb-[1px]" /></span>
+                </Link>
+                <Link href="https://music.apple.com/jp/album/aventura/1553005052" target="_blank">
+                  <span className="font-bold bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Apple Music <SiApplemusic className="inline pb-[1px] mr-1" /></span>
+                </Link>
+                <Link href="https://www.amazon.co.jp/music/player/albums/B08WC2Z716?&_encoding=UTF8&tag=tcjaz-22&linkCode=ur2&camp=247&creative=1211" target="_blank">
+                  <span className="font-bold bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Amazon Music <SiAmazonmusic className="inline pb-[1px] mr-1" /></span>
+                </Link>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
