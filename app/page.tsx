@@ -92,10 +92,15 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
             period="JAN 2023 - PRESENT"
             job="Data scientist"
             company="ADWAYS DEEE Inc."
-            description={[
+            description={lang === 'ja' ? [
               'アドプラットフォーム事業部の分社化に伴い、出向中。',
               'リードデータサイエンティストとして、引き続きプロダクトのデータ分析や仮説検証、機械学習モデルの構築/運用に従事。社内での分析業務にとどまらず、メディアやクライアントと連携した分析プロジェクトの推進、データ活用の提案なども行っている。',
-              '最近は社内でのデータ活用をより広め民主化するための取り組みや、生成AIをビジネスに適用するための研究開発にも関わっている。']}
+              '最近は社内でのデータ活用をより広め民主化するための取り組みや、生成AIをビジネスに適用するための研究開発にも関わっている。'
+            ] : [
+              'Currently seconded due to the spin-off of the Ad Platform Division.',
+              'As a Lead-Data Scientist, I continue to be involved in data analysis, hypothesis testing, and the development and operation of machine learning models for products. Beyond internal analysis work, I also promote analysis projects in collaboration with media and clients, and propose ways to leverage data.',
+              'Recently, I have been engaged in initiatives to further spread and democratize data utilization within the company, as well as research and development to apply generative AI to business operations.'
+            ]}
             keywords={[
               'Python', 'BigQuery', 'Tableau', 'Dataform', 'Vertex AI',
               'causal analysis', 'hypothesis testing', 'data democratization', 'generative AI']}
@@ -104,9 +109,13 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
             period="APR 2021 - DEC 2022"
             job="Software engineer"
             company="Adways Inc."
-            description={[
+            description={lang === 'ja' ? [
               'ソフトウェアエンジニアとして新卒入社。当初はリワード広告プラットフォーム「AppDriver」のフロントエンド・バックエンド開発に従事。',
-              '1年目のうちからアプリケーションの開発業務と並行して、プロダクト全体の課題を探索するデータ分析や新規機能の仮説検証、また機械学習によるレコメンドモデルの構築・運用業務にも携わった。']}
+              '1年目のうちからアプリケーションの開発業務と並行して、プロダクト全体の課題を探索するデータ分析や新規機能の仮説検証、また機械学習によるレコメンドモデルの構築・運用業務にも携わった。'
+            ] : [
+              'I joined the company as a new graduate software engineer. Initially, I was involved in both frontend and backend development for the reward advertising platform "AppDriver."',
+              'From my first year, alongside application development tasks, I also engaged in data analysis to explore product-wide issues, hypothesis testing for new features, and the development and operation of recommendation models using machine learning.'
+            ]}
             keywords={[
               'TypeScript', 'Vue.js', 'Scala', 'Play Framework',
               'Python', 'Flask', 'BigQuery', 'Kubernetes', 'deep learning']}
@@ -149,9 +158,15 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
           <div className="flex items-start">
             <img src="/ambivalencia.webp" className="max-w-[30%] py-1" />
             <div className="text-xs pl-4">
-              <p className="py-1">西田フレンズとしての2ndアルバム。オンライン・コスキンで初披露した「Espiral」、リーダー・西田のボリビアへの想いを込めた「Para Ti Lejos」など、全11曲を収録。</p>
-              <p className="py-1">11曲中6曲を作曲。サンポーニャとギターを中心に演奏した他、全編のレコーディング・ミキシング・マスタリングを担当した。</p>
-              <p className="pt-2 pb-1">各種音楽サブスクサービスにて配信中:</p>
+              {lang === 'ja' ?
+                <p className="py-1">西田フレンズとしての2ndアルバム。オンライン・コスキンで初披露した「Espiral」、リーダー・西田のボリビアへの想いを込めた「Para Ti Lejos」など、全11曲を収録。</p> :
+                <p className="py-1">The second album by Nishida Friends. It includes 11 tracks, such as &quot;Espiral,&quot; which was first performed at the Online Cosquín, and &quot;Para Ti Lejos,&quot; a song that reflects the leader Nishida&apos;s feelings towards Bolivia.</p>
+              }
+              {lang === 'ja' ?
+                <p className="py-1">11曲中6曲を作曲。サンポーニャとギターを中心に演奏した他、全編のレコーディング・ミキシング・マスタリングを担当した。</p> :
+                <p className="py-1">Out of the 11 tracks, I composed 6. In addition to playing the zampoñas and guitar, I was responsible for the recording, mixing, and mastering of the entire album.</p>
+              }
+              <p className="pt-2 pb-1">{lang === 'ja' ? '各種音楽サブスクサービスにて配信中' : 'Available on various music streaming services'}:</p>
               <p className="leading-6">
                 <Link href="https://open.spotify.com/intl-ja/album/1s3ObF3GkmBId0ZbXMkro4" target="_blank">
                   <span className="font-bold bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Spotify <FaSpotify className="inline pb-[1px]" /></span>
@@ -177,9 +192,15 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
           <div className="flex items-start">
             <img src="/aventura.webp" className="max-w-[30%] py-1" />
             <div className="text-xs pl-4">
-              <p className="py-1">西田フレンズの記念すべき1stアルバム。リーダー作曲の初めてのオリジナル曲「Tren de Aventura」、ライブで好評の「El Horizonte」などインスト7曲を収録。</p>
-              <p className="py-1">うち3曲を作曲、全編でサンポーニャとギターを中心に演奏している。メンバー2名で分担し、レコーディング・ミキシング・マスタリングを実施。</p>
-              <p className="pt-2 pb-1">各種音楽サブスクサービスにて配信中:</p>
+              {lang === 'ja' ? 
+                <p className="py-1">西田フレンズの記念すべき1stアルバム。リーダー作曲の初めてのオリジナル曲「Tren de Aventura」、ライブで好評の「El Horizonte」などインスト7曲を収録。</p> :
+                <p className="py-1">The landmark 1st album by Nishida Friends. It includes 7 instrumental tracks, such as the leader&apos;s first original composition &quot;Tren de Aventura&quot; and the popular live performance piece &quot;El Horizonte.&quot;</p>
+              }
+              {lang === 'ja' ?
+                <p className="py-1">うち3曲を作曲、全編でサンポーニャとギターを中心に演奏している。メンバー2名で分担し、レコーディング・ミキシング・マスタリングを実施。</p> :
+                <p className="py-1">I composed 3 of the tracks and primarily played the zampoñas and guitar throughout the album. The recording, mixing, and mastering were carried out by two members.</p>
+              }
+              <p className="pt-2 pb-1">{lang === 'ja' ? '各種音楽サブスクサービスにて配信中' : 'Available on various music streaming services'}:</p>
               <p className="leading-6">
                 <Link href="https://open.spotify.com/intl-ja/album/44Dv1jcm8ZgwBxiZhyVCxZ" target="_blank">
                   <span className="font-bold bg-gray-700 text-white mr-1 px-2 py-1 rounded-full">Spotify <FaSpotify className="inline pb-[1px]" /></span>
