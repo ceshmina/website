@@ -1,10 +1,8 @@
 import Link from 'next/link'
-import { parse, format } from 'date-fns'
 import { FaXTwitter, FaInstagram, FaGithub, FaMusic, FaSpotify } from 'react-icons/fa6'
 import { SiApplemusic, SiAmazonmusic } from 'react-icons/si'
 import { PiNotebook } from 'react-icons/pi'
 import { EN_TITLE_FONT } from '@/config'
-import { discography, performances } from '@/data/static'
 import SideBar from '@/components/sidebar'
 import Navigation from '@/components/navigation'
 import RandomImage from '@/components/random'
@@ -18,7 +16,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
     <div className="md:hidden">
       <SideBar />
     </div>
-    <main className="py-8">
+    <main className="mt-8">
       <header className="max-w-[800px] mx-auto py-4 px-4 md:px-0 flex justify-between items-center">
         <div className="md:ml-1">
           <h1 className={`${EN_TITLE_FONT.className} text-2xl font-bold`}>APKAS</h1>
@@ -198,37 +196,42 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
         </div>
       </section>
 
-      <section id="blog" className="max-w-[800px] mx-auto py-8 px-4 md:px-0">
-        <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>BLOG</h2>
-        <div className="text-sm">
-          <p className="py-1">Under preparation.</p>
+      <section id="blog" className="py-8 bg-gray-300">
+        <div className="max-w-[838px] mx-auto pt-4 pb-12 px-4">
+          <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>BLOG</h2>
+          <div className="text-sm">
+            <p className="py-1">Under preparation.</p>
+          </div>
         </div>
       </section>
 
-      <section id="contact" className="max-w-[800px] mx-auto py-8 px-4 md:px-0">
+      <section id="contact" className="max-w-[800px] mx-auto pt-12 pb-8 px-4 md:px-0">
         <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>CONTACT</h2>
         <div className="text-sm">
           <p className="py-1">Under preparation.</p>
         </div>
       </section>
 
-      <section className="max-w-[800px] mx-auto mt-16 border-t-2 py-4 px-4 md:px-1 flex justify-between">
-        <div className="py-1 text-xs">
-          <p className="py-0.5 md:inline">
-            <FaXTwitter className="inline pb-[1px]" /> <a href="https://x.com/ceshmina" target="_blank" className="text-blue-600">ceshmina</a>
-          </p>
-          <p className="py-0.5 md:inline md:pl-4">
-            <FaInstagram className="inline pb-[1px]" /> <a href="https://instagram.com/ceshmina" target="_blank" className="text-blue-600">ceshmina</a>
-          </p>
-          <p className="py-0.5 md:inline md:pl-4">
-            <FaGithub className="inline pb-[1px]" /> <a href="https://github.com/ceshmina" target="_blank" className="text-blue-600">ceshmina</a>
-          </p>
-        </div>
+      <section className="mt-12 pt-8 pb-2 text-gray-100 bg-gray-800">
+        <div className="max-w-[800px] mx-auto px-4 md:px-1 flex">
+          <div className="py-1 md:ml-[-4px] text-xs pr-4 border-r-[1px] border-gray-300">
+            <p className="py-0.5 md:inline">
+              <FaXTwitter className="inline pb-[1px]" /> <a href="https://x.com/ceshmina" target="_blank" className="text-blue-300">ceshmina</a>
+            </p>
+            <p className="py-0.5 md:inline md:pl-4">
+              <FaInstagram className="inline pb-[1px]" /> <a href="https://instagram.com/ceshmina" target="_blank" className="text-blue-300">ceshmina</a>
+            </p>
+            <p className="py-0.5 md:inline md:pl-4">
+              <FaGithub className="inline pb-[1px]" /> <a href="https://github.com/ceshmina" target="_blank" className="text-blue-300">ceshmina</a>
+            </p>
+          </div>
 
-        <div className="py-1 text-xs">
-          <p className="py-0.5">
-            <PiNotebook className="inline pb-[1px]" /> <Link href="/diary" className="text-blue-600">my diary</Link> (in Japanese)
-          </p>
+          <div className="py-1 pl-4 text-xs">
+            <p className="py-0.5 md:inline">
+              <PiNotebook className="inline pb-[1px]" /> <Link href="/diary" className="text-blue-300">my diary</Link>
+              {lang === 'en' && ' (in Japanese)'}
+            </p>
+          </div>
         </div>
       </section>
     </main>

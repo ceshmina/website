@@ -16,8 +16,10 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="en">
       <body className={`${mainFont.variable} ${mainJPFont.variable} ${monoFont.variable}`}>{children}</body>
-      <footer className="my-8">
-        <p className={`${mainFont.className} text-center text-[10px] font-light text-gray-500`}>&copy;2024 APKAS</p>
+      <footer className="pt-4 pb-8 text-gray-100 bg-gray-800">
+        <div className="max-w-[800px] px-4 md:px-0 mx-auto">
+          <p className={`${mainFont.className} text-[10px] font-light text-gray-300`}>&copy;2024 APKAS</p>
+        </div>
       </footer>
     </html>
   )
