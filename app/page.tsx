@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { format, parse } from 'date-fns'
 import { FaXTwitter, FaInstagram, FaGithub, FaMusic } from 'react-icons/fa6'
 import { PiNotebook } from 'react-icons/pi'
+import { MdOutlineEmail } from 'react-icons/md'
 import { EN_TITLE_FONT } from '@/config'
 import SideBar from '@/components/sidebar'
 import Navigation from '@/components/navigation'
@@ -218,7 +219,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
           </div>
         </div>
 
-        <h3 className={`${EN_TITLE_FONT.className} font-bold pt-2 pb-4`}>EVENTS</h3>
+        <h3 className={`${EN_TITLE_FONT.className} font-bold pt-2 pb-4`}>RECENT EVENTS</h3>
         <div className="flex flex-wrap justify-between">
           {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).slice(0, 10).map((p, i) => {
             const d = format(parse(p.date, 'yyyyMMdd', new Date()), 'MMM d, yyyy')
@@ -242,21 +243,21 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
         <div className="max-w-[838px] mx-auto pt-4 pb-12 px-4">
           <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>BLOG</h2>
           <div className="text-sm">
-            <p className="py-1">Under preparation.</p>
+            <p className="py-1">Under preparation...</p>
           </div>
         </div>
       </section>
 
       <section id="contact" className="max-w-[800px] mx-auto pt-12 pb-8 px-4 md:px-0">
         <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>CONTACT</h2>
-        <div className="text-sm">
-          <p className="py-1">Under preparation.</p>
+        <div>
+          <p className="py-2"><MdOutlineEmail className="inline text-sm" /> <code className="text-[13px]">shu[at]apkas.net</code></p>
         </div>
       </section>
 
       <section className="mt-12 pt-8 pb-2 text-gray-100 bg-gray-800">
         <div className="max-w-[800px] mx-auto px-4 md:px-1 flex">
-          <div className="py-1 md:ml-[-4px] text-xs pr-4 border-r-[1px] border-gray-300">
+          <div className="py-1 md:ml-[-4px] text-xs pr-8 md:pr-4 border-r-[1px] border-gray-300">
             <p className="py-0.5 md:inline">
               <FaXTwitter className="inline pb-[1px]" /> <a href="https://x.com/ceshmina" target="_blank" className="text-blue-300">ceshmina</a>
             </p>
@@ -268,7 +269,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
             </p>
           </div>
 
-          <div className="py-1 pl-4 text-xs">
+          <div className="py-1 pl-8 md:pl-4 text-xs">
             <p className="py-0.5 md:inline">
               <PiNotebook className="inline pb-[1px]" /> <Link href="/diary" className="text-blue-300">my diary</Link>
               {lang === 'en' && ' (in Japanese)'}
