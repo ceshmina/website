@@ -220,7 +220,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
 
         <h3 className={`${EN_TITLE_FONT.className} font-bold pt-2 pb-4`}>EVENTS</h3>
         <div className="flex flex-wrap justify-between">
-          {performances.reverse().slice(0, 10).map((p, i) => {
+          {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).slice(0, 10).map((p, i) => {
             const d = format(parse(p.date, 'yyyyMMdd', new Date()), 'MMM d, yyyy')
             return (<div className="w-[100%] sm:w-[49%] my-2 inline-block flex border-[1px] border-gray-300 rounded-[8px] overflow-hidden p-0" key={i}>
               <img src={p.image || '/events/20240629.jpg'} className="max-w-[20%] " />
