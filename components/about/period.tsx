@@ -5,7 +5,7 @@ const Period = (props: { text: string }) => {
   return (
     <p className={`
       ${EN_TITLE_FONT.className}
-      w-[120px] sm:w-[172px] text-sm text-gray-900 font-bold text-center
+      w-[120px] min-w-[120px] sm:w-[172px] sm:min-w-[172px] text-sm text-gray-900 font-bold text-center
       bg-gray-100 px-4 pt-1 pb-0.5 rounded-full mr-4
     `}>
       {text}

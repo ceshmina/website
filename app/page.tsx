@@ -8,6 +8,7 @@ import SideBar from '@/components/sidebar'
 import Navigation from '@/components/navigation'
 import RandomImage from '@/components/random'
 import Job from '@/components/about/job'
+import School from '@/components/about/school'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 
 export const Page = (props: { lang: 'ja' | 'en' }) => {
@@ -86,8 +87,8 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
       </section>
 
       <section className="py-8 text-gray-100 bg-gray-800">
-        <div className="max-w-[838px] mx-auto py-2 px-4 md:border-2 border-gray-100">
-          <h3 className={`${EN_TITLE_FONT.className} font-bold pt-2 pb-4`}>CAREER</h3>
+        <div className="max-w-[838px] mx-auto pt-4 pb-12 px-4 md:border-2 border-gray-100">
+          <h3 className={`${EN_TITLE_FONT.className} font-bold pt-2 pb-4 pl-1`}>CAREER</h3>
           <Job
             period="JAN 2023 - PRESENT"
             job="Data scientist"
@@ -95,7 +96,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
             description={[
               'アドプラットフォーム事業部の分社化に伴い、出向中。',
               'リードデータサイエンティストとして、引き続きプロダクトのデータ分析や仮説検証、機械学習モデルの構築/運用に従事。社内での分析業務にとどまらず、メディアやクライアントと連携した分析プロジェクトの推進、データ活用の提案なども行っている。',
-              '最近は社内でのデータ活用を民主化するための取り組みや、生成AIを業務活用するための研究開発にも関わっている。']}
+              '最近は社内でのデータ活用をより広め民主化するための取り組みや、生成AIをビジネスに適用するための研究開発にも関わっている。']}
             keywords={[
               'Python', 'BigQuery', 'Tableau', 'Dataform', 'Vertex AI',
               'causal analysis', 'hypothesis testing', 'data democratization', 'generative AI']}
@@ -112,33 +113,27 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
               'Python', 'Flask', 'BigQuery', 'Kubernetes', 'deep learning']}
           />
 
-          <h3 className={`${EN_TITLE_FONT.className} font-bold pt-8 pb-4`}>EDUCATION</h3>
-          <table className="text-sm text-left">
-            <tr className="align-text-top">
-              <th className="py-0.5 pr-2 w-[90px] md:w-[150px] font-light">Apr 2019 - Mar 2021,</th>
-              <td className="pr-1 w-[80px] md:w-[140px]">M. Sc. in Physics,</td>
-              <td>
-                Graduate School of Science/
-                <a href="https://www.icrr.u-tokyo.ac.jp/en" target="_blank" className="text-blue-600">Institute for Cosmic Ray Research</a>,
-                the University of Tokyo.
-              </td>
-            </tr>
-            <tr className="align-text-top">
-              <th className="py-0.5 pr-2 font-light">Apr 2017 - Mar 2019,</th>
-              <td className="pr-1">B. Sc. in Physics,</td>
-              <td>Faculty of Science, the University of Tokyo.</td>
-            </tr>
-            <tr className="align-text-top">
-              <th className="py-0.5 pr-2 font-light">Apr 2015 - Mar 2017,</th>
-              <td className="pr-1"></td>
-              <td>College of Arts and Sciences, the University of Tokyo.</td>
-            </tr>
-            <tr className="align-text-top">
-              <th className="py-0.5 pr-2 font-light">Apr 2012 - Mar 2015,</th>
-              <td className="pr-1"></td>
-              <td>Todaiji Gakuen High School.</td>
-            </tr>
-          </table>
+          <h3 className={`${EN_TITLE_FONT.className} font-bold pt-8 pb-4 pl-1`}>EDUCATION</h3>
+          <School
+            period="APR 2019 - MAR 2021"
+            job="M. Sc. in Physics"
+            school="Graduate School of Science/Institute for Cosmic Ray Research, the University of Tokyo"
+          />
+          <School
+            period="APR 2017 - MAR 2019"
+            job="B. Sc. in Physics"
+            school="Faculty of Science, the University of Tokyo"
+          />
+          <School
+            period="APR 2015 - MAR 2017"
+            job=""
+            school="College of Arts and Sciences, the University of Tokyo"
+          />
+          <School
+            period="APR 2012 - MAR 2015"
+            job=""
+            school="Todaiji Gakuen High School"
+          />
         </div>
       </section>
 
