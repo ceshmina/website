@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { format, parse } from 'date-fns'
 import { FaXTwitter, FaInstagram, FaGithub, FaMusic, FaSpotify } from 'react-icons/fa6'
 import { SiApplemusic, SiAmazonmusic } from 'react-icons/si'
 import { PiNotebook } from 'react-icons/pi'
@@ -8,6 +9,7 @@ import Navigation from '@/components/navigation'
 import RandomImage from '@/components/random'
 import Job from '@/components/about/job'
 import School from '@/components/about/school'
+import { performances } from '@/data/static'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 
 export const Page = (props: { lang: 'ja' | 'en' }) => {
@@ -145,7 +147,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
         </div>
       </section>
 
-      <section id="works" className="max-w-[800px] mx-auto pt-16 pb-8 px-4 md:px-0">
+      <section id="works" className="max-w-[800px] mx-auto py-16 px-4 md:px-0">
         <h2 className={`${EN_TITLE_FONT.className} text-lg font-bold`}>WORKS</h2>
         <div className="my-8">
           <div className="my-4 flex justify-between align-bottom border-b-2 border-gray-700">
@@ -214,6 +216,21 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
               </p>
             </div>
           </div>
+        </div>
+
+        <h3 className={`${EN_TITLE_FONT.className} font-bold pt-2 pb-4`}>EVENTS</h3>
+        <div className="flex flex-wrap justify-between">
+          {performances.reverse().slice(0, 10).map((p, i) => {
+            const d = format(parse(p.date, 'yyyyMMdd', new Date()), 'MMM d, yyyy')
+            return (<div className="w-[100%] sm:w-[49%] my-2 inline-block flex border-[1px] border-gray-300 rounded-[8px] overflow-hidden p-0" key={i}>
+              <img src={p.image || '/events/20240629.jpg'} className="max-w-[20%] " />
+              <div className="px-2 py-1">
+                <p className={`${EN_TITLE_FONT.className} text-xs font-bold`}>{d.toUpperCase()}</p>
+                <p className="text-sm font-bold leading-4 pb-1">{p.title}</p>
+                <p className="text-xs text-gray-700">{p.location}{p.location && p.note && ', '}{p.note}</p>
+              </div>
+            </div>)
+          })}
         </div>
       </section>
 
