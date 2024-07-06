@@ -17,8 +17,12 @@ const Events = () => {
         <EventCard key={i} event={p} />
       ))}
     </div>
-    {nShow === minNShow && <Text className="text-right text-blue-700 mr-2" onClick={showMore}>Show more</Text>}
-    {nShow === maxNShow && <Text className="text-right text-blue-700 mr-2" onClick={showLess}>Show less</Text>}
+    {nShow === minNShow && <Text className="text-right text-blue-700 mr-2" onClick={showMore}>
+      <span className="cursor-pointer">Show more</span>
+    </Text>}
+    {nShow === maxNShow && <Text className="text-right text-blue-700 mr-2" onClick={showLess}>
+      <span className="cursor-pointer">Show less</span>
+    </Text>}
   </div>)
 }
 
