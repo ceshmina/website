@@ -61,8 +61,8 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
           <h3 className="font-bold pt-2 pb-4 pl-1"><AltFont>CAREER</AltFont></h3>
           <Job
             period="JAN 2023 - PRESENT"
-            job="Data scientist"
-            company="ADWAYS DEEE Inc."
+            job={lang === 'ja' ? 'データサイエンティスト' : 'Data scientist'}
+            company={lang === 'ja' ? '株式会社ADWAYS DEEE' : 'ADWAYS DEEE Inc.'}
             description={lang === 'ja' ? [
               'アドプラットフォーム事業部の分社化に伴い、出向中。',
               'リードデータサイエンティストとして、引き続きプロダクトのデータ分析や仮説検証、機械学習モデルの構築/運用に従事。社内での分析業務にとどまらず、メディアやクライアントと連携した分析プロジェクトの推進、データ活用の提案なども行っている。',
@@ -78,8 +78,8 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
           />
           <Job
             period="APR 2021 - DEC 2022"
-            job="Software engineer"
-            company="Adways Inc."
+            job={lang === 'ja' ? 'ソフトウェアエンジニア' : 'Software engineer'}
+            company={lang === 'ja' ? '株式会社アドウェイズ': 'Adways Inc.'}
             description={lang === 'ja' ? [
               'ソフトウェアエンジニアとして新卒入社。当初はリワード広告プラットフォーム「AppDriver」のフロントエンド・バックエンド開発に従事。',
               '1年目のうちからアプリケーションの開発業務と並行して、プロダクト全体の課題を探索するデータ分析や新規機能の仮説検証、また機械学習によるレコメンドモデルの構築・運用業務にも携わった。'
@@ -95,23 +95,23 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
           <h3 className="font-bold pt-8 pb-4 pl-1"><AltFont>EDUCATION</AltFont></h3>
           <School
             period="APR 2019 - MAR 2021"
-            job="M. Sc. in Physics"
-            school="Graduate School of Science/Institute for Cosmic Ray Research, the University of Tokyo"
+            job={lang === 'ja' ? '修士 (理学)' : 'M. Sc. in Physics'}
+            school={lang === 'ja' ? '東京大学大学院理学系研究科物理学専攻/宇宙線研究所' : 'Graduate School of Science/Institute for Cosmic Ray Research, the University of Tokyo'}
           />
           <School
             period="APR 2017 - MAR 2019"
-            job="B. Sc. in Physics"
-            school="Faculty of Science, the University of Tokyo"
+            job={lang === 'ja' ? '学士 (理学)': 'B. Sc. in Physics'}
+            school={lang === 'ja' ? '東京大学理学部物理学科' : 'Faculty of Science, the University of Tokyo'}
           />
           <School
             period="APR 2015 - MAR 2017"
             job=""
-            school="College of Arts and Sciences, the University of Tokyo"
+            school={lang === 'ja' ? '東京大学教養学部理科I類' : 'College of Arts and Sciences, the University of Tokyo'}
           />
           <School
             period="APR 2012 - MAR 2015"
             job=""
-            school="Todaiji Gakuen High School"
+            school={lang === 'ja' ? '東大寺学園高等学校' : 'Todaiji Gakuen High School'}
           />
         </div>
       </section>
