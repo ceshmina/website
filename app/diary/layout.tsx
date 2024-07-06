@@ -5,7 +5,7 @@ import SideBarSlide from '@/components/diary/sidebarslide'
 const DiaryLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (<>
     <div className="md:hidden">
-      <SideBarSlide><SideBarBase /></SideBarSlide>
+      <SideBarSlide><SideBarBase theme="dark" /></SideBarSlide>
     </div>
     <main className="max-w-[800px] mx-auto p-4 md:px-0">
       <div className="md:flex py-4">
@@ -16,7 +16,8 @@ const DiaryLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
           <SideBar />
         </div>
       </div>
-    </main></>)
+    </main>
+  </>)
 }
 
 export default DiaryLayout

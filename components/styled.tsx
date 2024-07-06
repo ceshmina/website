@@ -35,6 +35,15 @@ export const Link = (props: { href: string, children: React.ReactNode }) => {
     return <a href={href} target="_blank" className="text-blue-700 hover:text-blue-500 transition">{children}</a>
   }
 }
+export const ContraLink = (props: { href: string, children: React.ReactNode }) => {
+  const { href, children } = props
+  if (href.startsWith('/')) {
+    return <NextLink href={href}><span className="text-blue-300">{children}</span></NextLink>
+  } else {
+    return <a href={href} target="_blank" className="text-blue-300">{children}</a>
+  }
+}
+
 export const OuterLink = (props: { href: string, children: React.ReactNode }) => {
   const { href, children } = props
   return <a href={href} target="_blank" className="text-blue-700 hover:text-blue-500 transition">{children}</a>
