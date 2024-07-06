@@ -21,7 +21,7 @@ const Page = async ({ params }: { params: { page: string }}) => {
   const slice = paginator.sliceByPage(parseInt(params.page))
 
   return (
-    <main className="max-w-[960px] mx-auto p-4">
+    <main className="max-w-[800px] mx-auto p-4 md:px-0">
       <section className="py-4">
         <div className="py-2 text-sm">
           <p><Link href="/" className={`${EN_TITLE_FONT.className} font-medium text-blue-500`}>APKAS</Link></p>

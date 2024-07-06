@@ -10,7 +10,7 @@ const Sidebar = async () => {
   const locations = diaries.aggByLocation()
 
   return (
-    <div>
+    <div className="md:ml-4 px-2 pt-4 pb-12 bg-gray-200 rounded-[12px]">
       <h2 className="text-sm font-medium">月別</h2>
       <div className="my-4 text-xs text-gray-500">
         {months.map(({ month, count }) =>
