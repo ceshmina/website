@@ -2,7 +2,9 @@ import Link from 'next/link'
 import { DIARY_PER_PAGE } from '@/config'
 import Card from '@/components/diary/card'
 import Pagination from '@/components/diary/pagination'
+import SideBarBase from '@/components/diary/sidebarbase'
 import Sidebar from '@/components/diary/sidebar'
+import SideBarSlide from '@/components/diary/sidebarslide'
 import { EN_TITLE_FONT } from '@/config'
 
 import { Paginator } from '@/core/model/base'
@@ -20,7 +22,10 @@ const Page = async ({ params }: { params: { page: string }}) => {
 
   const slice = paginator.sliceByPage(parseInt(params.page))
 
-  return (
+  return (<>
+    <div className="md:hidden">
+      <SideBarSlide><SideBarBase /></SideBarSlide>
+    </div>
     <main className="max-w-[800px] mx-auto p-4 md:px-0">
       <section className="py-4">
         <div className="py-2 text-sm">
@@ -42,12 +47,12 @@ const Page = async ({ params }: { params: { page: string }}) => {
           </section>
         </div>
 
-        <div className="md:w-[30%] md:pl-4 py-4">
+        <div className="hidden md:block md:w-[30%] md:pl-4 py-4">
           <Sidebar />
         </div>
       </div>
     </main>
-  )
+  </>)
 }
 
 export default Page
