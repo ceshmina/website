@@ -1,3 +1,4 @@
+import NextLink from 'next/link'
 import styled from 'tailwind-styled-components'
 import { EN_TITLE_FONT } from '@/config'
 
@@ -26,6 +27,14 @@ export const Code = styled.code`
 `
 
 // text logics
+export const Link = (props: { href: string, children: React.ReactNode }) => {
+  const { href, children } = props
+  if (href.startsWith('/')) {
+    return <NextLink href={href}><span className="text-blue-700 hover:text-blue-500 transition">{children}</span></NextLink>
+  } else {
+    return <a href={href} target="_blank" className="text-blue-700 hover:text-blue-500 transition">{children}</a>
+  }
+}
 export const OuterLink = (props: { href: string, children: React.ReactNode }) => {
   const { href, children } = props
   return <a href={href} target="_blank" className="text-blue-700 hover:text-blue-500 transition">{children}</a>

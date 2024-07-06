@@ -24,7 +24,7 @@ const Card = async (props: { diary: Diary | OldDiary, showContent?: boolean, cam
           </p>
           <p className="w-[100%] pl-2 pt-1 text-gray-800 font-medium group-hover:bg-gray-200 rounded-tr-[8px] transition">{diary.title || ''}</p>
         </div>
-        <div className="px-1 py-2 group-hover:bg-gray-200 rounded-b-[8px] transition">
+        <div className="pt-2 group-hover:bg-gray-200 rounded-b-[8px] transition">
           {showContent ? (
             <div className="pb-2 text-xs font-light text-gray-800">
               <p className="line-clamp-3">{diary.contentTextOnly()}</p>
