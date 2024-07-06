@@ -43,6 +43,7 @@ export class Diary {
   get date(): Date { return this._date }
   get month(): string { return this._month.slug }
   get content(): string { return this._content }
+  get title(): string | null { return this._title }
   get location(): string { return this._location }
   get photos(): PhotoCollection { return this._photos }
 
@@ -56,7 +57,8 @@ export class Diary {
   }
 
   showDate(): string {
-    return format(this._date, 'yyyy年M月d日')
+    // return format(this._date, 'yyyy年M月d日')
+    return format(this._date, 'MMM d, yyyy').toUpperCase()
   }
 
   showMonth(): string {

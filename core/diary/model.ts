@@ -35,6 +35,7 @@ export class Diary {
 
   get slug(): string { return this._slug }
   get date(): Date { return this._date }
+  get title(): string | null { return this._title }
   get location(): string { return this._location }
   get content(): string { return this._content }
   get imageUrls(): ImageUrl[] { return this._imageUrls }
