@@ -1,8 +1,3 @@
-export const discography = [
-  { year: 2021, title: 'Aventura', link: 'https://linkco.re/SbEUcF0B?lang=en', note: 'as Nishida Friends' },
-  { year: 2022, title: 'Ambivalencia', link: 'https://linkco.re/8n7dGq6t?lang=en', note: 'as Nishida Friends' }
-]
-
 export const performances: { date: string, title: string, location: string, note?: string, image?: string }[] = [
   { date: '20230219', title: '冬のアルスコンサート', location: 'Tsukuba', note: 'as Grupo Brothers', image: '/events/20230219.jpg' },
   { date: '20230313', title: '筑波大学フォルクローレ愛好会定期コンサート', location: 'Tsukuba', note: 'as Grupo Brothers', image: '/events/20230313.jpg' },
