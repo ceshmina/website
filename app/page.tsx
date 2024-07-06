@@ -1,8 +1,7 @@
 import Link from 'next/link'
-import { format, parse } from 'date-fns'
 import { FaXTwitter, FaInstagram, FaGithub, FaMusic } from 'react-icons/fa6'
-import { PiNotebook } from 'react-icons/pi'
-import { MdOutlineEmail } from 'react-icons/md'
+import { PiNotebookFill } from 'react-icons/pi'
+import { MdOutlineEmail, MdHome } from 'react-icons/md'
 import { Text, OuterLink, AltFont, Code } from '@/components/styled'
 import SideBar from '@/components/sidebar'
 import Navigation from '@/components/navigation'
@@ -11,7 +10,6 @@ import Job from '@/components/about/job'
 import School from '@/components/about/school'
 import { Spotify, AppleMusic, AmazonMusic } from '@/components/works/musiclink'
 import Events from '@/components/works/events'
-import { performances } from '@/data/static'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 
 export const Page = (props: { lang: 'ja' | 'en' }) => {
@@ -222,8 +220,10 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
 
           <div className="py-1 pl-8 md:pl-4 text-xs">
             <p className="py-0.5 md:inline">
-              <PiNotebook className="inline pb-[1px]" /> <Link href="/diary" className="text-blue-300">my diary</Link>
-              {lang === 'en' && ' (in Japanese)'}
+              <MdHome className="inline pb-[1.5px] text-base" /> <Link href="/" className="text-blue-300">apkas</Link>
+            </p>  
+            <p className="py-0.5 md:inline md:pl-4">
+              <PiNotebookFill className="inline pb-[1.5px] text-base" /> <Link href="/diary" className="text-blue-300">diary</Link>
             </p>
           </div>
         </div>
