@@ -10,6 +10,7 @@ import RandomImage from '@/components/random'
 import Job from '@/components/about/job'
 import School from '@/components/about/school'
 import { Spotify, AppleMusic, AmazonMusic } from '@/components/works/musiclink'
+import Events from '@/components/works/events'
 import { performances } from '@/data/static'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 
@@ -186,23 +187,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
         </div>
 
         <h3 className="font-bold pt-2 pb-4"><AltFont>RECENT EVENTS</AltFont></h3>
-        <div className="flex flex-wrap justify-between">
-          {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).slice(0, 10).map((p, i) => {
-            const d = format(parse(p.date, 'yyyyMMdd', new Date()), 'MMM d, yyyy')
-            return (<div className="w-[100%] sm:w-[49%] my-2 inline-block border-[1px] border-gray-300 hover:bg-gray-200 transition duration-300 rounded-[8px] overflow-hidden p-0" key={i}>
-              <Link href={`/diary/entry/${p.date}`}>
-                <div className="flex justify-between">
-                  <div className="px-2 py-1">
-                    <p className="text-xs font-bold"><AltFont>{d.toUpperCase()}</AltFont></p>
-                    <p className="text-sm font-bold leading-4 pb-1 font-medium">{p.title}</p>
-                    <p className="text-xs text-gray-700">{p.location}{p.location && p.note && ', '}{p.note}</p>
-                  </div>
-                  <img src={p.image || '/events/20240629.jpg'} className="max-w-[20%] " />
-                </div>
-              </Link>
-            </div>)
-          })}
-        </div>
+        <Events />
       </section>
 
       <section id="blog" className="py-8 bg-gray-300">
