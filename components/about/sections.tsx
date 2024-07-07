@@ -1,39 +1,63 @@
-import { Text, OuterLink, AltFont } from '@/components/styled'
+import Link from 'next/link'
+
+import Markdown from 'react-markdown'
+import { LiaExternalLinkAltSolid } from 'react-icons/lia'
+
 import Job from '@/components/about/job'
 import School from '@/components/about/school'
+
+
+const contentJa = `
+ソフトウェアエンジニア/データサイエンティスト。
+
+インターネット広告会社でwebアプリケーションの開発の他、プロダクトのデータ分析や仮説検証、機械学習モデルの構築・運用に従事。特にデータの民主化や、生成AIの業務活用に興味がある。
+
+趣味で南米の民族風音楽「フォルクローレ」を演奏している。[YAMA](https://x.com/yamafolklore)、[グルーポ★ブラザーズ](https://x.com/grupobrothers)、[Los Amidas](https://x.com/StreetFolk_Amid)というグループで、主にサンポーニャとパーカッションを担当。
+
+最近は写真にハマっている。他には音楽制作、ディズニー、旅行、コンシューマーゲームなどが好き。
+`
+
+const contentEn = `
+Software engineer/data scientist.
+
+Work on web application development at an internet advertising company, and also focus on data analysis, hypothesis testing, and building and operating machine learning models for various products. Lately, I've been interested in _data democratization_ and exploring generative AI use cases for enterprises.
+
+In my free time, I play Latin folk music, known as "folklore," in Japan. As a member of [YAMA](https://x.com/yamafolklore), [Grupo Brothers](https://x.com/grupobrothers), and [Los Amidas](https://x.com/StreetFolk_Amid), I primarily play the zampoñas and percussion instruments.
+
+Recently, I've taken up photography. Also enjoy music production, Disney, traveling, and playing video games.
+`
+
 
 export const About = (props: { lang: 'ja' | 'en' }) => {
   const { lang } = props
   return (
     <section id="about">
-      <h2 className="text-lg font-bold"><AltFont>ABOUT</AltFont></h2>
+      <h2 className="text-lg font-alt font-bold">ABOUT</h2>
       <div className="py-2">
-        {lang === 'ja' ?
-          <Text>ソフトウェアエンジニア/データサイエンティスト。</Text> :
-          <Text>Software engineer/data scientist.</Text>
-        } 
-        {lang === 'ja' ?
-          <Text>インターネット広告会社でwebアプリケーションの開発の他、プロダクトのデータ分析や仮説検証、機械学習モデルの構築/運用に従事。特にデータの民主化や、生成AIの業務活用に興味がある。</Text> :
-          <Text>Work on web application development at an internet advertising company, and also focus on data analysis, hypothesis testing, and building and operating machine learning models for various products. Lately, I&apos;ve been interested in <span className="italic">data democratization</span> and exploring generative AI use cases for enterprises.</Text>
-        }
-        {lang === 'ja' ?
-          <Text>趣味で南米の民族風音楽「フォルクローレ」を演奏している。<OuterLink href="https://x.com/yamafolklore">YAMA</OuterLink>、<OuterLink href="https://x.com/grupobrothers">グルーポ★ブラザーズ</OuterLink>、<OuterLink href="https://x.com/StreetFolk_Amid">Los Amidas</OuterLink>というグループで、主にサンポーニャとパーカッションを担当。</Text> :
-          <Text>In my free time, I play Latin folk music, known as &quot;folklore,&quot; in Japan. As a member of <OuterLink href="https://x.com/yamafolklore">YAMA</OuterLink>, <OuterLink href="https://x.com/grupobrothers">Grupo Brothers</OuterLink>, and <OuterLink href="https://x.com/StreetFolk_Amid" >Los Amidas</OuterLink>, I primarily play the zampoñas and percussion instruments.</Text>
-        }
-        {lang === 'ja' ?
-          <Text>最近は写真にハマっている。他には音楽制作、ディズニー、旅行、コンシューマーゲームなどが好き。</Text> :
-          <Text>Recently, I&apos;ve taken up photography. Also enjoy music production, Disney, traveling, and playing video games.</Text>
-        }
+        <Markdown components={{
+          p: ({ node, children, ...props }) => <p className="text-sm my-1.5" {...props}>{children}</p>,
+          a: ({ node, href, children, ...props }) => (
+            <span>
+              <Link href={href || "/"} target="_blank" className="link" {...props}>
+                {children}
+              </Link>
+              <LiaExternalLinkAltSolid className="text-xs inline-block" />
+            </span>
+          )
+        }}>
+          {lang === 'ja' ? contentJa : contentEn}
+        </Markdown>
       </div>
     </section>
   )
 }
 
+
 export const Career = (props: { lang: 'ja' | 'en' }) => {
   const { lang } = props
   return (
     <section>
-      <h3 className="font-bold pt-2 pb-4 pl-1"><AltFont>CAREER</AltFont></h3>
+      <h3 className="font-alt font-bold pt-2 pb-4 pl-1">CAREER</h3>
       <Job
         period="JAN 2023 - PRESENT"
         job={lang === 'ja' ? 'データサイエンティスト' : 'Data scientist'}
@@ -67,7 +91,7 @@ export const Career = (props: { lang: 'ja' | 'en' }) => {
           'Python', 'Flask', 'BigQuery', 'Kubernetes', 'deep learning']}
       />
 
-      <h3 className="font-bold pt-8 pb-4 pl-1"><AltFont>EDUCATION</AltFont></h3>
+      <h3 className="font-alt font-bold pt-8 pb-4 pl-1">EDUCATION</h3>
       <School
         period="APR 2019 - MAR 2021"
         job={lang === 'ja' ? '修士 (理学)' : 'M. Sc. in Physics'}

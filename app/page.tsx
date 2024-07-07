@@ -4,7 +4,7 @@ import { Blog } from '@/components/blog/sections'
 import { Contact } from '@/components/contact/sections'
 import { HeaderNav } from '@/components/navigation'
 import { SlideNav } from '@/components/navigation/client'
-import { RandomImage } from '@/components/misc/client'
+import { RandomImg } from '@/components/misc/client'
 
 
 export const Page = (props: { lang: 'ja' | 'en' }) => {
@@ -32,7 +32,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
       </div>
 
       <div className="content-main-img mt-8 px-0">
-        <RandomImage />
+        <RandomImg />
       </div>
 
       <div className="content-main mt-8">

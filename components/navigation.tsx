@@ -5,7 +5,7 @@ import { Link as Scroll } from 'react-scroll'
 
 const Title = ({ to, children }: Readonly<{ to: string, children: React.ReactNode }>) => {
   return (
-    <span className="ml-4 link">
+    <span className="ml-4 link-hidden">
       <Scroll to={to} duration={300} smooth>{children}</Scroll>
     </span>
   )

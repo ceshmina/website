@@ -1,6 +1,8 @@
 'use client'
+
 import { useState } from 'react'
 import Link from 'next/link'
+
 import { slide as Menu } from 'react-burger-menu'
 import { Link as Scroll } from 'react-scroll'
 
@@ -8,7 +10,7 @@ import { Link as Scroll } from 'react-scroll'
 const Title = ({ to, onClick, children }: Readonly<{ to: string, onClick: () => void, children: React.ReactNode }>) => {
   return (
     <p className="my-2">
-      <span className="link">
+      <span className="link-hidden">
         <Scroll to={to} duration={300} smooth onClick={onClick}>{children}</Scroll>
       </span>
     </p>
