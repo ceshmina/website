@@ -3,6 +3,7 @@ export const performances: { date: string, title: string, location: string, note
   { date: '20230313', title: '筑波大学フォルクローレ愛好会定期コンサート', location: 'Tsukuba', note: 'as Grupo Brothers', image: '/events/20230313.jpg' },
   { date: '20230409', title: 'アンデスの家ボリビア インストアライブ', location: 'Kodaira', note: 'as YAMA', image: '/events/20230409.jpg' },
   { date: '20230503', title: 'フォルクローレ演奏会2023 en IRIFUNE', location: 'Yokohama', note: 'as YAMA', image: '/events/20230503.jpg' },
+  { date: '20230603', title: 'アンデス音楽Live', location: 'Tokyo', note: 'as Grupo Brothers', image: '/events/20230603.jpg' },
   { date: '20230618', title: '', location: 'Hachioji', note: 'as YAMA', image: '/events/20230618.jpg' },
   { date: '20230805', title: 'デイケアなんかい コンサート', location: 'Hiroshima', note: 'as YAMA', image: '/events/20230805-1.jpg'},
   { date: '20230805', title: 'MGユースホステル コンサート', location: 'Hiroshima', note: 'as YAMA', image: '/events/20230805-2.jpg'},
