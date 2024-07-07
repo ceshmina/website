@@ -1,29 +1,29 @@
 'use client'
 import Link from 'next/link'
 import { Link as Scroll } from 'react-scroll'
-import { EN_TITLE_FONT } from '@/config'
 
-const Title = (props: { to: string, text: string}) => {
-  const { to, text } = props
+
+const Title = ({ to, children }: Readonly<{ to: string, children: React.ReactNode }>) => {
   return (
-    <span className="ml-4 cursor-pointer hover:text-gray-500 transition">
-      <Scroll to={to} duration={300} smooth>{text}</Scroll>
+    <span className="ml-4 link">
+      <Scroll to={to} duration={300} smooth>{children}</Scroll>
     </span>
   )
 }
 
+
 export const HeaderNav = () => {
   return (
-    <div className="text-right hidden md:block">
-      <p className={`${EN_TITLE_FONT.className} text-sm font-bold my-1`}>
-        <Title to="about" text="ABOUT" />
-        <Title to="works" text="WORKS" />
-        <Title to="blog" text="BLOG" />
-        <Title to="contact" text="CONTACT" />
+    <div className="hidden md:block text-right">
+      <p className="my-1 text-sm font-alt font-bold">
+        <Title to="about">ABOUT</Title>
+        <Title to="works">WORKS</Title>
+        <Title to="blog">BLOG</Title>
+        <Title to="contact">CONTACT</Title>
       </p>
       <p className="my-1">
-        <Link href="/ja"><span className="fi fi-jp mr-4"></span></Link>
-        <Link href="/en"><span className="fi fi-gb"></span></Link>
+        <Link href="/ja"><span className="fi fi-jp ml-4 hover:drop-shadow-lg"></span></Link>
+        <Link href="/en"><span className="fi fi-gb ml-4 hover:drop-shadow-lg"></span></Link>
       </p>
     </div>
   )

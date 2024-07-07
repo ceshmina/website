@@ -67,6 +67,14 @@ code {
 }
 
 /* spans */
+.link {
+  transition: 200ms;
+  cursor: pointer;
+}
+.link:hover {
+  color: #4b5563;
+  text-decoration: underline;
+}
 .anti-link {
   color: #93c5fd;
   transition: 200ms;

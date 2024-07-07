@@ -15,7 +15,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
       <SlideNav />
     </div>
 
-    <main className="mt-8">
+    <main className="pt-4">
       <div className="content-main mt-4 flex justify-between items-center">
         <div className="flex items-center">
           <div>
