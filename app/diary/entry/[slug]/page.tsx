@@ -1,8 +1,7 @@
 import Link from 'next/link'
-import { MapPinIcon, CameraIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import { MapPinIcon, CameraIcon } from '@heroicons/react/24/solid'
 import Article from '@/components/diary/article'
 import Card from '@/components/diary/card'
-import Sidebar from '@/components/diary/sidebar'
 import { EN_TITLE_FONT } from '@/config'
 
 import { DiaryCollection } from '@/core/model/diary'
@@ -66,23 +65,23 @@ const Page = async ({ params }: { params: { slug: string }}) => {
         </p>
       ) : null}
 
-      <section className="py-4 flex justify-between">
-        <div className="py-2 pr-2 text-sm">
+      <section className="pt-8">
+        <div className="py-2 text-sm">
           {next ? <>
-            <p><ChevronLeftIcon className="w-3.5 h-3.5 inline-block ml-[-3px] pb-0.5" />次の日記</p>
-            <p><Link href={`/diary/entry/${next.slug}`} className="text-blue-500">{next.showTitle()}</Link></p>
+            <h2 className="font-medium">次の日記</h2>
+            <Card diary={next} showContent={true} />
           </> : null}
         </div>
-        <div className="py-2 pl-2 text-sm text-right">
+        <div className="py-2 text-sm">
           {prev ? <>
-            <p>前の日記<ChevronRightIcon className="w-3.5 h-3.5 inline-block mr-[-3px] pb-0.5" /></p>
-            <p><Link href={`/diary/entry/${prev.slug}`} className="text-blue-500">{prev.showTitle()}</Link></p>
+            <h2 className="font-medium">前の日記</h2>
+            <Card diary={prev} showContent={true} />
           </> : null}
         </div>
       </section>
 
       {pastDiaries.length > 0 && <section className="py-4">
-          <h2 className="mt-8 font-medium">同じ日付の記事</h2>
+          <h2 className="mt-4 text-sm font-medium">同じ日付の記事</h2>
           {pastDiaries.map(diary => <Card key={diary.slug} diary={diary} showContent={true} />)}
       </section>}
       
