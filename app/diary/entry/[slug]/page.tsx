@@ -66,15 +66,15 @@ const Page = async ({ params }: { params: { slug: string }}) => {
       ) : null}
 
       <section className="pt-8">
-        <div className="py-2 text-sm">
+        <div className="py-2">
           {next ? <>
-            <h2 className="font-medium">次の日記</h2>
+            <h2 className="font-medium text-sm">次の日記</h2>
             <Card diary={next} showContent={true} />
           </> : null}
         </div>
-        <div className="py-2 text-sm">
+        <div className="py-2">
           {prev ? <>
-            <h2 className="font-medium">前の日記</h2>
+            <h2 className="font-medium text-sm">前の日記</h2>
             <Card diary={prev} showContent={true} />
           </> : null}
         </div>
