@@ -5,7 +5,7 @@ import { slide as Menu } from 'react-burger-menu'
 import { Link as Scroll } from 'react-scroll'
 import { EN_TITLE_FONT } from '@/config'
 
-const SideBar = () => {
+export const SlideNav = () => {
   const [isOpen, setOpen] = useState(false)
   const open = () => { setOpen(true) }
   const close = () => { setOpen(false) }
@@ -22,5 +22,3 @@ const SideBar = () => {
     </div>
   </Menu>)
 }
-
-export default SideBar

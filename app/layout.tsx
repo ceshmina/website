@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Bitter, Noto_Sans_JP, Sono } from 'next/font/google'
+import { EN_TITLE_FONT } from '@/config'
 import { FaXTwitter, FaInstagram, FaGithub } from 'react-icons/fa6'
 import { PiNotebookFill } from 'react-icons/pi'
 import { MdHome } from 'react-icons/md'
@@ -8,6 +9,7 @@ import { MdHome } from 'react-icons/md'
 import './zoom.css'
 import './burger.css'
 import './globals.css'
+import '/node_modules/flag-icons/css/flag-icons.min.css'
 
 const mainFont = Bitter({ subsets: ['latin'], weight: ["300", "500"], variable: '--font-main' })
 const mainJPFont = Noto_Sans_JP({ subsets: ['latin'], weight: ["300", "500"], variable: '--font-jp' })
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="en">
-      <body className={`${mainFont.variable} ${mainJPFont.variable} ${monoFont.variable}`}>{children}</body>
+      <body className={`${mainFont.variable} ${mainJPFont.variable} ${monoFont.variable} ${EN_TITLE_FONT.variable}`}>{children}</body>
 
       <footer className={`${mainFont.className} font-light mt-12 pt-8 pb-2 text-gray-100 bg-gray-800`}>
         <div className="max-w-[800px] mx-auto px-4 md:px-1 flex">

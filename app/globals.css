@@ -11,3 +11,7 @@ body {
 code {
   font-family: var(--font-code);
 }
+
+.font-alt {
+  font-family: var(--font-alt);
+}

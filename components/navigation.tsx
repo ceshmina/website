@@ -12,7 +12,7 @@ const Title = (props: { to: string, text: string}) => {
   )
 }
 
-const Navigation = () => {
+export const HeaderNav = () => {
   return (
     <div className="text-right hidden md:block">
       <p className={`${EN_TITLE_FONT.className} text-sm font-bold my-1`}>
@@ -28,5 +28,3 @@ const Navigation = () => {
     </div>
   )
 }
-
-export default Navigation
