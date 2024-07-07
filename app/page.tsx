@@ -44,7 +44,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
       </div>
 
       <div className="mt-12 bg-gray-300 py-8">
-        <div className="max-w-[840px] mx-auto pt-4 pb-8 px-4 md:border-2 border-gray-500">
+        <div className="max-w-[840px] mx-auto pt-4 pb-8 px-4 md:border-2 border-gray-600">
           <Blog lang={lang} />
         </div>
       </div>
