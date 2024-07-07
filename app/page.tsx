@@ -17,9 +17,14 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
 
     <main className="mt-8">
       <div className="content-main mt-4 flex justify-between items-center">
-        <div>
-          <h1 className="text-2xl font-alt font-bold">APKAS</h1>
-          <p className="py-1 font-alt">SHU/CESHMINA</p>
+        <div className="flex items-center">
+          <div>
+            <img src="/icon.png" className="w-12" />
+          </div>
+          <div className="ml-4">
+            <h1 className="text-2xl font-alt font-bold">APKAS</h1>
+            <p className="font-alt">SHU/CESHMINA</p>
+          </div>
         </div>
         <div>
           <HeaderNav />
