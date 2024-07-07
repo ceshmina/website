@@ -15,8 +15,8 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
       <SlideNav />
     </div>
 
-    <main className="mt-8 text-gray-800">
-      <div className="max-w-[800px] mx-auto mt-4 px-4 md:px-1 flex justify-between items-center">
+    <main className="mt-8">
+      <div className="content-main mt-4 flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-alt font-bold">APKAS</h1>
           <p className="py-1 font-alt">SHU/CESHMINA</p>
@@ -26,30 +26,30 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
         </div>
       </div>
 
-      <div className="max-w-[800px] mx-auto mt-8">
+      <div className="content-main-img mt-8 px-0">
         <RandomImage />
       </div>
 
-      <div className="max-w-[800px] mx-auto mt-8 px-4 md:px-0">
+      <div className="content-main mt-8">
         <About lang={lang} />
       </div>
-      <div className="mt-8 bg-gray-800 py-8">
-        <div className="max-w-[840px] mx-auto pt-4 pb-8 px-4 text-gray-100 md:border-2 border-gray-300">
+      <div className="mt-8 color-anti py-8">
+        <div className="content-border md:border-2 border-anti pt-4 pb-8">
           <Career lang={lang} />
         </div>
       </div>
 
-      <div className="max-w-[800px] mx-auto mt-12 px-4 md:px-0">
+      <div className="content-main mt-12">
         <Works lang={lang} />
       </div>
 
-      <div className="mt-12 bg-gray-300 py-8">
-        <div className="max-w-[840px] mx-auto pt-4 pb-8 px-4 md:border-2 border-gray-600">
+      <div className="mt-12 color-sub py-8">
+        <div className="content-border md:border-2 border-sub pt-4 pb-8">
           <Blog lang={lang} />
         </div>
       </div>
 
-      <div className="max-w-[800px] mx-auto mt-12 mb-16 px-4 md:px-0">
+      <div className="content-main mt-12 mb-16">
         <Contact lang={lang} />
       </div>
     </main>

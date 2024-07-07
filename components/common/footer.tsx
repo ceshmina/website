@@ -11,7 +11,7 @@ const InnerLink = ({ href, icon, children }: Readonly<{ href: string, icon: Icon
   return (
     <span>
       <Icon className="text-sm inline-block mr-1" />
-      <Link href={href} className="text-blue-300 hover:text-blue-500 transition">{children}</Link>
+      <Link href={href} className="anti-link">{children}</Link>
     </span> 
   )
 }
@@ -21,7 +21,7 @@ const OuterLink = ({ href, icon, children }: Readonly<{ href: string, icon: Icon
   return (
     <span>
       <Icon className="text-xs inline-block mr-1" />
-      <Link href={href} target="_blank" className="text-blue-300 hover:text-blue-500 transition">{children}</Link>
+      <Link href={href} target="_blank" className="anti-link">{children}</Link>
     </span> 
   )
 }
@@ -40,7 +40,7 @@ export const Footer = () => {
           </p>
         </div>
 
-        <div className="ml-8 md:ml-6 border-l-[1px] border-gray-300 pl-8 md:pl-6">
+        <div className="ml-8 md:ml-6 border-l-[1px] border-anti pl-8 md:pl-6">
           <p className="my-2 md:my-1 md:inline-block">
             <OuterLink href="https://x.com/ceshmina" icon={FaXTwitter}>ceshmina</OuterLink>
           </p>
@@ -54,7 +54,7 @@ export const Footer = () => {
       </div>
 
       <div className="mt-4">
-        <p className="text-[10px] text-gray-400">&copy;2024 APKAS</p>
+        <p className="text-[10px] contra-light-color">&copy;2024 APKAS</p>
       </div>
     </footer>
   )

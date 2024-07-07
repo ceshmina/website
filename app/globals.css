@@ -2,16 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
+/* fonts */
 body {
-  background-color: #f5f5f5;
   font-family: var(--font-main), var(--font-jp);
   font-weight: 300;
 }
-
 code {
   font-family: var(--font-code);
 }
-
 .font-alt {
   font-family: var(--font-alt);
+}
+
+/* colors */
+.color-main {
+  color: #1f2937;
+  background-color: #e5e7eb;
+}
+.color-sub {
+  color: #1f2937;
+  background-color: #d1d5db;
+}
+.color-anti {
+  color: #f3f4f6;
+  background-color: #1f2937;
+}
+.color-anti-light {
+  color: #9ca3af;
+}
+.border-sub {
+  border-color: #6b7280;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.border-anti {
+  border-color: #d1d5db;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* layout */
+.content-main {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  @media(min-width: 768px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.content-main-img {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+.content-border {
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* spans */
+.anti-link {
+  color: #93c5fd;
+  transition: 200ms;
+}
+.anti-link:hover {
+  color: #60a5fa;
+  text-decoration: underline;
 }

@@ -22,11 +22,14 @@ export const metadata = {
 const Layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="ja">
-      <body className={`${mainFont.variable} ${mainJPFont.variable} ${altFont.variable} ${monoFont.variable}`}>
+      <body className={`
+        ${mainFont.variable} ${mainJPFont.variable} ${altFont.variable} ${monoFont.variable}
+        color-main
+      `}>
         {children}
 
-        <div className="mt-12 bg-gray-800 py-8">
-          <div className="max-w-[800px] mx-auto px-4 md:px-0 text-gray-100">
+        <div className="mt-12 color-anti py-8">
+          <div className="content-main">
             <Footer />
           </div>
         </div>
