@@ -1,16 +1,12 @@
-import { EN_TITLE_FONT } from '@/config'
-
-const Period = (props: { text: string }) => {
+export const Period = (props: { text: string }) => {
   const { text } = props
   return (
     <p className={`
-      ${EN_TITLE_FONT.className}
-      w-[120px] min-w-[120px] sm:w-[172px] sm:min-w-[172px] text-sm text-gray-900 font-bold text-center
-      bg-gray-100 px-4 pt-1 pb-0.5 rounded-full mr-4
+      w-[120px] min-w-[120px] sm:w-[172px] sm:min-w-[172px] 
+      px-4 pt-1 pb-0.5 rounded-full mr-4
+      color-main text-sm font-alt font-bold text-center
     `}>
       {text}
     </p>
   )
 }
-
-export default Period
