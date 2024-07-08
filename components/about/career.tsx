@@ -1,6 +1,6 @@
 import Markdown from 'react-markdown'
 
-import { Period } from './period'
+import { Period } from './button'
 
 
 const CareerTitle = (props: { career: string, company: string }) => {

@@ -95,3 +95,9 @@ code {
   color: #60a5fa;
   text-decoration: underline;
 }
+.button-main {
+  transition: 200ms;
+}
+.button-main:hover {
+  background-color: #9ca3af;
+}

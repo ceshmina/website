@@ -1,4 +1,4 @@
-import { Period } from './period'
+import { Period } from './button'
 
 
 const EducationTitle = (props: { program?: string, school: string }) => {

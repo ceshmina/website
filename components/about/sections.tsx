@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 
 import Markdown from 'react-markdown'
@@ -5,6 +8,7 @@ import { LiaExternalLinkAltSolid } from 'react-icons/lia'
 
 import { CareerCard } from '@/components/about/career'
 import { EducationCard } from '@/components/about/education'
+import { ShowButton } from '@/components/about/button'
 
 
 const contentJa = `
@@ -177,24 +181,42 @@ const educationsEn = [
 ]
 
 export const Career = (props: { lang: 'ja' | 'en' }) => {
+  const [showMore, setShowMore] = useState(false)
+  const toggleShowMore = () => setShowMore(!showMore)
+
   const { lang } = props
   const careers = lang === 'ja' ? careersJa : carrersEn
   const educations = lang === 'ja' ? educationsJa : educationsEn
+  const showCareers = showMore ? careers : careers.slice(0, 1)
+  const showEducations = showMore ? educations : null
+
   return (
     <section>
       <h3 className="font-alt font-bold my-4">CAREER</h3>
-      {careers.map((career, i) => (
+      {showCareers.map((career, i) => (
         <div className="my-2">
           <CareerCard key={i} {...career} />
         </div>
       ))}
 
-      <h3 className="font-alt font-bold mt-8 mb-4">EDUCATION</h3>
-      {educations.map((education, i) => (
-        <div className="my-1">
-          <EducationCard key={i} {...education} />
-        </div>
-      ))}
+      {showEducations && <div>
+        <h3 className="font-alt font-bold mt-8 mb-4">EDUCATION</h3>
+        {educations.map((education, i) => (
+          <div className="my-1">
+            <EducationCard key={i} {...education} />
+          </div>
+        ))}
+      </div>}
+
+      {showMore ? (
+        <p className="text-center mt-4">
+          <ShowButton text="SHOW LESS" onClick={toggleShowMore} />
+        </p>
+      ) : (
+        <p className="text-center">
+          <ShowButton text="SHOW MORE" onClick={toggleShowMore} />
+        </p>
+      )}
     </section>
   )
 }
