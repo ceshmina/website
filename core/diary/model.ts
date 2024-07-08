@@ -143,6 +143,7 @@ export class ImageUrl {
     this._exifUrl = url.split(' ')[0]
       .replace(IMAGE_DEFAULT_PREFIX, IMAGE_EXIF_PREFIX)
       .replace('.jpg', '.json')
+      .replace('.webp', '.json')
   }
 
   get url(): string { return this._url }

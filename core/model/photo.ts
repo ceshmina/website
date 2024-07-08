@@ -46,6 +46,7 @@ export class PhotoUrl {
     this._exifUrl = url
       .replace(PHOTOURL_DEFAULT_PREFIX, PHOTOURL_EXIF_PREFIX)
       .replace('.jpg', '.json')
+      .replace('.webp', '.json')
   }
 
   get url(): string { return this._url }
