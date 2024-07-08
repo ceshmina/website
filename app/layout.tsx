@@ -22,6 +22,15 @@ export const metadata = {
 const Layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="ja">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link
+          rel="apple-touch-icon"
+          href="/apple-icon.png"
+          type="image/png"
+          sizes="180x180"
+        />
+      </head>
       <body className={`
         ${mainFont.variable} ${mainJPFont.variable} ${altFont.variable} ${monoFont.variable}
         color-main
