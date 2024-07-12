@@ -187,7 +187,7 @@ export const Career = (props: { lang: 'ja' | 'en' }) => {
   const { lang } = props
   const careers = lang === 'ja' ? careersJa : carrersEn
   const educations = lang === 'ja' ? educationsJa : educationsEn
-  const showCareers = showMore ? careers : careers.slice(0, 1)
+  const showCareers = showMore ? careers : careers.slice(0, 2)
   const showEducations = showMore ? educations : null
 
   return (
