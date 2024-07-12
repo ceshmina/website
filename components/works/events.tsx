@@ -11,7 +11,7 @@ const Events = () => {
   const showMore = () => setNShow(maxNShow)
   const showLess = () => setNShow(6)
 
-  return (<div>
+  return (<div className="mt-4">
     <div className="flex flex-wrap justify-between">
       {performances.sort((a, b) => parseInt(b.date) - parseInt(a.date)).slice(0, nShow).map((p, i) => (
         <EventCard key={i} event={p} />

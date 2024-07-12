@@ -33,15 +33,14 @@ code {
 .color-anti-light {
   color: #9ca3af;
 }
+.border-main {
+  border-color: #374151;
+}
 .border-sub {
   border-color: #6b7280;
-  padding-left: 16px;
-  padding-right: 16px;
 }
 .border-anti {
   border-color: #d1d5db;
-  padding-left: 16px;
-  padding-right: 16px;
 }
 
 /* layout */
@@ -67,6 +66,8 @@ code {
   max-width: 840px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 /* spans */
@@ -96,8 +97,18 @@ code {
   text-decoration: underline;
 }
 .button-main {
+  display: inline-block;
+  white-space: nowrap;
   transition: 200ms;
 }
 .button-main:hover {
   background-color: #9ca3af;
+}
+.button-anti {
+  display: inline-block;
+  white-space: nowrap;
+  transition: 200ms;
+}
+.button-anti:hover {
+  background-color: #6b7280;
 }
