@@ -2,7 +2,6 @@ import { FaSpotify } from 'react-icons/fa'
 import { SiApplemusic, SiAmazonmusic } from 'react-icons/si'
 
 import { type AlbumProps, Album } from './album'
-import Events from '@/components/works/events'
 
 
 const albums: AlbumProps[] = [
@@ -56,8 +55,6 @@ export const Works = (props: { lang: 'ja' | 'en' }) => {
       {albums.map((album, i) => (
         <Album key={i} {...album} lang={lang} />
       ))}
-      <h3 className="mt-12 font-bold font-alt">RECENT EVENTS</h3>
-      <Events />
     </section>
   )
 }

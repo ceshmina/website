@@ -10,16 +10,3 @@ export const Period = (props: { text: string }) => {
     </p>
   )
 }
-
-export const ShowButton = (props: { text: string, onClick: () => void }) => {
-  const { text, onClick } = props
-  return (
-    <button onClick={onClick} className={`
-      w-[160px] min-w-[160px] 
-      px-4 pt-1 pb-0.5 mr-4
-      color-main button-main text-xs font-alt font-bold text-center
-    `}>
-      {text}
-    </button>
-  )
-}

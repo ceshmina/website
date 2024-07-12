@@ -8,7 +8,7 @@ import { LiaExternalLinkAltSolid } from 'react-icons/lia'
 
 import { CareerCard } from '@/components/about/career'
 import { EducationCard } from '@/components/about/education'
-import { ShowButton } from '@/components/about/button'
+import { ShowButton } from '@/components/common/button'
 
 
 const contentJa = `
@@ -210,11 +210,11 @@ export const Career = (props: { lang: 'ja' | 'en' }) => {
 
       {showMore ? (
         <p className="text-center mt-4">
-          <ShowButton text="SHOW LESS" onClick={toggleShowMore} />
+          <ShowButton text="SHOW LESS" className="color-main button-main" onClick={toggleShowMore} />
         </p>
       ) : (
         <p className="text-center">
-          <ShowButton text="SHOW MORE" onClick={toggleShowMore} />
+          <ShowButton text="SHOW MORE" className="color-main button-main" onClick={toggleShowMore} />
         </p>
       )}
     </section>

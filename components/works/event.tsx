@@ -2,7 +2,8 @@ import Link from 'next/link'
 import { parse, format } from 'date-fns'
 import { AltFont } from '@/components/styled'
 
-type Event = {
+
+export type EventProps = {
   date: string
   title: string
   location: string
@@ -10,7 +11,7 @@ type Event = {
   image?: string
 }
 
-const EventCard = (props: { event: Event }) => {
+export const Event = (props: { event: EventProps }) => {
   const { event } = props
   const d = format(parse(event.date, 'yyyyMMdd', new Date()), 'MMM d, yyyy').toUpperCase()
   return (
@@ -28,5 +29,3 @@ const EventCard = (props: { event: Event }) => {
     </div>
   )
 }
-
-export default EventCard

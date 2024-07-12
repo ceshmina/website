@@ -104,6 +104,14 @@ code {
 .button-main:hover {
   background-color: #9ca3af;
 }
+.button-sub {
+  display: inline-block;
+  white-space: nowrap;
+  transition: 200ms;
+}
+.button-sub:hover {
+  background-color: #9ca3af;
+}
 .button-anti {
   display: inline-block;
   white-space: nowrap;

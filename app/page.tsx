@@ -1,5 +1,6 @@
 import { About, Career } from '@/components/about/sections'
 import { Works } from '@/components/works/sections'
+import { Events } from '@/components/works/sections/client'
 import { Blog } from '@/components/blog/sections'
 import { Contact } from '@/components/contact/sections'
 import { HeaderNav } from '@/components/navigation'
@@ -46,6 +47,7 @@ export const Page = (props: { lang: 'ja' | 'en' }) => {
 
       <div className="content-main mt-12">
         <Works lang={lang} />
+        <Events />
       </div>
 
       <div className="mt-12 color-sub py-8">

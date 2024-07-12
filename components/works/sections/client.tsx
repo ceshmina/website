@@ -1,4 +1,12 @@
-export const performances: { date: string, title: string, location: string, note?: string, image?: string }[] = [
+'use client'
+
+import { useState } from 'react'
+
+import { type EventProps, Event } from '@/components/works/event'
+import { ShowButton } from '@/components/common/button'
+
+
+const events: EventProps[] = [
   { date: '20230219', title: '冬のアルスコンサート', location: 'Tsukuba', note: 'as Grupo Brothers', image: '/events/20230219.jpg' },
   { date: '20230313', title: '筑波大学フォルクローレ愛好会定期コンサート', location: 'Tsukuba', note: 'as Grupo Brothers', image: '/events/20230313.jpg' },
   { date: '20230409', title: 'アンデスの家ボリビア インストアライブ', location: 'Kodaira', note: 'as YAMA', image: '/events/20230409.jpg' },
@@ -25,3 +33,32 @@ export const performances: { date: string, title: string, location: string, note
   { date: '20240602', title: '', location: 'Sodegaura', note: 'as Grupo Brothers', image: '/events/20240602.jpg' },
   { date: '20240629', title: '第2回京都フォルクローレ街角ステージ', location: 'Kyoto', image: '/events/20240629.jpg' }
 ]
+
+
+export const Events = () => {
+  const minNShow = 6
+  const maxNShow = events.length
+  const [nShow, setNShow] = useState(minNShow)
+  const showMore = () => setNShow(maxNShow)
+  const showLess = () => setNShow(minNShow)
+
+  return (
+    <div className="mt-4">
+      <h3 className="mt-12 font-bold font-alt">RECENT EVENTS</h3>
+      <div className="mt-2 flex flex-wrap justify-between">
+        {events.slice().reverse().slice(0, nShow).map((p, i) => (
+          <Event key={i} event={p} />
+        ))}
+      </div>
+      {nShow === minNShow ? (
+        <p className="text-center mt-4">
+          <ShowButton text="SHOW MORE" className="color-sub button-sub" onClick={showMore} />
+        </p>
+      ) : (
+        <p className="text-center mt-4">
+          <ShowButton text="SHOW LESS" className="color-sub button-sub" onClick={showLess} />
+        </p>
+      )}
+    </div>
+  )
+}
