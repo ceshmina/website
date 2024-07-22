@@ -11,6 +11,7 @@ export const CAMERA_MASTER = [
   { name: 'PEN E-P7', exif: 'E-P7' },
   { name: 'D5600', exif: 'NIKON D5600' },
   { name: 'Vario-Tessar T* FE 16-35mm F4 ZA OSS', exif: 'FE 16-35mm F4 ZA OSS' },
+  { name: 'FE 20-70mm F4 G', exif: 'FE 20-70mm F4 G' },
   { name: 'FE 24-105mm F4 G OSS', exif: 'FE 24-105mm F4 G OSS' },
   { name: 'FE 70-300mm F4.5-5.6 G OSS', exif: 'FE 70-300mm F4.5-5.6 G OSS' },
   { name: 'FE 24mm F2.8 G', exif: 'FE 24mm F2.8 G' },

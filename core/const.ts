@@ -21,6 +21,7 @@ export const CAMERA_MASTER: CameraMaster[] = [
   { type: 'camera', name: 'LUMIX GF9', exif: 'DC-GF9' },
   { type: 'camera', name: 'PEN E-P7', exif: 'E-P7' },
   { type: 'camera', name: 'D5600', exif: 'NIKON D5600' },
+  { type: 'lens', name: 'FE 20-70mm F4 G', exif: 'FE 20-70mm F4 G' },
   { type: 'lens', name: 'FE 24-105mm F4 G OSS', exif: 'FE 24-105mm F4 G OSS' },
   { type: 'lens', name: 'FE 70-300mm F4.5-5.6 G OSS', exif: 'FE 70-300mm F4.5-5.6 G OSS' },
   { type: 'lens', name: 'FE 24mm F2.8 G', exif: 'FE 24mm F2.8 G' },
