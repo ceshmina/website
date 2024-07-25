@@ -41,11 +41,7 @@ export class Diary {
   get imageUrls(): ImageUrl[] { return this._imageUrls }
 
   get month(): string {
-    if (this._date <= new Date('2022-12-31')) {
-      return format(this._date, 'yyyy')
-    } else {
-      return format(this._date, 'yyyyMM')
-    }
+    return format(this._date, 'yyyyMM')
   }
 
   showDate(): string {

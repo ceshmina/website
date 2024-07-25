@@ -30,9 +30,7 @@ export class Diary {
   constructor(slug: string, content: string, title: string | null, location: string | null, photos: PhotoCollection) {
     this._slug = slug
     this._date = parse(slug, 'yyyyMMdd', new Date())
-    this._month = this._date.getFullYear() < 2023 ?
-      new Month(slug.substring(0, 4)) :
-      new Month(slug.substring(0, 6))
+    this._month = new Month(slug.substring(0, 6))
     this._content = content
     this._title = title
     this._location = location || DEFAULT_LOCATION
