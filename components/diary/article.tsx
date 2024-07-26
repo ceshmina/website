@@ -1,5 +1,6 @@
 import Markdown from 'react-markdown'
 import remarkMath from 'remark-math'
+import remarkGfm from 'remark-gfm'
 import rehypeKatex from 'rehype-katex'
 import 'katex/dist/katex.min.css'
 
@@ -9,7 +10,7 @@ const Article = (props: { content: string, showImgMetaData?: boolean, useAltAsCa
   const { content, showImgMetaData, useAltAsCaption } = props
   return (
     <Markdown
-      remarkPlugins={[remarkMath]}
+      remarkPlugins={[remarkMath, remarkGfm]}
       rehypePlugins={[rehypeKatex]}
       components={{
         p: ({ children }) => {

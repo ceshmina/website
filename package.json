@@ -23,6 +23,7 @@
     "react-medium-image-zoom": "^5.2.4",
     "react-scroll": "^1.9.0",
     "rehype-katex": "^7.0.0",
+    "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
     "simple-git": "^3.24.0",
     "tailwind-styled-components": "^2.2.0"
